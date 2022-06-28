@@ -7,6 +7,7 @@
 
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+
 import { DesktopNavbar } from "../desktop-navbar";
 
 export const Layout = ({ children }) => {
@@ -19,11 +20,14 @@ export const Layout = ({ children }) => {
           }
         }
       }
-      allWpPost(filter: { title: { eq: "home" } }) {
+      allWpPost(filter: { title: { eq: "navbar" } }) {
         edges {
           node {
-            home {
+            navbar {
               contactnumber
+              logo {
+                mediaItemUrl
+              }
             }
           }
         }
@@ -35,13 +39,15 @@ export const Layout = ({ children }) => {
     label: node.title,
     href: `/${node.title}`,
   }));
-  const contactNumber = allWpPost.edges[0].node.home.contactnumber;
+
+  const { contactnumber, logo } = allWpPost.edges[0].node.navbar;
 
   return (
     <>
       <DesktopNavbar
         menuElements={menuElements}
-        contactNumber={contactNumber}
+        contactNumber={contactnumber}
+        logoUrl={logo.mediaItemUrl}
       />
       <main>{children}</main>
     </>

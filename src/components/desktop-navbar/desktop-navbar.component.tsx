@@ -1,7 +1,8 @@
 import React from "react";
 
+import { Link } from "gatsby";
+
 import { NavbarLink } from "../navbar-link";
-// import { SocialMediaContainer } from '../social-media-container';
 
 import * as styles from "./desktop-navbar.module.scss";
 
@@ -12,17 +13,35 @@ type MenuElement = {
 
 type DesktopNavbarProps = {
   menuElements: MenuElement[];
-  contactNumber?: string;
+  logoUrl: string;
+  contactNumber: string;
+};
+
+const getFormattedPhoneNumber = (unformattedPhoneNumber: string) => {
+  const phoneNumberToArray = unformattedPhoneNumber
+    .split("")
+    .filter(item => item !== " ");
+
+  phoneNumberToArray.splice(3, 0, " ");
+  phoneNumberToArray.splice(7, 0, "-");
+  phoneNumberToArray.splice(11, 0, "-");
+
+  return phoneNumberToArray.reduce((acc, curr) => {
+    acc += curr;
+
+    return acc;
+  }, "");
 };
 
 export const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
   menuElements,
+  logoUrl,
   contactNumber,
 }) => {
   return (
     <nav className={styles.desktopNavbarWrapper}>
       <div className={styles.logoWrapper}>
-        <div className={styles.fakeLogo}></div>
+        <img src={logoUrl} alt="Company logo" />
       </div>
       <ul className={styles.menuItemsList}>
         {menuElements.map(({ href, label }, index) => (
@@ -34,7 +53,9 @@ export const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
           </li>
         ))}
       </ul>
-      {/* <SocialMediaContainer /> */}
+      <Link className={styles.contactNumberLink} to={`tel:${contactNumber}`}>
+        {getFormattedPhoneNumber(contactNumber)}
+      </Link>
     </nav>
   );
 };
