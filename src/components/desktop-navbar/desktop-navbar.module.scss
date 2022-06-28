@@ -1,0 +1,48 @@
+@import '../../styles/variables.scss';
+@import '../../styles/colors.scss';
+
+$navbar-padding: 15px;
+$navbar-text-color: #aaaaaa;
+
+.desktopNavbarWrapper {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: $top-navbar-min-height;
+  display: flex;
+  padding: $navbar-padding;
+  box-sizing: border-box;
+  background-color: $background-color;
+}
+
+.fakeLogo {
+  height: 100%;
+  width: 100px;
+  background: gray;
+}
+
+.menuItemsList {
+  flex: 1;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding-left: 10px;
+}
+
+.menuItem {
+  margin: 0 15px;
+  font-size: 1rem;
+}
+
+.navbarLinkText {
+  color: $navbar-text-color;
+}
+
+// @media screen and (max-width: $mobile-width-breakpoint) {
+//   .desktopNavbarWrapper {
+//     display: none;
+//   }
+// }
