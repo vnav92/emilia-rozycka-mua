@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import { NavbarLink } from '../navbar-link';
+import { NavbarLink } from "../navbar-link";
 // import { SocialMediaContainer } from '../social-media-container';
 
-import * as styles from './desktop-navbar.module.scss';
+import * as styles from "./desktop-navbar.module.scss";
 
 type MenuElement = {
   label: string;
@@ -13,9 +13,12 @@ type MenuElement = {
 type DesktopNavbarProps = {
   menuElements: MenuElement[];
   contactNumber?: string;
-}
+};
 
-export const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ menuElements, contactNumber }) => {
+export const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
+  menuElements,
+  contactNumber,
+}) => {
   return (
     <nav className={styles.desktopNavbarWrapper}>
       <div className={styles.logoWrapper}>
@@ -24,12 +27,14 @@ export const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ menuElements, cont
       <ul className={styles.menuItemsList}>
         {menuElements.map(({ href, label }, index) => (
           <li className={styles.menuItem} key={index}>
-            <NavbarLink to={href} className={styles.navbarLinkText}>{label}</NavbarLink>
+            <NavbarLink to={href} className={styles.navbarLinkText}>
+              {label}
+            </NavbarLink>
             <a>hello</a>
           </li>
         ))}
       </ul>
       {/* <SocialMediaContainer /> */}
     </nav>
-  )
-}
+  );
+};

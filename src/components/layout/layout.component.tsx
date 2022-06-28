@@ -5,8 +5,8 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import * as React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 import { DesktopNavbar } from "../desktop-navbar";
 
 export const Layout = ({ children }) => {
@@ -19,7 +19,7 @@ export const Layout = ({ children }) => {
           }
         }
       }
-      allWpPost(filter: {title: {eq: "home"}}) {
+      allWpPost(filter: { title: { eq: "home" } }) {
         edges {
           node {
             home {
@@ -31,15 +31,19 @@ export const Layout = ({ children }) => {
     }
   `);
 
-  const menuElements = allWpPage.edges.map(({ node }) => ({ label: node.title, href: `/${node.title}`}));
+  const menuElements = allWpPage.edges.map(({ node }) => ({
+    label: node.title,
+    href: `/${node.title}`,
+  }));
   const contactNumber = allWpPost.edges[0].node.home.contactnumber;
 
   return (
     <>
-      <DesktopNavbar menuElements={menuElements} contactNumber={contactNumber}/>
-      <main>
-        {children}
-      </main>
+      <DesktopNavbar
+        menuElements={menuElements}
+        contactNumber={contactNumber}
+      />
+      <main>{children}</main>
     </>
-  )
-}
+  );
+};

@@ -1,1 +1,1 @@
-export * from './desktop-navbar.component';
+export * from "./desktop-navbar.component";

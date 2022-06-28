@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Emilia Różycka MUA`,
-    author: 'Artur Tuchowski & Mateusz Jankowski',
-    description: ''
+    author: "Artur Tuchowski & Mateusz Jankowski",
+    description: "",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -34,18 +34,14 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-          // Specify the URL of the WordPress source
-          url: `http://emiliarozyckamua.local/graphql`,
-          protocol: `http`,
-          // Indicates if a site is hosted on WordPress.com
-          hostingWPCOM: false,
-          // Specify which URL structures to fetch
-          includedRoutes: [
-            '**/posts',
-            '**/tags',
-            '**/categories'
-          ]
-      }
-  }
+        // Specify the URL of the WordPress source
+        url: `http://emiliarozyckamua.local/graphql`,
+        protocol: `http`,
+        // Indicates if a site is hosted on WordPress.com
+        hostingWPCOM: false,
+        // Specify which URL structures to fetch
+        includedRoutes: ["**/posts", "**/tags", "**/categories"],
+      },
+    },
   ],
-}
+};
