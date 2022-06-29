@@ -14,7 +14,10 @@ $navbar-text-color: #aaaaaa;
   display: flex;
   padding: $navbar-padding;
   box-sizing: border-box;
-  background-color: $background-color;
+  background-color: $primary-color;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
 }
 
 .menuItemsList {

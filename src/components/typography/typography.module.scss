@@ -1,0 +1,25 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+
+.typography {
+  margin: 0;
+}
+
+.primaryColor {
+  color: $primary-color;
+}
+.primaryContrastColor {
+  color: $primary-contrast-color
+}
+
+.reducedVisibilityColor {
+  color: gray
+}
+
+.primaryFontFamily {
+  font-family: $primary-font-family;
+}
+
+.secondaryFontFamily {
+  font-family: $secondary-font-family;
+}
