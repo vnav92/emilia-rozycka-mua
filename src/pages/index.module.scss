@@ -1,0 +1,47 @@
+@import '../styles/colors.scss';
+@import '../styles/variables.scss';
+@import '../styles/functions.scss';
+
+.introductionSection {
+  height: 70vh;
+  background: $primary-color;
+  padding-bottom: defaultSpacingTimes(15);
+  position: relative;
+}
+
+.primaryContent {
+  display: flex;
+}
+
+.ownerInfoWrapper, .socialLinksWrapper {
+  flex: 1;
+  display: flex;
+  height: 100%;
+}
+
+.ownerInfoWrapper {
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.socialLinksWrapper {
+  align-items: flex-end;
+  gap: defaultSpacingTimes(3);
+  padding-bottom: defaultSpacingTimes(1.75);
+}
+
+.ownerJobTitle {
+  font-size: 1.125rem;
+}
+
+.ownerName {
+  font-size: 4rem;
+}
+
+.scrollDownButton {
+  width: defaultSpacingTimes(10.875);
+  height: defaultSpacingTimes(10.875);
+  border: 1px solid transparent;
+  position: absolute;
+  bottom: -#{defaultSpacingTimes(10.875) / 2};
+}

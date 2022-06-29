@@ -1,0 +1,32 @@
+@import '../../styles/functions.scss';
+@import '../../styles/colors.scss';
+
+$button-size: defaultSpacingTimes(5);
+
+.buttonElement {
+  height: $button-size;
+  text-decoration: none;
+  border-radius: 9999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: defaultSpacingTimes(1) defaultSpacingTimes(2);
+  cursor: pointer;
+}
+
+.circleButton {
+  width: $button-size;
+}
+
+.primaryButton {
+  border: 1px solid $primary-contrast-color;
+  background-color: $primary-color;
+  color: $primary-contrast-color;
+}
+
+.secondaryButton {
+  border: 1px solid $primary-color;
+  background-color: $primary-contrast-color;
+  color: $primary-color;
+}
+
