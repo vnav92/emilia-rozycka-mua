@@ -7,9 +7,9 @@ import {
   TypographyFontFamily,
   Button,
 } from "../components";
+import { PrimaryScreen, CompanyDescription } from "../modules";
 
 import { useStaticQuery, graphql } from "gatsby";
-import * as styles from "./index.module.scss";
 
 const IndexPage = () => {
   const { allWpPost } = useStaticQuery(graphql`
@@ -20,6 +20,14 @@ const IndexPage = () => {
             home {
               ownerjobtitle
               ownername
+              primaryimage {
+                mediaItemUrl
+              }
+              primarydescription
+              secondarydescription
+              bottomdescription
+              bioredirectionlinktext
+              bioredirectionlinkhref
             }
           }
         }
@@ -27,42 +35,30 @@ const IndexPage = () => {
     }
   `);
 
-  const { ownerjobtitle, ownername } = allWpPost.edges[0].node.home;
+  const {
+    ownerjobtitle,
+    ownername,
+    primaryimage,
+    primarydescription,
+    secondarydescription,
+    bottomdescription,
+    bioredirectionlinktext,
+    bioredirectionlinkhref,
+  } = allWpPost.edges[0].node.home;
   return (
     <Layout>
-      <LimitedWidthContent
-        className={styles.introductionSection}
-        contentWrapperClassName={styles.primaryContent}
-      >
-        <div className={styles.ownerInfoWrapper}>
-          <Typography
-            as="h2"
-            fontFamily={TypographyFontFamily.SECONDARY}
-            className={styles.ownerJobTitle}
-          >
-            {ownerjobtitle}
-          </Typography>
-          <Typography as="h1" className={styles.ownerName}>
-            {ownername}
-          </Typography>
-        </div>
-        <div className={styles.socialLinksWrapper}>
-          <Button href="">Wyślij wiadomość</Button>
-          <Button href="" isCircleShape={true}>
-            insta
-          </Button>
-          <Button onClick={() => {}} isCircleShape={true}>
-            mail
-          </Button>
-        </div>
-        <Button
-          onClick={() => {}}
-          variant="secondary"
-          className={styles.scrollDownButton}
-        >
-          down
-        </Button>
-      </LimitedWidthContent>
+      <PrimaryScreen
+        ownerJobTitle={ownerjobtitle}
+        ownerName={ownername}
+        primaryImageUrl={primaryimage.mediaItemUrl}
+      />
+      <CompanyDescription
+        primaryDescription={primarydescription}
+        secondaryDescription={secondarydescription}
+        bottomDescription={bottomdescription}
+        bioRedirectionLinkText={bioredirectionlinktext}
+        bioRedirectionLinkHref={bioredirectionlinkhref}
+      />
     </Layout>
   );
 };

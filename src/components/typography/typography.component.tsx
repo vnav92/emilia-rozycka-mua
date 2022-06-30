@@ -6,7 +6,7 @@ import * as styles from "./typography.module.scss";
 export enum TypographyColor {
   PRIMARY = "primary",
   PRIMARY_CONTRAST = "primaryContrast",
-  REDUCED_VISIBILITY = "reducedVisibility",
+  LIGHT = "light",
 }
 
 export enum TypographyFontFamily {
@@ -37,8 +37,7 @@ export const Typography: React.FC<TypographyProps> = ({
           [styles.primaryColor]: color === TypographyColor.PRIMARY,
           [styles.primaryContrastColor]:
             color === TypographyColor.PRIMARY_CONTRAST,
-          [styles.reducedVisibilityColor]:
-            color === TypographyColor.REDUCED_VISIBILITY,
+          [styles.lightColor]: color === TypographyColor.LIGHT,
           [styles.primaryFontFamily]:
             fontFamily === TypographyFontFamily.PRIMARY,
           [styles.secondaryFontFamily]:

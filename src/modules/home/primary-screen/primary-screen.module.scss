@@ -1,12 +1,18 @@
-@import '../styles/colors.scss';
-@import '../styles/variables.scss';
-@import '../styles/functions.scss';
+@import '../../../styles/colors.scss';
+@import '../../../styles/variables.scss';
+@import '../../../styles/functions.scss';
 
 .introductionSection {
   height: 70vh;
   background: $primary-color;
   padding-bottom: defaultSpacingTimes(15);
   position: relative;
+}
+
+.primaryPhotoSection {
+  height: 50vh;
+  width: 100%;
+  background-size: cover;
 }
 
 .primaryContent {
@@ -28,6 +34,7 @@
   align-items: flex-end;
   gap: defaultSpacingTimes(3);
   padding-bottom: defaultSpacingTimes(1.75);
+  justify-content: flex-end;
 }
 
 .ownerJobTitle {
@@ -43,5 +50,5 @@
   height: defaultSpacingTimes(10.875);
   border: 1px solid transparent;
   position: absolute;
-  bottom: -#{defaultSpacingTimes(10.875) / 2};
+  bottom: -#{calc(defaultSpacingTimes(10.875) / 2)};
 }
