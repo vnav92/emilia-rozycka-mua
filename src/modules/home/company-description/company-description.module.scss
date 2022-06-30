@@ -1,0 +1,29 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/functions.scss';
+@import '../../../styles/fonts.scss';
+
+.descriptionSection {
+  background-color: $primary-color;
+  padding: defaultSpacingTimes(9) 0;
+}
+
+.primaryDescription, .secondaryDescription, .bottomDescription {
+  font-family: $primary-font-family;
+  color: $light-font-color;
+  margin-bottom: defaultSpacingTimes(7)
+}
+
+.primaryDescription, .bottomDescription {
+  font-weight: 300;
+  font-size: 1.5rem;
+  width: 75%;
+}
+
+.secondaryDescription {
+  font-weight: 500;
+  font-size: 2.8125rem;
+
+  b {
+    color: $primary-contrast-color;
+  }
+}
