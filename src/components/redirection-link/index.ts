@@ -1,1 +1,1 @@
-export * from './redirection-link.component';
+export * from "./redirection-link.component";
