@@ -4,8 +4,9 @@ import { Link } from "gatsby";
 
 import { BiRightArrowAlt } from "react-icons/bi";
 
-import * as styles from "./redirection-link.module.scss";
 import { Typography, TypographyColor } from "../typography";
+
+import * as styles from "./redirection-link.module.scss";
 
 type RedirectionLink = {
   to: string;

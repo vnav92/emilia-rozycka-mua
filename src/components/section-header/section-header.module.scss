@@ -1,0 +1,22 @@
+@import '../../styles/colors.scss';
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1.5rem;
+}
+
+.sectionHeaderText {
+  font-size: 2.25rem;
+
+  &:after {
+    content: '/';
+    padding: 0 0.875rem;
+    font-weight: 100;
+    color: $light-font-color;
+  }
+}
+
+.icon {
+  height: 1.5rem;
+}

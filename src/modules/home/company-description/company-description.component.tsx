@@ -1,6 +1,7 @@
 import React from "react";
 
 import { LimitedWidthContent, RedirectionLink } from "../../../components";
+
 import * as styles from "./company-description.module.scss";
 
 type CompanyDescriptionProps = {
