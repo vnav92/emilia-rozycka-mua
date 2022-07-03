@@ -1,8 +1,6 @@
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import { Layout } from "../components";
-
 import {
   PrimaryScreen,
   CompanyDescription,
@@ -11,6 +9,14 @@ import {
 } from "../modules";
 
 import { getImageUrl } from "../shared/utils";
+
+import { 
+  Layout,
+  LimitedWidthContent,
+  Typography,
+  TypographyFontFamily,
+  Button,
+} from "../components";
 
 import * as styles from "./index.module.scss";
 
