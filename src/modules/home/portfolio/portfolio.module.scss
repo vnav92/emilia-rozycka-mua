@@ -1,0 +1,62 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/functions.scss';
+@import '../../../styles/fonts.scss';
+
+$top-image-z-index: 1;
+$details-redirection-button-size: defaultSpacingTimes(36);
+
+.portfolioSection {
+  padding: defaultSpacingTimes(4) 0;
+  background-color: $primary-color;
+}
+
+.contentWrapper {
+  position: relative;
+  height: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topImage, .bottomImage {
+  object-fit: cover;
+  position: absolute;
+}
+
+.topImage {
+  right: 0;
+  top: 0;
+  width: defaultSpacingTimes(38.5);
+  height: defaultSpacingTimes(62.125);
+  z-index: $top-image-z-index;
+}
+
+.bottomImage {
+  left: 0;
+  bottom: 0;
+  width: defaultSpacingTimes(47.375);
+  height: defaultSpacingTimes(47.375);
+  z-index: calc($top-image-z-index + 2);
+}
+
+.middleImage {
+  width: defaultSpacingTimes(73);
+  height: defaultSpacingTimes(85.5);
+  object-fit: cover;
+  z-index: calc($top-image-z-index + 1);
+}
+
+.detailsButtonWrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: $details-redirection-button-size;
+  height: $details-redirection-button-size;
+  border-radius: calc($details-redirection-button-size / 2);
+  border: 1px solid $primary-contrast-color;
+  background: $primary-color;
+  z-index: calc($top-image-z-index + 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

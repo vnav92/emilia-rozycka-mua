@@ -1,14 +1,19 @@
 import * as React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 import {
   Layout,
-  LimitedWidthContent,
-  Typography,
-  TypographyFontFamily,
-  Button,
 } from "../components";
 
-import { useStaticQuery, graphql } from "gatsby";
+import { 
+  PrimaryScreen,
+  CompanyDescription,
+  Offer,
+  Portfolio,
+} from "../modules";
+
+import { getImageUrl } from "../shared/utils";
+
 import * as styles from "./index.module.scss";
 
 const IndexPage = () => {
@@ -20,6 +25,37 @@ const IndexPage = () => {
             home {
               ownerjobtitle
               ownername
+              primaryimage {
+                mediaItemUrl
+              }
+              primarydescription
+              secondarydescription
+              bottomdescription
+              bioredirectionlinktext
+              bioredirectionlinkhref
+              offersectiontitle
+              offerprimarydescription
+              offersecondarydescription
+              offersubpageredirectionlinktext
+              offersubpageredirectionlinkhref
+              offersectionicon {
+                mediaItemUrl
+              }
+              portfoliosectionicon {
+                mediaItemUrl
+              }
+              portfoliosectiontitle
+              portfoliotopphoto {
+                mediaItemUrl
+              }
+              portfoliomiddlephoto {
+                mediaItemUrl
+              }
+              portfoliobottomphoto {
+                mediaItemUrl
+              }
+              portfoliodetailslinktext
+              portfoliodetailslinkurl
             }
           }
         }
@@ -27,42 +63,60 @@ const IndexPage = () => {
     }
   `);
 
-  const { ownerjobtitle, ownername } = allWpPost.edges[0].node.home;
+  const {
+    ownerjobtitle,
+    ownername,
+    primaryimage,
+    primarydescription,
+    secondarydescription,
+    bottomdescription,
+    bioredirectionlinktext,
+    bioredirectionlinkhref,
+    offersectiontitle,
+    offerprimarydescription,
+    offersecondarydescription,
+    offersubpageredirectionlinktext,
+    offersubpageredirectionlinkhref,
+    offersectionicon,
+    portfoliosectionicon,
+    portfoliosectiontitle,
+    portfoliotopphoto,
+    portfoliomiddlephoto,
+    portfoliobottomphoto,
+    portfoliodetailslinktext,
+    portfoliodetailslinkurl,
+  } = allWpPost.edges[0].node.home;
   return (
     <Layout>
-      <LimitedWidthContent
-        className={styles.introductionSection}
-        contentWrapperClassName={styles.primaryContent}
-      >
-        <div className={styles.ownerInfoWrapper}>
-          <Typography
-            as="h2"
-            fontFamily={TypographyFontFamily.SECONDARY}
-            className={styles.ownerJobTitle}
-          >
-            {ownerjobtitle}
-          </Typography>
-          <Typography as="h1" className={styles.ownerName}>
-            {ownername}
-          </Typography>
-        </div>
-        <div className={styles.socialLinksWrapper}>
-          <Button href="">Wyślij wiadomość</Button>
-          <Button href="" isCircleShape={true}>
-            insta
-          </Button>
-          <Button onClick={() => {}} isCircleShape={true}>
-            mail
-          </Button>
-        </div>
-        <Button
-          onClick={() => {}}
-          variant="secondary"
-          className={styles.scrollDownButton}
-        >
-          down
-        </Button>
-      </LimitedWidthContent>
+      <PrimaryScreen
+        ownerJobTitle={ownerjobtitle}
+        ownerName={ownername}
+        primaryImageUrl={getImageUrl(primaryimage)}
+      />
+      <CompanyDescription
+        primaryDescription={primarydescription}
+        secondaryDescription={secondarydescription}
+        bottomDescription={bottomdescription}
+        bioRedirectionLinkText={bioredirectionlinktext}
+        bioRedirectionLinkHref={bioredirectionlinkhref}
+      />
+      <Offer
+        sectionTitle={offersectiontitle}
+        sectionTitleIconUrl={getImageUrl(offersectionicon)}
+        primaryDescription={offerprimarydescription}
+        secondaryDescription={offersecondarydescription}
+        detailsRedirectionLinkText={offersubpageredirectionlinktext}
+        detailsRedirectionLinkHref={offersubpageredirectionlinkhref}
+      />
+      <Portfolio
+        sectionTitle={portfoliosectiontitle}
+        sectionTitleIconUrl={getImageUrl(portfoliosectionicon)}
+        topImageUrl={getImageUrl(portfoliotopphoto)}
+        middleImageUrl={getImageUrl(portfoliomiddlephoto)}
+        bottomImageUrl={getImageUrl(portfoliobottomphoto)}
+        detailsLinkText={portfoliodetailslinktext}
+        detailtLinkUrl={portfoliodetailslinkurl}
+      />
     </Layout>
   );
 };

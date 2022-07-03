@@ -1,0 +1,21 @@
+@import '../../styles/colors.scss';
+@import '../../styles/functions.scss';
+
+.link {
+  position: relative;
+  cursor: pointer;
+}
+
+.image {
+  filter: grayscale(100%);
+}
+
+.linkLabel {
+  position: absolute;
+  bottom: defaultSpacingTimes(1.5);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 1.5rem;
+  color: $primary-contrast-color;
+}
