@@ -1,4 +1,4 @@
-import React, { useSyncExternalStore } from "react";
+import React from "react";
 import {
   LimitedWidthContent,
   SectionHeader,
@@ -30,7 +30,7 @@ export const Offer: React.FC<OfferProps> = ({
   detailsRedirectionLinkHref,
 }) => {
   const { allWpPost } = useStaticQuery(graphql`
-    query MyQuery {
+    query OfferQuery {
       allWpPost(
         filter: {
           categories: { nodes: { elemMatch: { name: { eq: "offer-item" } } } }

@@ -6,19 +6,12 @@ import {
   CompanyDescription,
   Offer,
   Portfolio,
+  Reviews,
 } from "../modules";
 
 import { getImageUrl } from "../shared/utils";
 
-import { 
-  Layout,
-  LimitedWidthContent,
-  Typography,
-  TypographyFontFamily,
-  Button,
-} from "../components";
-
-import * as styles from "./index.module.scss";
+import { Layout } from "../components";
 
 const IndexPage = () => {
   const { allWpPost } = useStaticQuery(graphql`
@@ -60,6 +53,10 @@ const IndexPage = () => {
               }
               portfoliodetailslinktext
               portfoliodetailslinkurl
+              reviewssectionicon {
+                mediaItemUrl
+              }
+              reviewssectiontitle
             }
           }
         }
@@ -89,6 +86,8 @@ const IndexPage = () => {
     portfoliobottomphoto,
     portfoliodetailslinktext,
     portfoliodetailslinkurl,
+    reviewssectionicon,
+    reviewssectiontitle,
   } = allWpPost.edges[0].node.home;
   return (
     <Layout>
@@ -120,6 +119,10 @@ const IndexPage = () => {
         bottomImageUrl={getImageUrl(portfoliobottomphoto)}
         detailsLinkText={portfoliodetailslinktext}
         detailtLinkUrl={portfoliodetailslinkurl}
+      />
+      <Reviews
+        sectionTitle={reviewssectiontitle}
+        sectionTitleIconUrl={getImageUrl(reviewssectionicon)}
       />
     </Layout>
   );

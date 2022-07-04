@@ -40,7 +40,8 @@ export const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
 }) => {
   return (
     <nav className={styles.desktopNavbarWrapper}>
-      <div className={styles.logoWrapper}>
+      {/* @TODO add image link */}
+      <div>
         <img src={logoUrl} alt="Company logo" />
       </div>
       <ul className={styles.menuItemsList}>
