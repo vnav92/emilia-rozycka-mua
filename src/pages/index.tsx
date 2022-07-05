@@ -6,11 +6,8 @@ import {
   CompanyDescription,
   Offer,
   Portfolio,
-<<<<<<< Updated upstream
-=======
   Reviews,
   FutureBookings,
->>>>>>> Stashed changes
 } from "../modules";
 
 import { getImageUrl } from "../shared/utils";
@@ -81,6 +78,9 @@ const IndexPage = () => {
               futurebookingsbackgroundimage {
                 mediaItemUrl
               }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             }
           }
@@ -111,8 +111,6 @@ const IndexPage = () => {
     portfoliobottomphoto,
     portfoliodetailslinktext,
     portfoliodetailslinkurl,
-<<<<<<< Updated upstream
-=======
     reviewssectionicon,
     reviewssectiontitle,
     reviewsdetailslinktext,
@@ -123,7 +121,6 @@ const IndexPage = () => {
     futurebookingslinktext,
     futurebookingslinkurl,
     futurebookingsbackgroundimage,
->>>>>>> Stashed changes
   } = allWpPost.edges[0].node.home;
   return (
     <Layout>
@@ -156,8 +153,6 @@ const IndexPage = () => {
         detailsLinkText={portfoliodetailslinktext}
         detailtLinkUrl={portfoliodetailslinkurl}
       />
-<<<<<<< Updated upstream
-=======
       <Reviews
         sectionTitle={reviewssectiontitle}
         sectionTitleIconUrl={getImageUrl(reviewssectionicon)}
@@ -172,7 +167,6 @@ const IndexPage = () => {
         linkUrl={futurebookingslinkurl}
         backgroundImageUrl={getImageUrl(futurebookingsbackgroundimage)}
       />
->>>>>>> Stashed changes
     </Layout>
   );
 };
