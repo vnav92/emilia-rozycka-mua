@@ -1,0 +1,63 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/functions.scss';
+@import '../../../styles/fonts.scss';
+
+.reviewsSection {
+  padding: defaultSpacingTimes(4) 0 defaultSpacingTimes(8);
+  background-color: $primary-color;
+}
+
+.contentWrapper {
+  width: 100%;
+  padding-top: defaultSpacingTimes(4);
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewItem {
+  display: flex;
+  padding-bottom: defaultSpacingTimes(5);
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid rgba($light-font-color, 0.5);
+  }
+
+  &:not(:first-of-type) {
+    padding-top: defaultSpacingTimes(5);
+  }
+}
+
+.authorSection {
+  display: flex;
+  align-items: flex-start;
+  flex: 3;
+}
+
+.authorSectionContent {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.authorName {
+  max-width: 70%;
+}
+
+.authorPhoto {
+  width: defaultSpacingTimes(12.75);
+  height: defaultSpacingTimes(12.75);
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: defaultSpacingTimes(2.5);
+}
+
+.contentSection {
+  flex: 5;
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
+.detailsLink {
+  margin: auto;
+  margin-top: defaultSpacingTimes(1.5);
+}

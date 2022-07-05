@@ -6,6 +6,11 @@ import {
   CompanyDescription,
   Offer,
   Portfolio,
+<<<<<<< Updated upstream
+=======
+  Reviews,
+  FutureBookings,
+>>>>>>> Stashed changes
 } from "../modules";
 
 import { getImageUrl } from "../shared/utils";
@@ -60,6 +65,23 @@ const IndexPage = () => {
               }
               portfoliodetailslinktext
               portfoliodetailslinkurl
+<<<<<<< Updated upstream
+=======
+              reviewssectionicon {
+                mediaItemUrl
+              }
+              reviewssectiontitle
+              reviewsdetailslinkurl
+              reviewsdetailslinktext
+              futurebookingslinetwo
+              futurebookingslineone
+              futurebookingslinethree
+              futurebookingslinktext
+              futurebookingslinkurl
+              futurebookingsbackgroundimage {
+                mediaItemUrl
+              }
+>>>>>>> Stashed changes
             }
           }
         }
@@ -89,6 +111,19 @@ const IndexPage = () => {
     portfoliobottomphoto,
     portfoliodetailslinktext,
     portfoliodetailslinkurl,
+<<<<<<< Updated upstream
+=======
+    reviewssectionicon,
+    reviewssectiontitle,
+    reviewsdetailslinktext,
+    reviewsdetailslinkurl,
+    futurebookingslinetwo,
+    futurebookingslineone,
+    futurebookingslinethree,
+    futurebookingslinktext,
+    futurebookingslinkurl,
+    futurebookingsbackgroundimage,
+>>>>>>> Stashed changes
   } = allWpPost.edges[0].node.home;
   return (
     <Layout>
@@ -121,6 +156,23 @@ const IndexPage = () => {
         detailsLinkText={portfoliodetailslinktext}
         detailtLinkUrl={portfoliodetailslinkurl}
       />
+<<<<<<< Updated upstream
+=======
+      <Reviews
+        sectionTitle={reviewssectiontitle}
+        sectionTitleIconUrl={getImageUrl(reviewssectionicon)}
+        detailsLinkText={reviewsdetailslinktext}
+        detailsLinkUrl={reviewsdetailslinkurl}
+      />
+      <FutureBookings
+        lineOne={futurebookingslineone}
+        lineTwo={futurebookingslinetwo}
+        lineThree={futurebookingslinethree}
+        linkText={futurebookingslinktext}
+        linkUrl={futurebookingslinkurl}
+        backgroundImageUrl={getImageUrl(futurebookingsbackgroundimage)}
+      />
+>>>>>>> Stashed changes
     </Layout>
   );
 };
