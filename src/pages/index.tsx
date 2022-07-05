@@ -14,13 +14,7 @@ import { getImageUrl } from "../shared/utils";
 
 import { 
   Layout,
-  LimitedWidthContent,
-  Typography,
-  TypographyFontFamily,
-  Button,
 } from "../components";
-
-import * as styles from "./index.module.scss";
 
 const IndexPage = () => {
   const { allWpPost } = useStaticQuery(graphql`
@@ -79,6 +73,9 @@ const IndexPage = () => {
                 mediaItemUrl
               }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
