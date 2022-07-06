@@ -12,9 +12,7 @@ import {
 
 import { getImageUrl } from "../shared/utils";
 
-import { 
-  Layout,
-} from "../components";
+import { Layout } from "../components";
 
 const IndexPage = () => {
   const { allWpPost } = useStaticQuery(graphql`

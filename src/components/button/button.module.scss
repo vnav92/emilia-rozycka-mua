@@ -1,7 +1,8 @@
 @import '../../styles/functions.scss';
 @import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
 
-$button-size: defaultSpacingTimes(5);
+$button-size: defaultSpacingTimes(7);
 
 .buttonElement {
   height: $button-size;
@@ -10,23 +11,42 @@ $button-size: defaultSpacingTimes(5);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: defaultSpacingTimes(1) defaultSpacingTimes(2);
+  padding: defaultSpacingTimes(2) defaultSpacingTimes(2);
+  font-size: 1rem;
+  font-family: $primary-font-family;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
 .circleButton {
   width: $button-size;
+  height: $button-size;
 }
 
-.primaryButton {
+.primaryButton, .outlinedContrastButton {
   border: 1px solid $primary-contrast-color;
-  background-color: $primary-color;
   color: $primary-contrast-color;
 }
 
-.secondaryButton {
+.secondaryButton, .outlinedButton {
   border: 1px solid $primary-color;
-  background-color: $primary-contrast-color;
   color: $primary-color;
+}
+
+.outlinedButton, .outlinedContrastbutton {
+  background-color: transparent;
+}
+
+.primaryButton {
+  background-color: $primary-color;
+}
+
+.secondaryButton {
+  background-color: $primary-contrast-color;
+}
+
+.buttonImage {
+  width: 1rem;
+  margin-right: defaultSpacingTimes(1);
 }
 
