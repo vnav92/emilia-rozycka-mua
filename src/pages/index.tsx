@@ -56,8 +56,6 @@ const IndexPage = () => {
               }
               portfoliodetailslinktext
               portfoliodetailslinkurl
-<<<<<<< Updated upstream
-=======
               reviewssectionicon {
                 mediaItemUrl
               }
@@ -72,13 +70,6 @@ const IndexPage = () => {
               futurebookingsbackgroundimage {
                 mediaItemUrl
               }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
             }
           }
         }
