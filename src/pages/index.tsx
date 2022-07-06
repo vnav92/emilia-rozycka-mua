@@ -6,6 +6,8 @@ import {
   CompanyDescription,
   Offer,
   Portfolio,
+  Reviews,
+  FutureBookings,
 } from "../modules";
 
 import { getImageUrl } from "../shared/utils";
@@ -97,6 +99,16 @@ const IndexPage = () => {
     portfoliobottomphoto,
     portfoliodetailslinktext,
     portfoliodetailslinkurl,
+    reviewssectionicon,
+    reviewssectiontitle,
+    reviewsdetailslinktext,
+    reviewsdetailslinkurl,
+    futurebookingslinetwo,
+    futurebookingslineone,
+    futurebookingslinethree,
+    futurebookingslinktext,
+    futurebookingslinkurl,
+    futurebookingsbackgroundimage,
   } = allWpPost.edges[0].node.home;
   return (
     <Layout>
@@ -128,6 +140,20 @@ const IndexPage = () => {
         bottomImageUrl={getImageUrl(portfoliobottomphoto)}
         detailsLinkText={portfoliodetailslinktext}
         detailtLinkUrl={portfoliodetailslinkurl}
+      />
+      <Reviews
+        sectionTitle={reviewssectiontitle}
+        sectionTitleIconUrl={getImageUrl(reviewssectionicon)}
+        detailsLinkText={reviewsdetailslinktext}
+        detailsLinkUrl={reviewsdetailslinkurl}
+      />
+      <FutureBookings
+        lineOne={futurebookingslineone}
+        lineTwo={futurebookingslinetwo}
+        lineThree={futurebookingslinethree}
+        linkText={futurebookingslinktext}
+        linkUrl={futurebookingslinkurl}
+        backgroundImageUrl={getImageUrl(futurebookingsbackgroundimage)}
       />
     </Layout>
   );
