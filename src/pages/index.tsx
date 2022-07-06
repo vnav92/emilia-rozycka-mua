@@ -12,13 +12,7 @@ import { getImageUrl } from "../shared/utils";
 
 import { 
   Layout,
-  LimitedWidthContent,
-  Typography,
-  TypographyFontFamily,
-  Button,
 } from "../components";
-
-import * as styles from "./index.module.scss";
 
 const IndexPage = () => {
   const { allWpPost } = useStaticQuery(graphql`
@@ -60,6 +54,20 @@ const IndexPage = () => {
               }
               portfoliodetailslinktext
               portfoliodetailslinkurl
+              reviewssectionicon {
+                mediaItemUrl
+              }
+              reviewssectiontitle
+              reviewsdetailslinkurl
+              reviewsdetailslinktext
+              futurebookingslinetwo
+              futurebookingslineone
+              futurebookingslinethree
+              futurebookingslinktext
+              futurebookingslinkurl
+              futurebookingsbackgroundimage {
+                mediaItemUrl
+              }
             }
           }
         }
