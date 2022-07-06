@@ -3,6 +3,7 @@ export * from "./desktop-navbar";
 export * from "./image-link";
 export * from "./layout";
 export * from "./limited-width-content";
+export * from "./messenger-contact-link";
 export * from "./navbar-link";
 export * from "./redirection-link";
 export * from "./section-header";

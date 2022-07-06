@@ -4,6 +4,7 @@ import {
   LimitedWidthContent,
   Typography,
   TypographyColor,
+  MessengerContactLink,
 } from "../../../components";
 
 import * as styles from "./future-bookings.module.scss";
@@ -52,6 +53,9 @@ export const FutureBookings: React.FC<FutureBookingsProps> = ({
             {lineThree}
           </Typography>
         </div>
+        <MessengerContactLink linkUrl={linkUrl} variant="outlined">
+          {linkText}
+        </MessengerContactLink>
       </LimitedWidthContent>
     </section>
   );

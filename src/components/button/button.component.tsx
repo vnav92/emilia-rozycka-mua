@@ -5,8 +5,9 @@ import * as styles from "./button.module.scss";
 
 type ButtonProps = {
   className?: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "outlined" | "outlined-contrast";
   isCircleShape?: boolean;
+  imageUrl?: string;
   children: React.ReactNode | React.ReactNode[];
 } & ({ onClick: () => void } | { href: string });
 
@@ -14,6 +15,7 @@ export const Button: React.FC<ButtonProps> = ({
   className,
   variant = "primary",
   isCircleShape,
+  imageUrl,
   children,
   ...props
 }) => {
@@ -26,12 +28,15 @@ export const Button: React.FC<ButtonProps> = ({
         {
           [styles.primaryButton]: variant === "primary",
           [styles.secondaryButton]: variant === "secondary",
+          [styles.outlinedButton]: variant === "outlined",
+          [styles.outlinedContrastButton]: variant === "outlined-contrast",
           [styles.circleButton]: isCircleShape,
         },
         className
       )}
       {...("href" in props ? { href: props.href } : { onClick: props.onClick })}
     >
+      {imageUrl && <img src={imageUrl} className={styles.buttonImage} />}
       {children}
     </ButtonElement>
   );
