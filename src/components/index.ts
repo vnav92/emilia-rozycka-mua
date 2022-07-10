@@ -7,4 +7,5 @@ export * from "./messenger-contact-link";
 export * from "./navbar-link";
 export * from "./redirection-link";
 export * from "./section-header";
+export * from "./social-icon-link";
 export * from "./typography";
