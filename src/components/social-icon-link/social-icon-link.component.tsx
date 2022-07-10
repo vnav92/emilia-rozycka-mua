@@ -44,5 +44,12 @@ export const SocialIconLink: React.FC<SocialIconLinkProps> = ({
     allWpPost.edges[0].node.socialIcons[socialTypeToIconGroup[socialMediaType]]
   );
 
-  return <Button variant="outlined-contrast" imageUrl={iconUrl} href={href} isCircleShape={true}/>;
+  return (
+    <Button
+      variant="outlined-contrast"
+      imageUrl={iconUrl}
+      href={href}
+      isCircleShape={true}
+    />
+  );
 };

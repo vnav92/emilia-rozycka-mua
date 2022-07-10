@@ -1,0 +1,68 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+@import '../../styles/functions.scss';
+
+.footerWrapper {
+  background: $primary-color;
+  padding: defaultSpacingTimes(8) 0 defaultSpacingTimes(2);
+  display: flex;
+}
+
+.mainContent {
+  width: 100%;
+  display: flex;
+}
+
+.contactSection {
+  flex: 3;
+}
+
+.linksSection {
+  flex: 4;
+}
+
+.logo {
+  width: 60%;
+  height: auto;
+}
+
+.contactLinksSection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.telLink, .mailLink {
+  font-size: 1rem;
+  color: $primary-contrast-color;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: $primary-font-family;
+}
+
+.mailLink {
+  margin-left: auto;
+}
+
+.copyrightSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $light-font-color;
+  font-family: $primary-font-family;
+  font-weight: 300;
+  font-size: 0.875rem;
+  margin-top: defaultSpacingTimes(6);
+  padding: defaultSpacingTimes(2) 0;
+}
+
+.designBySection {
+  display: flex;
+  align-items: center;
+}
+
+.designByLogo {
+  height: 1.5rem;
+  width: auto;
+  margin-left: defaultSpacingTimes(0.75)
+}
+

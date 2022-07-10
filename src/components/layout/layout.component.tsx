@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import { DesktopNavbar } from "../desktop-navbar";
 import { getImageUrl } from "../../shared/utils";
+import { Footer } from "../footer";
 
 export const Layout = ({ children }) => {
   const { allWpPage, allWpPost } = useStaticQuery(graphql`
@@ -14,12 +15,19 @@ export const Layout = ({ children }) => {
           }
         }
       }
-      allWpPost(filter: { title: { eq: "navbar" } }) {
+      allWpPost(filter: { title: { eq: "global-data" } }) {
         edges {
           node {
             navbar {
               contactnumber
-              logo {
+              emailaddress
+              simplelogo {
+                mediaItemUrl
+              }
+              fulllogo {
+                mediaItemUrl
+              }
+              designbylogo {
                 mediaItemUrl
               }
             }
@@ -34,16 +42,23 @@ export const Layout = ({ children }) => {
     href: `/${node.title}`,
   }));
 
-  const { contactnumber, logo } = allWpPost.edges[0].node.navbar;
+  const { contactnumber, designbylogo, emailaddress, simplelogo, fulllogo } =
+    allWpPost.edges[0].node.navbar;
 
   return (
     <>
       <DesktopNavbar
         menuElements={menuElements}
         contactNumber={contactnumber}
-        logoUrl={getImageUrl(logo)}
+        logoUrl={getImageUrl(simplelogo)}
       />
       <main>{children}</main>
+      <Footer
+        logoUrl={getImageUrl(fulllogo)}
+        contactNumber={contactnumber}
+        emailAddress={emailaddress}
+        designByLogoUrl={getImageUrl(designbylogo)}
+      />
     </>
   );
 };
