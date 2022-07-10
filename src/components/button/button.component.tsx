@@ -8,8 +8,11 @@ type ButtonProps = {
   variant?: "primary" | "secondary" | "outlined" | "outlined-contrast";
   isCircleShape?: boolean;
   imageUrl?: string;
-  children: React.ReactNode | React.ReactNode[];
-} & ({ onClick: () => void } | { href: string });
+} & ({ onClick: () => void } | { href: string }) &
+  (
+    | { imageUrl: string; children?: React.ReactNode | React.ReactNode[] }
+    | { children?: React.ReactNode | React.ReactNode[] }
+  );
 
 export const Button: React.FC<ButtonProps> = ({
   className,

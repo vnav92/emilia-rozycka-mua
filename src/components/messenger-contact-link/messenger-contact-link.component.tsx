@@ -1,22 +1,27 @@
 import React from "react";
 import { Button } from "../button";
+import classNames from "classnames";
 
 import { useStaticQuery, graphql } from "gatsby";
 import { getImageUrl } from "../../shared/utils";
 
+import * as styles from "./messenger-contact-link.module.scss";
+
 type MessengerContactLinkProps = {
-  variant: "outlined" | "outlined-contrast";
+  iconVariant: "dark-background" | "light-background";
+  buttonVariant: "outlined" | "outlined-contrast";
   linkUrl: string;
   children: React.ReactNode;
 };
 
 export const MessengerContactLink: React.FC<MessengerContactLinkProps> = ({
-  variant,
+  iconVariant,
+  buttonVariant,
   linkUrl,
   children,
 }) => {
   const { allWpPost } = useStaticQuery(graphql`
-    query SocialIconsQuery {
+    query MessengerIconsQuery {
       allWpPost(
         filter: {
           categories: { nodes: { elemMatch: { name: { eq: "social-icons" } } } }
@@ -25,7 +30,10 @@ export const MessengerContactLink: React.FC<MessengerContactLinkProps> = ({
         edges {
           node {
             socialIcons {
-              filledmessengericon {
+              lightbackgroundmessengericon {
+                mediaItemUrl
+              }
+              darkbackgroundmessengericon {
                 mediaItemUrl
               }
             }
@@ -36,15 +44,22 @@ export const MessengerContactLink: React.FC<MessengerContactLinkProps> = ({
   `);
 
   const messengerIconUrl = getImageUrl(
-    allWpPost.edges[0].node.socialIcons.filledmessengericon
+    allWpPost.edges[0].node.socialIcons[
+      iconVariant === "dark-background"
+        ? "darkbackgroundmessengericon"
+        : "lightbackgroundmessengericon"
+    ]
   );
 
   return (
     <Button
       href={linkUrl}
       imageUrl={messengerIconUrl}
-      variant={variant}
-      className={styles.actionButton}
+      variant={buttonVariant}
+      className={classNames(
+        styles.actionButton,
+        iconVariant === "dark-background" && styles.darkBackroundButton
+      )}
     >
       {children}
     </Button>

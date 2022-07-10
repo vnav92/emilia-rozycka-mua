@@ -53,7 +53,11 @@ export const FutureBookings: React.FC<FutureBookingsProps> = ({
             {lineThree}
           </Typography>
         </div>
-        <MessengerContactLink linkUrl={linkUrl} variant="outlined">
+        <MessengerContactLink
+          linkUrl={linkUrl}
+          buttonVariant="outlined"
+          iconVariant="light-background"
+        >
           {linkText}
         </MessengerContactLink>
       </LimitedWidthContent>

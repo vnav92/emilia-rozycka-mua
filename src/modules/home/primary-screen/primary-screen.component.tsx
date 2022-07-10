@@ -6,6 +6,7 @@ import {
   TypographyFontFamily,
   Button,
   MessengerContactLink,
+  SocialIconLink,
 } from "../../../components";
 
 import * as styles from "./primary-screen.module.scss";
@@ -41,15 +42,15 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
           </Typography>
         </div>
         <div className={styles.socialLinksWrapper}>
-          <MessengerContactLink variant="outlined-contrast" linkUrl="">
+          <MessengerContactLink
+            iconVariant="dark-background"
+            buttonVariant="outlined-contrast"
+            linkUrl=""
+          >
             Wyślij wiadomość
           </MessengerContactLink>
-          <Button href="" isCircleShape={true}>
-            insta
-          </Button>
-          <Button onClick={() => {}} isCircleShape={true}>
-            mail
-          </Button>
+          <SocialIconLink href="" socialMediaType="instagram" />
+          <SocialIconLink href="" socialMediaType="email" />
         </div>
         <Button
           onClick={() => {}}
