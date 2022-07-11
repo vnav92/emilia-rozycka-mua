@@ -7,13 +7,30 @@
   background-color: $primary-color;
 }
 
-.contentWrapper {
-  width: 100%;
+.topSection {
   display: flex;
+  align-items: flex-start;
+  padding-bottom: defaultSpacingTimes(7); 
 }
 
-.galleryWrapper {
-  padding-left: defaultSpacingTimes(2);
+.sectionHeader {
+  flex: 1;
+}
+
+.descriptionSection {
+  flex: 1;
+}
+
+.contentWrapper {
+  width: 100%;
+}
+
+.sectionInstruction {
+  text-align: center;
+  color: #c8c8c8;
+  font-weight: 300;
+  padding: defaultSpacingTimes(3) 0;
+  font-size: 1rem;
 }
 
 .description {
@@ -34,11 +51,11 @@
 .galleryWrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: defaultSpacingTimes(4);
+  grid-gap: defaultSpacingTimes(2.5);
 }
 
 .offerImage {
   height: defaultSpacingTimes(42);
-  width: defaultSpacingTimes(32);
+  width: 100%;
   object-fit: cover;
 }
