@@ -7,11 +7,13 @@
   display: flex;
   align-items: center;
   font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
 }
 
-.icon {
-  color: $primary-contrast-color;
-  font-size: 1.5rem;
-  margin-right: defaultSpacingTimes(0.75);
-  margin-left: -4px;
+.redirectionLinkText {
+  background: linear-gradient(109.8deg, #D15B41 0%, #D14145 15.81%, #C629CB 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
