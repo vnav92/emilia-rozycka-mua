@@ -16,7 +16,7 @@ type OfferProps = {
   sectionTitle: React.ReactNode;
   sectionTitleIconUrl: string;
   primaryDescription: React.ReactNode;
-  secondaryDescription: React.ReactNode;
+  sectionInstruction: React.ReactNode;
   detailsRedirectionLinkText: React.ReactNode;
   detailsRedirectionLinkHref: React.ReactNode;
 };
@@ -25,7 +25,7 @@ export const Offer: React.FC<OfferProps> = ({
   sectionTitle,
   sectionTitleIconUrl,
   primaryDescription,
-  secondaryDescription,
+  sectionInstruction,
   detailsRedirectionLinkText,
   detailsRedirectionLinkHref,
 }) => {
@@ -54,33 +54,37 @@ export const Offer: React.FC<OfferProps> = ({
 
   return (
     <LimitedWidthContent className={styles.offerSection}>
-      <SectionHeader as="h3" iconUrl={sectionTitleIconUrl}>
-        {sectionTitle}
-      </SectionHeader>
-      <div className={styles.contentWrapper}>
-        <div>
+      <div className={styles.topSection}>
+        <SectionHeader
+          as="h3"
+          iconUrl={sectionTitleIconUrl}
+          className={styles.sectionHeader}
+        >
+          {sectionTitle}
+        </SectionHeader>
+        <div className={styles.descriptionSection}>
           <Typography as="p" className={styles.description}>
             {primaryDescription}
-          </Typography>
-          <Typography as="p" className={styles.description}>
-            {secondaryDescription}
           </Typography>
           <RedirectionLink to={detailsRedirectionLinkHref}>
             {detailsRedirectionLinkText}
           </RedirectionLink>
         </div>
+      </div>
+      <Typography className={styles.sectionInstruction}>
+        {sectionInstruction}
+      </Typography>
+      <div className={styles.contentWrapper}>
         <div className={styles.galleryWrapper}>
           {offerItems.map(({ title, image }, index) => (
-            <div>
-              <ImageLink
-                key={index}
-                to=""
-                imageUrl={getImageUrl(image)}
-                imageClassName={styles.offerImage}
-              >
-                {title}
-              </ImageLink>
-            </div>
+            <ImageLink
+              key={index}
+              to=""
+              imageUrl={getImageUrl(image)}
+              imageClassName={styles.offerImage}
+            >
+              {title}
+            </ImageLink>
           ))}
         </div>
       </div>

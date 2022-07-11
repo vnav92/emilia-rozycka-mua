@@ -32,8 +32,8 @@ const IndexPage = () => {
               bioredirectionlinktext
               bioredirectionlinkhref
               offersectiontitle
+              offersectioninstruction
               offerprimarydescription
-              offersecondarydescription
               offersubpageredirectionlinktext
               offersubpageredirectionlinkhref
               offersectionicon {
@@ -85,8 +85,8 @@ const IndexPage = () => {
     bioredirectionlinktext,
     bioredirectionlinkhref,
     offersectiontitle,
+    offersectioninstruction,
     offerprimarydescription,
-    offersecondarydescription,
     offersubpageredirectionlinktext,
     offersubpageredirectionlinkhref,
     offersectionicon,
@@ -126,7 +126,7 @@ const IndexPage = () => {
         sectionTitle={offersectiontitle}
         sectionTitleIconUrl={getImageUrl(offersectionicon)}
         primaryDescription={offerprimarydescription}
-        secondaryDescription={offersecondarydescription}
+        sectionInstruction={offersectioninstruction}
         detailsRedirectionLinkText={offersubpageredirectionlinktext}
         detailsRedirectionLinkHref={offersubpageredirectionlinkhref}
       />
