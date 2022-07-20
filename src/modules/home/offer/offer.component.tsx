@@ -1,4 +1,6 @@
-import React, { useSyncExternalStore } from "react";
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import classNames from 'classnames';
 import {
   LimitedWidthContent,
   SectionHeader,
@@ -6,11 +8,9 @@ import {
   RedirectionLink,
   ImageLink,
 } from "../../../components";
-
-import { useStaticQuery, graphql } from "gatsby";
+import { getImageUrl } from "../../../shared/utils";
 
 import * as styles from "./offer.module.scss";
-import { getImageUrl } from "../../../shared/utils";
 
 type OfferProps = {
   sectionTitle: React.ReactNode;
@@ -20,6 +20,9 @@ type OfferProps = {
   detailsRedirectionLinkText: React.ReactNode;
   detailsRedirectionLinkHref: React.ReactNode;
 };
+
+const desktopColumnsNumber = 3;
+const tabletColumnsNumber = 2;
 
 export const Offer: React.FC<OfferProps> = ({
   sectionTitle,
@@ -52,6 +55,16 @@ export const Offer: React.FC<OfferProps> = ({
 
   const offerItems = allWpPost.edges.map(({ node }) => node.offerItem);
 
+  const getCustomItemClassName = (index) => {
+    if (offerItems.length % desktopColumnsNumber === 1 && offerItems.length - index === 1) {
+      return styles.desktopLastItem
+    } else if (offerItems.length % desktopColumnsNumber === 2 && offerItems.length - index <= 2) {
+      return styles.desktopTwoLastItems
+    } else if (offerItems.length % tabletColumnsNumber === 1 && offerItems.length - index === 1) {
+      return styles.tabletLastItem;
+    }
+  }
+
   return (
     <LimitedWidthContent className={styles.offerSection}>
       <div className={styles.topSection}>
@@ -81,7 +94,10 @@ export const Offer: React.FC<OfferProps> = ({
               key={index}
               to=""
               imageUrl={getImageUrl(image)}
-              imageClassName={styles.offerImage}
+              linkClassName={classNames(styles.offerLink, getCustomItemClassName(index))}
+              imageClassName={classNames(
+                styles.offerImage,
+              )}
             >
               {title}
             </ImageLink>

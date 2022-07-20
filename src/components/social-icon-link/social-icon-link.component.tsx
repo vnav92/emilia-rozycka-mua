@@ -18,15 +18,15 @@ export const SocialIconLink: React.FC<SocialIconLinkProps> = ({
   };
 
   const { allWpPost } = useStaticQuery(graphql`
-    query SocialIconsQuery {
+    query IconsQuery {
       allWpPost(
         filter: {
-          categories: { nodes: { elemMatch: { name: { eq: "social-icons" } } } }
+          categories: { nodes: { elemMatch: { name: { eq: "icons" } } } }
         }
       ) {
         edges {
           node {
-            socialIcons {
+            icons {
               outlinedinstagramicon {
                 mediaItemUrl
               }
@@ -41,7 +41,7 @@ export const SocialIconLink: React.FC<SocialIconLinkProps> = ({
   `);
 
   const iconUrl = getImageUrl(
-    allWpPost.edges[0].node.socialIcons[socialTypeToIconGroup[socialMediaType]]
+    allWpPost.edges[0].node.icons[socialTypeToIconGroup[socialMediaType]]
   );
 
   return (

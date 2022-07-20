@@ -1,6 +1,7 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/functions.scss';
 @import '../../../styles/fonts.scss';
+@import '../../../styles/variables.scss';
 
 .offerSection {
   padding: defaultSpacingTimes(4) 0;
@@ -45,13 +46,42 @@
 }
 
 .galleryWrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: defaultSpacingTimes(2.5);
+  display: flex;
+  flex-wrap: wrap;
+  gap: defaultSpacingTimes(1.5)
+}
+
+.offerLink {
+  flex: auto;
+  width: 30%;
 }
 
 .offerImage {
   height: defaultSpacingTimes(42);
   width: 100%;
   object-fit: cover;
+}
+
+.desktopLastItem {
+  width: 100%;
+}
+
+.desktopTwoLastItems {
+  width: 45%
+}
+
+.tabletLastItem {
+  width: 100%;
+}
+
+@media (min-width: $extra-small-screen-breakpoint) and (max-width: $small-screen-breakpoint) {
+  .offerLink {
+    width: 45%;
+  }
+}
+
+@media (max-width: $extra-small-screen-breakpoint) {
+  .offerLink {
+    width: 100%;
+  }
 }

@@ -38,7 +38,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({
         <img className={styles.middleImage} src={middleImageUrl} alt="" />
         <img className={styles.bottomImage} src={bottomImageUrl} alt="" />
         <div className={styles.detailsButtonWrapper}>
-          <RedirectionLink to={detailtLinkUrl}>
+          <RedirectionLink to={detailtLinkUrl} className={styles.detailsLink}>
             {detailsLinkText}
           </RedirectionLink>
         </div>

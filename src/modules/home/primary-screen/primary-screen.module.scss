@@ -13,6 +13,7 @@
   height: 50vh;
   width: 100%;
   background-size: cover;
+  background-position: center;
 }
 
 .primaryContent {
@@ -33,7 +34,6 @@
 .socialLinksWrapper {
   align-items: flex-end;
   gap: defaultSpacingTimes(3);
-  padding-bottom: defaultSpacingTimes(1.75);
   justify-content: flex-end;
 }
 
@@ -51,4 +51,8 @@
   border: 1px solid transparent;
   position: absolute;
   bottom: -#{calc(defaultSpacingTimes(10.875) / 2)};
+}
+
+.scrollDownButtonIcon {
+  height: defaultSpacingTimes(5);
 }

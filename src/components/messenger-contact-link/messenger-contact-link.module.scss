@@ -1,6 +1,13 @@
-.darkBackroundButton {
-  // TODO delete these styles when correct icons will be provided
+@import '../../styles/functions.scss';
+@import '../../styles/variables.scss';
+
+.actionButton {
   img {
-    background: white;
+    margin-right: defaultSpacingTimes(1);
+  }
+}
+@media (max-width: $medium-screen-breakpoint) {
+  .actionButton {
+    font-size: 0.75rem;
   }
 }
