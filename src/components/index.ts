@@ -6,6 +6,7 @@ export * from "./layout";
 export * from "./limited-width-content";
 export * from "./messenger-contact-link";
 export * from "./navbar-link";
+export * from "./navbar-wrapper";
 export * from "./redirection-link";
 export * from "./section-header";
 export * from "./social-icon-link";

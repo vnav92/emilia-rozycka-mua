@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+@import '../../styles/functions.scss';
+
+.desktopNavbarWrapper {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: $top-navbar-min-height;
+  display: flex;
+  padding: defaultSpacingTimes(2);
+  box-sizing: border-box;
+  background-color: $primary-color;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+}

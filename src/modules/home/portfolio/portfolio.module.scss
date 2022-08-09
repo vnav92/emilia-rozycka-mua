@@ -9,6 +9,8 @@ $details-redirection-button-size: defaultSpacingTimes(36);
 $default-middle-image-width: defaultSpacingTimes(73);
 $default-middle-image-height: defaultSpacingTimes(85.5);
 $default-secondary-image-size: defaultSpacingTimes(47.375);
+$medium-size-multiplier: 0.85;
+$small-size-multiplier: 0.625;
 
 .portfolioSection {
   padding: defaultSpacingTimes(4) 0;
@@ -66,43 +68,43 @@ $default-secondary-image-size: defaultSpacingTimes(47.375);
 
 @media (max-width: $medium-screen-breakpoint) and (min-width: $small-screen-breakpoint) {
   .contentWrapper {
-    height: calc($content-wrapper-height * 0.85)
+    height: calc($content-wrapper-height * $medium-size-multiplier)
   }
 
   .middleImage {
-    width: calc($default-middle-image-width * 0.85);
-    height: calc($default-middle-image-height * 0.85);
+    width: calc($default-middle-image-width * $medium-size-multiplier);
+    height: calc($default-middle-image-height * $medium-size-multiplier);
   }
 
   .topImage, .bottomImage {
-    width: calc($default-secondary-image-size * 0.85);
-    height: calc($default-secondary-image-size * 0.85);
+    width: calc($default-secondary-image-size * $medium-size-multiplier);
+    height: calc($default-secondary-image-size * $medium-size-multiplier);
   }
 
   .detailsButtonWrapper {
-    width: calc($details-redirection-button-size * 0.85);
-    height: calc($details-redirection-button-size * 0.85);
+    width: calc($details-redirection-button-size * $medium-size-multiplier);
+    height: calc($details-redirection-button-size * $medium-size-multiplier);
   }
 }
 
 @media (max-width: $small-screen-breakpoint) and (min-width: $extra-small-screen-breakpoint) {
   .contentWrapper {
-    height: calc($content-wrapper-height * 0.625)
+    height: calc($content-wrapper-height * $small-size-multiplier)
   }
 
   .middleImage {
-    width: calc($default-middle-image-width * 0.625);
-    height: calc($default-middle-image-height * 0.625);
+    width: calc($default-middle-image-width * $small-size-multiplier);
+    height: calc($default-middle-image-height * $small-size-multiplier);
   }
 
   .topImage, .bottomImage {
-    width: calc($default-secondary-image-size * 0.625);
-    height: calc($default-secondary-image-size * 0.625);
+    width: calc($default-secondary-image-size * $small-size-multiplier);
+    height: calc($default-secondary-image-size * $small-size-multiplier);
   }
 
   .detailsButtonWrapper {
-    width: calc($details-redirection-button-size * 0.625);
-    height: calc($details-redirection-button-size * 0.625);
+    width: calc($details-redirection-button-size * $small-size-multiplier);
+    height: calc($details-redirection-button-size * $small-size-multiplier);
   }
 
   .detailsLink {

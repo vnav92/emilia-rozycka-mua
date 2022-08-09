@@ -51,6 +51,10 @@ $medium-screen-button-size: defaultSpacingTimes(6);
   width: 1.5rem;
 }
 
+.disabledBorder {
+  border: none;
+}
+
 @media (max-width: $medium-screen-breakpoint) {
   .buttonElement {
     height: $medium-screen-button-size;

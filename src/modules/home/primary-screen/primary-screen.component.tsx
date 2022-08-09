@@ -25,13 +25,13 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
   primaryImageUrl,
 }) => {
   const { allWpPost } = useStaticQuery(graphql`
-  query DownIconQuery {
-    allWpPost(
-      filter: {
-        categories: { nodes: { elemMatch: { name: { eq: "icons" } } } }
-      }
-    ) {
-      edges {
+    query DownIconQuery {
+      allWpPost(
+        filter: {
+          categories: { nodes: { elemMatch: { name: { eq: "icons" } } } }
+        }
+      ) {
+        edges {
           node {
             icons {
               lightbackgrounddownicon {
@@ -40,13 +40,13 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
             }
           }
         }
+      }
     }
-  }
-`);
+  `);
 
-const downIconUrl = getImageUrl(
-  allWpPost.edges[0].node.icons.lightbackgrounddownicon
-);
+  const downIconUrl = getImageUrl(
+    allWpPost.edges[0].node.icons.lightbackgrounddownicon
+  );
 
   return (
     <section>
@@ -83,7 +83,11 @@ const downIconUrl = getImageUrl(
           variant="secondary"
           className={styles.scrollDownButton}
         >
-          <img src={downIconUrl} alt="" className={styles.scrollDownButtonIcon}/>
+          <img
+            src={downIconUrl}
+            alt=""
+            className={styles.scrollDownButtonIcon}
+          />
         </Button>
       </LimitedWidthContent>
       <div

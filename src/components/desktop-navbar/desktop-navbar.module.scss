@@ -1,37 +1,18 @@
 @import '../../styles/variables.scss';
 @import '../../styles/colors.scss';
-
-$navbar-padding: 15px;
-$navbar-text-color: #aaaaaa;
-
-.desktopNavbarWrapper {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  min-height: $top-navbar-min-height;
-  display: flex;
-  padding: $navbar-padding;
-  box-sizing: border-box;
-  background-color: $primary-color;
-  z-index: 9999;
-  position: fixed;
-  top: 0;
-}
+@import '../../styles/fonts.scss';
+@import '../../styles/functions.scss';
 
 .menuItemsList {
-  flex: 1;
   list-style: none;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin: 0;
-  padding-left: 10px;
+  margin: 0 auto;
 }
 
 .menuItem {
-  margin: 0 6px;
+  margin: 0 defaultSpacingTimes(2);
   font-size: 1rem;
 }
 
@@ -42,10 +23,6 @@ $navbar-text-color: #aaaaaa;
 .contactNumberLink {
   color: $light-font-color;
   text-decoration: none;
+  font-family: $primary-font-family;
+  font-weight: 300;
 }
-
-// @media screen and (max-width: $mobile-width-breakpoint) {
-//   .desktopNavbarWrapper {
-//     display: none;
-//   }
-// }

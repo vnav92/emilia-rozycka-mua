@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import classNames from 'classnames';
+import classNames from "classnames";
 import {
   LimitedWidthContent,
   SectionHeader,
@@ -55,15 +55,24 @@ export const Offer: React.FC<OfferProps> = ({
 
   const offerItems = allWpPost.edges.map(({ node }) => node.offerItem);
 
-  const getCustomItemClassName = (index) => {
-    if (offerItems.length % desktopColumnsNumber === 1 && offerItems.length - index === 1) {
-      return styles.desktopLastItem
-    } else if (offerItems.length % desktopColumnsNumber === 2 && offerItems.length - index <= 2) {
-      return styles.desktopTwoLastItems
-    } else if (offerItems.length % tabletColumnsNumber === 1 && offerItems.length - index === 1) {
+  const getCustomItemClassName = index => {
+    if (
+      offerItems.length % desktopColumnsNumber === 1 &&
+      offerItems.length - index === 1
+    ) {
+      return styles.desktopLastItem;
+    } else if (
+      offerItems.length % desktopColumnsNumber === 2 &&
+      offerItems.length - index <= 2
+    ) {
+      return styles.desktopTwoLastItems;
+    } else if (
+      offerItems.length % tabletColumnsNumber === 1 &&
+      offerItems.length - index === 1
+    ) {
       return styles.tabletLastItem;
     }
-  }
+  };
 
   return (
     <LimitedWidthContent className={styles.offerSection}>
@@ -94,10 +103,11 @@ export const Offer: React.FC<OfferProps> = ({
               key={index}
               to=""
               imageUrl={getImageUrl(image)}
-              linkClassName={classNames(styles.offerLink, getCustomItemClassName(index))}
-              imageClassName={classNames(
-                styles.offerImage,
+              linkClassName={classNames(
+                styles.offerLink,
+                getCustomItemClassName(index)
               )}
+              imageClassName={classNames(styles.offerImage)}
             >
               {title}
             </ImageLink>
