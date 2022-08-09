@@ -1,6 +1,10 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/functions.scss';
 @import '../../../styles/fonts.scss';
+@import '../../../styles/variables.scss';
+
+$description-font-size: 1.5rem;
+$section-instruction-font-size: 1rem;
 
 .offerSection {
   padding: defaultSpacingTimes(4) 0;
@@ -26,7 +30,7 @@
   color: #c8c8c8;
   font-weight: 300;
   padding: defaultSpacingTimes(3) 0;
-  font-size: 1rem;
+  font-size: $section-instruction-font-size;
 }
 
 .description {
@@ -45,13 +49,57 @@
 }
 
 .galleryWrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: defaultSpacingTimes(2.5);
+  display: flex;
+  flex-wrap: wrap;
+  gap: defaultSpacingTimes(1.5)
+}
+
+.offerLink {
+  flex: auto;
+  width: 30%;
 }
 
 .offerImage {
   height: defaultSpacingTimes(42);
   width: 100%;
   object-fit: cover;
+}
+
+.desktopLastItem {
+  width: 100%;
+}
+
+.desktopTwoLastItems {
+  width: 45%
+}
+
+@media (min-width: $extra-small-screen-breakpoint) and (max-width: $small-screen-breakpoint) {
+  .offerLink {
+    width: 45%;
+  }
+}
+
+@media (max-width: $small-screen-breakpoint) {
+  .topSection {
+    flex-direction: column;
+  }
+
+  .tabletLastItem {
+    width: 100%;
+  }
+
+  .description {
+    font-size: calc($description-font-size * $small-screen-font-multiplier);
+    max-width: 75%;
+  }
+
+  .sectionInstruction {
+    font-size: calc($section-instruction-font-size * 0.85);
+  }
+}
+
+@media (max-width: $extra-small-screen-breakpoint) {
+  .offerLink {
+    width: 100%;
+  }
 }

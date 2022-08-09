@@ -24,12 +24,12 @@ export const MessengerContactLink: React.FC<MessengerContactLinkProps> = ({
     query MessengerIconsQuery {
       allWpPost(
         filter: {
-          categories: { nodes: { elemMatch: { name: { eq: "social-icons" } } } }
+          categories: { nodes: { elemMatch: { name: { eq: "icons" } } } }
         }
       ) {
         edges {
           node {
-            socialIcons {
+            icons {
               lightbackgroundmessengericon {
                 mediaItemUrl
               }
@@ -44,7 +44,7 @@ export const MessengerContactLink: React.FC<MessengerContactLinkProps> = ({
   `);
 
   const messengerIconUrl = getImageUrl(
-    allWpPost.edges[0].node.socialIcons[
+    allWpPost.edges[0].node.icons[
       iconVariant === "dark-background"
         ? "darkbackgroundmessengericon"
         : "lightbackgroundmessengericon"

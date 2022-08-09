@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 import {
   LimitedWidthContent,
@@ -8,6 +9,7 @@ import {
   MessengerContactLink,
   SocialIconLink,
 } from "../../../components";
+import { getImageUrl } from "../../../shared/utils";
 
 import * as styles from "./primary-screen.module.scss";
 
@@ -22,6 +24,30 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
   ownerName,
   primaryImageUrl,
 }) => {
+  const { allWpPost } = useStaticQuery(graphql`
+    query DownIconQuery {
+      allWpPost(
+        filter: {
+          categories: { nodes: { elemMatch: { name: { eq: "icons" } } } }
+        }
+      ) {
+        edges {
+          node {
+            icons {
+              lightbackgrounddownicon {
+                mediaItemUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const downIconUrl = getImageUrl(
+    allWpPost.edges[0].node.icons.lightbackgrounddownicon
+  );
+
   return (
     <section>
       <LimitedWidthContent
@@ -57,7 +83,11 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
           variant="secondary"
           className={styles.scrollDownButton}
         >
-          down
+          <img
+            src={downIconUrl}
+            alt=""
+            className={styles.scrollDownButtonIcon}
+          />
         </Button>
       </LimitedWidthContent>
       <div

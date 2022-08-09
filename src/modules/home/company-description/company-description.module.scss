@@ -2,6 +2,10 @@
 @import '../../../styles/functions.scss';
 @import '../../../styles/fonts.scss';
 
+$small-text-font-size: 1.5rem;
+$big-text-font-size: 2.25rem;
+$section-margin-bottom: defaultSpacingTimes(7);
+
 .descriptionSection {
   background-color: $primary-color;
   padding: defaultSpacingTimes(9) 0;
@@ -10,20 +14,33 @@
 .primaryDescription, .secondaryDescription, .bottomDescription {
   font-family: $primary-font-family;
   color: $light-font-color;
-  margin-bottom: defaultSpacingTimes(7)
+  margin-bottom: $section-margin-bottom;
 }
 
 .primaryDescription, .bottomDescription {
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: $small-text-font-size;
   width: 75%;
 }
 
 .secondaryDescription {
   font-weight: 500;
-  font-size: 2.25rem;
+  font-size: $big-text-font-size;
 
   b {
     color: $primary-contrast-color;
+  }
+}
+
+@media (max-width: $small-screen-breakpoint) {
+  .primaryDescription, .secondaryDescription, .bottomDescription {
+    margin-bottom: calc($section-margin-bottom * $small-screen-font-multiplier);
+  }
+  .primaryDescription, .bottomDescription {
+    font-size: calc($small-text-font-size * $small-screen-font-multiplier);
+  }
+  
+  .secondaryDescription {
+    font-size: calc($big-text-font-size * $small-screen-font-multiplier);
   }
 }

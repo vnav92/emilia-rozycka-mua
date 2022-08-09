@@ -12,6 +12,7 @@ type ImageLinkProps = {
   // @TODO remove optional
   alt?: string;
   imageClassName?: string;
+  linkClassName?: string;
   children: React.ReactNode;
 };
 
@@ -20,9 +21,10 @@ export const ImageLink: React.FC<ImageLinkProps> = ({
   to,
   alt = "",
   imageClassName,
+  linkClassName,
   children,
 }) => (
-  <Link to={to} className={styles.link}>
+  <Link to={to} className={classNames(styles.link, linkClassName)}>
     <img
       src={imageUrl}
       alt={alt}

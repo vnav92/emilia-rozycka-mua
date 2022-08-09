@@ -1,0 +1,55 @@
+@import '../../styles/colors.scss';
+@import '../../styles/functions.scss';
+@import '../../styles/fonts.scss';
+
+.menuWrapper {
+  position: absolute;
+  top: 0;
+  left: 60px;
+  right: 60px;
+  padding: 0;
+  background-color: $primary-color;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.2s ease-in-out;
+  z-index: 100;
+}
+
+.openedMenuWrapper {
+  max-height: 900px; 
+  padding: defaultSpacingTimes(12) defaultSpacingTimes(1) defaultSpacingTimes(10);
+}
+
+.menuTriggerButton {
+  margin-left: auto;
+}
+
+.menuTriggerIcon {
+  font-size: 2rem;
+}
+
+.list {
+  margin-left: defaultSpacingTimes(0.5);
+}
+
+.menuItem {
+  margin: defaultSpacingTimes(8) 0;
+  font-size: 1.5rem;
+}
+
+.navbarLinkText {
+  color: $navbar-text-color; 
+}
+
+.contactNumberLinkWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.contactNumberLink {
+  color: $primary-contrast-color;
+  text-decoration: none;
+  font-family: $primary-font-family;
+  font-weight: 300;
+  font-size: 1.5rem;
+}

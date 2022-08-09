@@ -1,11 +1,13 @@
 @import '../../styles/functions.scss';
 @import '../../styles/colors.scss';
 @import '../../styles/fonts.scss';
+@import '../../styles/variables.scss';
 
-$button-size: defaultSpacingTimes(7);
+$default-button-size: defaultSpacingTimes(7);
+$medium-screen-button-size: defaultSpacingTimes(6);
 
 .buttonElement {
-  height: $button-size;
+  height: $default-button-size;
   text-decoration: none;
   border-radius: 9999px;
   display: flex;
@@ -19,8 +21,8 @@ $button-size: defaultSpacingTimes(7);
 }
 
 .circleButton {
-  width: $button-size;
-  height: $button-size;
+  width: $default-button-size;
+  height: $default-button-size;
 }
 
 .primaryButton, .outlinedContrastButton {
@@ -46,7 +48,21 @@ $button-size: defaultSpacingTimes(7);
 }
 
 .buttonImage {
-  width: 1rem;
-  margin-right: defaultSpacingTimes(1);
+  width: 1.5rem;
+}
+
+.disabledBorder {
+  border: none;
+}
+
+@media (max-width: $medium-screen-breakpoint) {
+  .buttonElement {
+    height: $medium-screen-button-size;
+  }
+
+  .circleButton {
+    width: $medium-screen-button-size;
+    height: $medium-screen-button-size;
+  }
 }
 

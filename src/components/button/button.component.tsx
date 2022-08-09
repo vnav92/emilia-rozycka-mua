@@ -7,6 +7,7 @@ type ButtonProps = {
   className?: string;
   variant?: "primary" | "secondary" | "outlined" | "outlined-contrast";
   isCircleShape?: boolean;
+  isBorderDisabled?: boolean;
   imageUrl?: string;
 } & ({ onClick: () => void } | { href: string }) &
   (
@@ -18,6 +19,7 @@ export const Button: React.FC<ButtonProps> = ({
   className,
   variant = "primary",
   isCircleShape,
+  isBorderDisabled,
   imageUrl,
   children,
   ...props
@@ -34,6 +36,7 @@ export const Button: React.FC<ButtonProps> = ({
           [styles.outlinedButton]: variant === "outlined",
           [styles.outlinedContrastButton]: variant === "outlined-contrast",
           [styles.circleButton]: isCircleShape,
+          [styles.disabledBorder]: isBorderDisabled,
         },
         className
       )}

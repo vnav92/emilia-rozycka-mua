@@ -1,6 +1,7 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/functions.scss';
 @import '../../../styles/fonts.scss';
+@import '../../../styles/variables.scss';
 
 .reviewsSection {
   padding: defaultSpacingTimes(4) 0 defaultSpacingTimes(8);
@@ -60,4 +61,15 @@
 .detailsLink {
   margin: auto;
   margin-top: defaultSpacingTimes(1.5);
+}
+
+@media (max-width: $small-screen-breakpoint) {
+  .reviewItem {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      margin-top: defaultSpacingTimes(2);
+    }
+  }
 }

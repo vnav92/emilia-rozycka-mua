@@ -1,0 +1,13 @@
+@import '../../styles/variables.scss';
+
+@media screen and (max-width: $medium-screen-breakpoint) {
+  .desktopNavbar {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $medium-screen-breakpoint) {
+  .mobileNavbar {
+    display: none !important;
+  }
+}

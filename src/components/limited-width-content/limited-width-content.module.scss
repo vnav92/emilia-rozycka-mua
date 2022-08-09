@@ -1,11 +1,16 @@
+@import '../../styles/functions.scss';
+
 $content-max-width: 1102px;
 
 .wrapper {
   height: 100%;
+  padding-left: defaultSpacingTimes(4) !important;
+  padding-right: defaultSpacingTimes(4) !important;
 }
 
 .contentWrapper {
   max-width: $content-max-width;
+  width: 100%;
   margin: auto;
   height: 100%;
 }

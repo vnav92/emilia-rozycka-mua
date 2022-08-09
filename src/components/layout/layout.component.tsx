@@ -5,6 +5,9 @@ import { DesktopNavbar } from "../desktop-navbar";
 import { getImageUrl } from "../../shared/utils";
 import { Footer } from "../footer";
 
+import * as styles from "./layout.module.scss";
+import { MobileNavbar } from "../mobile-navbar/mobile-navbar.component";
+
 export const Layout = ({ children }) => {
   const { allWpPage, allWpPost } = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -12,6 +15,7 @@ export const Layout = ({ children }) => {
         edges {
           node {
             title
+            menuOrder
           }
         }
       }
@@ -37,21 +41,26 @@ export const Layout = ({ children }) => {
     }
   `);
 
-  const menuElements = allWpPage.edges.map(({ node }) => ({
-    label: node.title,
-    href: `/${node.title}`,
-  }));
+  const menuElements = allWpPage.edges
+    .sort(({ menuOrder }) => menuOrder)
+    .map(({ node }) => ({
+      label: node.title,
+      href: `/${node.title}`,
+    }));
 
   const { contactnumber, designbylogo, emailaddress, simplelogo, fulllogo } =
     allWpPost.edges[0].node.navbar;
 
+  const navbarProps = {
+    menuElements,
+    contactNumber: contactnumber,
+    logoUrl: getImageUrl(simplelogo),
+  };
+
   return (
     <>
-      <DesktopNavbar
-        menuElements={menuElements}
-        contactNumber={contactnumber}
-        logoUrl={getImageUrl(simplelogo)}
-      />
+      <DesktopNavbar {...navbarProps} className={styles.desktopNavbar} />
+      <MobileNavbar {...navbarProps} className={styles.mobileNavbar} />
       <main>{children}</main>
       <Footer
         logoUrl={getImageUrl(fulllogo)}

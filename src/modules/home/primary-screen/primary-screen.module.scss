@@ -1,6 +1,10 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/variables.scss';
 @import '../../../styles/functions.scss';
+@import '../../../styles/fonts.scss';
+
+$owner-job-title-font-size: 1.125rem;
+$owner-name-font-size: 4rem;
 
 .introductionSection {
   height: 70vh;
@@ -13,6 +17,7 @@
   height: 50vh;
   width: 100%;
   background-size: cover;
+  background-position: center;
 }
 
 .primaryContent {
@@ -33,16 +38,17 @@
 .socialLinksWrapper {
   align-items: flex-end;
   gap: defaultSpacingTimes(3);
-  padding-bottom: defaultSpacingTimes(1.75);
   justify-content: flex-end;
 }
 
 .ownerJobTitle {
-  font-size: 1.125rem;
+  font-size: $owner-job-title-font-size;
 }
 
 .ownerName {
-  font-size: 4rem;
+  font-size: $owner-name-font-size;
+  font-family: $secondary-font-family;
+  margin-bottom: -#{defaultSpacingTimes(2)};
 }
 
 .scrollDownButton {
@@ -52,3 +58,37 @@
   position: absolute;
   bottom: -#{calc(defaultSpacingTimes(10.875) / 2)};
 }
+
+.scrollDownButtonIcon {
+  height: defaultSpacingTimes(5);
+}
+
+@media (max-width: $medium-screen-breakpoint) {
+  .primaryContent {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .socialLinksWrapper {
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex: unset;
+    height: unset;
+    margin-top: defaultSpacingTimes(2);
+  }
+} 
+
+@media (max-width: $small-screen-breakpoint) {
+  .socialLinksWrapper {
+    gap: defaultSpacingTimes(1.5);
+  }
+
+  .ownerJobTitle {
+    font-size: calc($owner-job-title-font-size * $small-screen-font-multiplier);
+  }
+  
+  .ownerName {
+    font-size: calc($owner-name-font-size * $small-screen-font-multiplier);
+  }
+}
+
