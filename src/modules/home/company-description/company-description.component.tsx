@@ -1,6 +1,7 @@
 import React from "react";
 
 import { LimitedWidthContent, RedirectionLink } from "../../../components";
+import { SCROLL_TO_ELEMENT_ID } from "../../../shared";
 
 import * as styles from "./company-description.module.scss";
 
@@ -20,7 +21,10 @@ export const CompanyDescription: React.FC<CompanyDescriptionProps> = ({
   bioRedirectionLinkHref,
 }) => {
   return (
-    <LimitedWidthContent className={styles.descriptionSection}>
+    <LimitedWidthContent
+      className={styles.descriptionSection}
+      id={SCROLL_TO_ELEMENT_ID}
+    >
       <div
         className={styles.primaryDescription}
         dangerouslySetInnerHTML={{ __html: primaryDescription }}

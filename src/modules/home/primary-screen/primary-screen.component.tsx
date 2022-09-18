@@ -9,7 +9,12 @@ import {
   MessengerContactLink,
   SocialIconLink,
 } from "../../../components";
-import { getImageData, Image } from "../../../shared";
+import {
+  getImageData,
+  Image,
+  SCROLL_TO_ELEMENT_ID,
+  ELEMENT_SCROLL_OFFSET_PX,
+} from "../../../shared";
 
 import * as styles from "./primary-screen.module.scss";
 
@@ -74,14 +79,25 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
             buttonVariant="outlined-contrast"
             linkUrl=""
           >
+            {/* TODO Set configurable link text */}
             Wyślij wiadomość
           </MessengerContactLink>
+          {/* TODO Set configurable HREFs */}
           <SocialIconLink href="" socialMediaType="instagram" />
           <SocialIconLink href="" socialMediaType="email" />
         </div>
         <Button
-          // TODO add scroll down callback
-          onClick={() => {}}
+          onClick={() => {
+            const sectionToScroll = document.querySelector(
+              `#${SCROLL_TO_ELEMENT_ID}`
+            );
+            window.scrollTo({
+              behavior: "smooth",
+              top:
+                sectionToScroll.getBoundingClientRect().top -
+                ELEMENT_SCROLL_OFFSET_PX,
+            });
+          }}
           // TODO make this text configurable when i18n will be introduced
           ariaLabel="Przycisk służący do przewinięcia widoku w dół"
           variant="secondary"
