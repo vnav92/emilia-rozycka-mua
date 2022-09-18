@@ -13,7 +13,7 @@ import { useOnClickOutside } from "./use-click-outside.hook";
 
 export const MobileNavbar: React.FC<NavbarProps> = ({
   menuElements,
-  logoUrl,
+  logo,
   contactNumber,
   className,
 }) => {
@@ -23,7 +23,7 @@ export const MobileNavbar: React.FC<NavbarProps> = ({
   useOnClickOutside(mobileNavbarRef, () => setIsMenuVisible(false));
 
   return (
-    <NavbarWrapper logoUrl={logoUrl} className={className}>
+    <NavbarWrapper logo={logo} className={className}>
       <Button
         onClick={() => setIsMenuVisible(isVisible => !isVisible)}
         isBorderDisabled={true}
