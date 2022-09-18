@@ -3,13 +3,14 @@ import classNames from "classnames";
 
 import { Typography } from "../";
 import { TypographyColor } from "../typography";
+import { Image } from "../../shared";
 
 import * as styles from "./section-header.module.scss";
 
 type SectionHeaderProps = {
   as: "h2" | "h3" | "h4" | "h5" | "h6";
   color?: TypographyColor;
-  iconUrl: string;
+  icon: Image;
   className?: string;
   children: React.ReactNode;
 };
@@ -17,7 +18,7 @@ type SectionHeaderProps = {
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
   as,
   color = TypographyColor.PRIMARY_CONTRAST,
-  iconUrl,
+  icon,
   className,
   children,
 }) => {
@@ -28,7 +29,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       className={classNames(styles.sectionHeader, className)}
     >
       <span className={styles.sectionHeaderText}>{children}</span>
-      <img src={iconUrl} alt="Section icon" className={styles.icon} />
+      <img src={icon.mediaItemUrl} alt={icon.altText} className={styles.icon} />
     </Typography>
   );
 };

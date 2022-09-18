@@ -6,6 +6,7 @@ import {
   TypographyColor,
   MessengerContactLink,
 } from "../../../components";
+import { Image } from "../../../shared";
 
 import * as styles from "./future-bookings.module.scss";
 
@@ -15,7 +16,7 @@ type FutureBookingsProps = {
   lineThree: string;
   linkText: string;
   linkUrl: string;
-  backgroundImageUrl: string;
+  backgroundImage: Image;
 };
 
 export const FutureBookings: React.FC<FutureBookingsProps> = ({
@@ -24,12 +25,12 @@ export const FutureBookings: React.FC<FutureBookingsProps> = ({
   lineThree,
   linkText,
   linkUrl,
-  backgroundImageUrl,
+  backgroundImage,
 }) => {
   return (
     <section
       className={styles.futureBookingsSection}
-      style={{ backgroundImage: `url('${backgroundImageUrl}')` }}
+      style={{ backgroundImage: `url('${backgroundImage.mediaItemUrl}')` }}
     >
       <LimitedWidthContent
         renderAs="div"

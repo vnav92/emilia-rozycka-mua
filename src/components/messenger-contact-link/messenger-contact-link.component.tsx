@@ -3,7 +3,7 @@ import { Button } from "../button";
 import classNames from "classnames";
 
 import { useStaticQuery, graphql } from "gatsby";
-import { getImageUrl } from "../../shared/utils";
+import { getImageData } from "../../shared/utils";
 
 import * as styles from "./messenger-contact-link.module.scss";
 
@@ -32,9 +32,11 @@ export const MessengerContactLink: React.FC<MessengerContactLinkProps> = ({
             icons {
               lightbackgroundmessengericon {
                 mediaItemUrl
+                altText
               }
               darkbackgroundmessengericon {
                 mediaItemUrl
+                altText
               }
             }
           }
@@ -43,7 +45,7 @@ export const MessengerContactLink: React.FC<MessengerContactLinkProps> = ({
     }
   `);
 
-  const messengerIconUrl = getImageUrl(
+  const messengerIcon = getImageData(
     allWpPost.edges[0].node.icons[
       iconVariant === "dark-background"
         ? "darkbackgroundmessengericon"
@@ -54,7 +56,7 @@ export const MessengerContactLink: React.FC<MessengerContactLinkProps> = ({
   return (
     <Button
       href={linkUrl}
-      imageUrl={messengerIconUrl}
+      image={messengerIcon}
       variant={buttonVariant}
       className={classNames(
         styles.actionButton,

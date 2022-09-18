@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../button";
 import { useStaticQuery, graphql } from "gatsby";
-import { getImageUrl } from "../../shared/utils";
+import { getImageData } from "../../shared/utils";
 
 type SocialIconLinkProps = {
   socialMediaType: "instagram" | "email";
@@ -29,9 +29,11 @@ export const SocialIconLink: React.FC<SocialIconLinkProps> = ({
             icons {
               outlinedinstagramicon {
                 mediaItemUrl
+                altText
               }
               outlinedemailicon {
                 mediaItemUrl
+                altText
               }
             }
           }
@@ -40,14 +42,14 @@ export const SocialIconLink: React.FC<SocialIconLinkProps> = ({
     }
   `);
 
-  const iconUrl = getImageUrl(
+  const icon = getImageData(
     allWpPost.edges[0].node.icons[socialTypeToIconGroup[socialMediaType]]
   );
 
   return (
     <Button
       variant="outlined-contrast"
-      imageUrl={iconUrl}
+      image={icon}
       href={href}
       isCircleShape={true}
     />

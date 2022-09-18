@@ -8,20 +8,20 @@ import {
   TypographyFontFamily,
   RedirectionLink,
 } from "../../../components";
+import { getImageData, Image } from "../../../shared/utils";
 
 import * as styles from "./reviews.module.scss";
-import { getImageUrl } from "../../../shared/utils";
 
 type ReviewsProps = {
   sectionTitle: React.ReactNode;
-  sectionTitleIconUrl: string;
+  sectionTitleIcon: Image;
   detailsLinkText: string;
   detailsLinkUrl: string;
 };
 
 export const Reviews: React.FC<ReviewsProps> = ({
   sectionTitle,
-  sectionTitleIconUrl,
+  sectionTitleIcon,
   detailsLinkText,
   detailsLinkUrl,
 }) => {
@@ -40,6 +40,7 @@ export const Reviews: React.FC<ReviewsProps> = ({
               authorname
               authorphoto {
                 mediaItemUrl
+                altText
               }
               reviewcontent
             }
@@ -53,7 +54,7 @@ export const Reviews: React.FC<ReviewsProps> = ({
 
   return (
     <LimitedWidthContent className={styles.reviewsSection}>
-      <SectionHeader as="h3" iconUrl={sectionTitleIconUrl}>
+      <SectionHeader as="h3" icon={sectionTitleIcon}>
         {sectionTitle}
       </SectionHeader>
       <div className={styles.contentWrapper}>
@@ -68,7 +69,8 @@ export const Reviews: React.FC<ReviewsProps> = ({
                   <div className={styles.authorSectionContent}>
                     <img
                       className={styles.authorPhoto}
-                      src={getImageUrl(authorphoto)}
+                      src={getImageData(authorphoto).mediaItemUrl}
+                      alt={getImageData(authorphoto).altText}
                     />
                     <div>
                       <Typography

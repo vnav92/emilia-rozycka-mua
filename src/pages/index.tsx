@@ -10,7 +10,7 @@ import {
   FutureBookings,
 } from "../modules";
 
-import { getImageUrl } from "../shared/utils";
+import { getImageData } from "../shared/utils";
 
 import { Layout } from "../components";
 
@@ -38,9 +38,11 @@ const IndexPage = () => {
               offersubpageredirectionlinkhref
               offersectionicon {
                 mediaItemUrl
+                altText
               }
               portfoliosectionicon {
                 mediaItemUrl
+                altText
               }
               portfoliosectiontitle
               portfoliotopphoto {
@@ -48,14 +50,17 @@ const IndexPage = () => {
               }
               portfoliomiddlephoto {
                 mediaItemUrl
+                altText
               }
               portfoliobottomphoto {
                 mediaItemUrl
+                altText
               }
               portfoliodetailslinktext
               portfoliodetailslinkurl
               reviewssectionicon {
                 mediaItemUrl
+                altText
               }
               reviewssectiontitle
               reviewsdetailslinkurl
@@ -67,6 +72,7 @@ const IndexPage = () => {
               futurebookingslinkurl
               futurebookingsbackgroundimage {
                 mediaItemUrl
+                altText
               }
             }
           }
@@ -113,7 +119,7 @@ const IndexPage = () => {
       <PrimaryScreen
         ownerJobTitle={ownerjobtitle}
         ownerName={ownername}
-        primaryImageUrl={getImageUrl(primaryimage)}
+        primaryImage={getImageData(primaryimage)}
       />
       <CompanyDescription
         primaryDescription={primarydescription}
@@ -124,7 +130,7 @@ const IndexPage = () => {
       />
       <Offer
         sectionTitle={offersectiontitle}
-        sectionTitleIconUrl={getImageUrl(offersectionicon)}
+        sectionTitleIcon={getImageData(offersectionicon)}
         primaryDescription={offerprimarydescription}
         sectionInstruction={offersectioninstruction}
         detailsRedirectionLinkText={offersubpageredirectionlinktext}
@@ -132,16 +138,16 @@ const IndexPage = () => {
       />
       <Portfolio
         sectionTitle={portfoliosectiontitle}
-        sectionTitleIconUrl={getImageUrl(portfoliosectionicon)}
-        topImageUrl={getImageUrl(portfoliotopphoto)}
-        middleImageUrl={getImageUrl(portfoliomiddlephoto)}
-        bottomImageUrl={getImageUrl(portfoliobottomphoto)}
+        sectionTitleIcon={getImageData(portfoliosectionicon)}
+        topImage={getImageData(portfoliotopphoto)}
+        middleImage={getImageData(portfoliomiddlephoto)}
+        bottomImage={getImageData(portfoliobottomphoto)}
         detailsLinkText={portfoliodetailslinktext}
-        detailtLinkUrl={portfoliodetailslinkurl}
+        detailsLinkUrl={portfoliodetailslinkurl}
       />
       <Reviews
         sectionTitle={reviewssectiontitle}
-        sectionTitleIconUrl={getImageUrl(reviewssectionicon)}
+        sectionTitleIcon={getImageData(reviewssectionicon)}
         detailsLinkText={reviewsdetailslinktext}
         detailsLinkUrl={reviewsdetailslinkurl}
       />
@@ -151,7 +157,7 @@ const IndexPage = () => {
         lineThree={futurebookingslinethree}
         linkText={futurebookingslinktext}
         linkUrl={futurebookingslinkurl}
-        backgroundImageUrl={getImageUrl(futurebookingsbackgroundimage)}
+        backgroundImage={getImageData(futurebookingsbackgroundimage)}
       />
     </Layout>
   );
