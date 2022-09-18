@@ -8,13 +8,13 @@ import {
   RedirectionLink,
   ImageLink,
 } from "../../../components";
-import { getImageUrl } from "../../../shared/utils";
-
+import { getImageData } from "../../../shared/utils";
+import { Image } from "../../../shared";
 import * as styles from "./offer.module.scss";
 
 type OfferProps = {
   sectionTitle: React.ReactNode;
-  sectionTitleIconUrl: string;
+  sectionTitleIcon: Image;
   primaryDescription: React.ReactNode;
   sectionInstruction: React.ReactNode;
   detailsRedirectionLinkText: React.ReactNode;
@@ -26,7 +26,7 @@ const tabletColumnsNumber = 2;
 
 export const Offer: React.FC<OfferProps> = ({
   sectionTitle,
-  sectionTitleIconUrl,
+  sectionTitleIcon,
   primaryDescription,
   sectionInstruction,
   detailsRedirectionLinkText,
@@ -79,7 +79,7 @@ export const Offer: React.FC<OfferProps> = ({
       <div className={styles.topSection}>
         <SectionHeader
           as="h3"
-          iconUrl={sectionTitleIconUrl}
+          icon={sectionTitleIcon}
           className={styles.sectionHeader}
         >
           {sectionTitle}
@@ -102,7 +102,7 @@ export const Offer: React.FC<OfferProps> = ({
             <ImageLink
               key={index}
               to=""
-              imageUrl={getImageUrl(image)}
+              image={getImageData(image)}
               linkClassName={classNames(
                 styles.offerLink,
                 getCustomItemClassName(index)

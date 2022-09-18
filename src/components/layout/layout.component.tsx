@@ -2,11 +2,11 @@ import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 import { DesktopNavbar } from "../desktop-navbar";
-import { getImageUrl } from "../../shared/utils";
+import { getImageData } from "../../shared/utils";
 import { Footer } from "../footer";
+import { MobileNavbar } from "../mobile-navbar/mobile-navbar.component";
 
 import * as styles from "./layout.module.scss";
-import { MobileNavbar } from "../mobile-navbar/mobile-navbar.component";
 
 export const Layout = ({ children }) => {
   const { allWpPage, allWpPost } = useStaticQuery(graphql`
@@ -27,12 +27,15 @@ export const Layout = ({ children }) => {
               emailaddress
               simplelogo {
                 mediaItemUrl
+                altText
               }
               fulllogo {
                 mediaItemUrl
+                altText
               }
               designbylogo {
                 mediaItemUrl
+                altText
               }
             }
           }
@@ -54,7 +57,7 @@ export const Layout = ({ children }) => {
   const navbarProps = {
     menuElements,
     contactNumber: contactnumber,
-    logoUrl: getImageUrl(simplelogo),
+    logo: getImageData(simplelogo),
   };
 
   return (
@@ -63,10 +66,10 @@ export const Layout = ({ children }) => {
       <MobileNavbar {...navbarProps} className={styles.mobileNavbar} />
       <main>{children}</main>
       <Footer
-        logoUrl={getImageUrl(fulllogo)}
+        logo={getImageData(fulllogo)}
         contactNumber={contactnumber}
         emailAddress={emailaddress}
-        designByLogoUrl={getImageUrl(designbylogo)}
+        designByLogo={getImageData(designbylogo)}
       />
     </>
   );

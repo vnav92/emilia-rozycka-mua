@@ -10,12 +10,12 @@ import * as styles from "./desktop-navbar.module.scss";
 
 export const DesktopNavbar: React.FC<NavbarProps> = ({
   menuElements,
-  logoUrl,
+  logo,
   contactNumber,
   className,
 }) => {
   return (
-    <NavbarWrapper logoUrl={logoUrl} className={className}>
+    <NavbarWrapper logo={logo} className={className}>
       <ul className={styles.menuItemsList}>
         {menuElements.map(({ href, label }, index) => (
           <li className={styles.menuItem} key={index}>

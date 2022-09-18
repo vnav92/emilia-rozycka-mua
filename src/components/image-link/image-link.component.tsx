@@ -3,31 +3,29 @@ import { Link } from "gatsby";
 import classNames from "classnames";
 
 import { Typography, TypographyFontFamily } from "../typography";
+import { Image } from "../../shared";
 
 import * as styles from "./image-link.module.scss";
 
 type ImageLinkProps = {
-  imageUrl: string;
+  image: Image;
   to: string;
-  // @TODO remove optional
-  alt?: string;
   imageClassName?: string;
   linkClassName?: string;
   children: React.ReactNode;
 };
 
 export const ImageLink: React.FC<ImageLinkProps> = ({
-  imageUrl,
+  image,
   to,
-  alt = "",
   imageClassName,
   linkClassName,
   children,
 }) => (
   <Link to={to} className={classNames(styles.link, linkClassName)}>
     <img
-      src={imageUrl}
-      alt={alt}
+      src={image.mediaItemUrl}
+      alt={image.altText}
       className={classNames(styles.image, imageClassName)}
     />
     <Typography

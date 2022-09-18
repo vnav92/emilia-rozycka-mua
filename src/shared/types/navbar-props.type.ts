@@ -1,3 +1,5 @@
+import { Image } from "./image.type";
+
 type MenuElement = {
   label: string;
   href: string;
@@ -5,7 +7,7 @@ type MenuElement = {
 
 export type NavbarProps = {
   menuElements: MenuElement[];
-  logoUrl: string;
+  logo: Image;
   contactNumber: string;
   className?: string;
 };

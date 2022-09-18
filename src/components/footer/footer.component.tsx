@@ -1,27 +1,32 @@
 import React from "react";
 
 import { LimitedWidthContent } from "../limited-width-content";
+import { Image } from "../../shared";
 
 import * as styles from "./footer.module.scss";
 
 type FooterProps = {
-  logoUrl: string;
+  logo: Image;
   contactNumber: string;
   emailAddress: string;
-  designByLogoUrl: string;
+  designByLogo: Image;
 };
 
 export const Footer: React.FC<FooterProps> = ({
-  logoUrl,
+  logo,
   contactNumber,
   emailAddress,
-  designByLogoUrl,
+  designByLogo,
 }) => {
   return (
     <LimitedWidthContent renderAs="footer" className={styles.footerWrapper}>
       <div className={styles.mainContent}>
         <div className={styles.contactSection}>
-          <img src={logoUrl} alt="" className={styles.logo} />
+          <img
+            src={logo.mediaItemUrl}
+            alt={logo.altText}
+            className={styles.logo}
+          />
           <div className={styles.contactLinksSection}>
             <a href={`tel:${contactNumber}`} className={styles.telLink}>
               {contactNumber}
@@ -34,13 +39,18 @@ export const Footer: React.FC<FooterProps> = ({
         <div className={styles.linksSection}></div>
       </div>
       <div className={styles.copyrightSection}>
+        {/* TODO Make configurable */}
         <span>
           Copyright &copy; {new Date().getFullYear()} Makeup artist Emilia
           Różycka
         </span>
         <div className={styles.designBySection}>
           Design by{" "}
-          <img src={designByLogoUrl} alt="" className={styles.designByLogo} />
+          <img
+            src={designByLogo.mediaItemUrl}
+            alt={designByLogo.altText}
+            className={styles.designByLogo}
+          />
         </div>
       </div>
     </LimitedWidthContent>

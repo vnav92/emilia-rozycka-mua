@@ -9,20 +9,20 @@ import {
   MessengerContactLink,
   SocialIconLink,
 } from "../../../components";
-import { getImageUrl } from "../../../shared/utils";
+import { getImageData, Image } from "../../../shared";
 
 import * as styles from "./primary-screen.module.scss";
 
 type PrimaryScreenProps = {
   ownerJobTitle: string;
   ownerName: string;
-  primaryImageUrl: string;
+  primaryImage: Image;
 };
 
 export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
   ownerJobTitle,
   ownerName,
-  primaryImageUrl,
+  primaryImage,
 }) => {
   const { allWpPost } = useStaticQuery(graphql`
     query DownIconQuery {
@@ -36,6 +36,7 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
             icons {
               lightbackgrounddownicon {
                 mediaItemUrl
+                altText
               }
             }
           }
@@ -44,7 +45,7 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
     }
   `);
 
-  const downIconUrl = getImageUrl(
+  const downIcon = getImageData(
     allWpPost.edges[0].node.icons.lightbackgrounddownicon
   );
 
@@ -79,20 +80,23 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
           <SocialIconLink href="" socialMediaType="email" />
         </div>
         <Button
+          // TODO add scroll down callback
           onClick={() => {}}
+          // TODO make this text configurable when i18n will be introduced
+          ariaLabel="Przycisk służący do przewinięcia widoku w dół"
           variant="secondary"
           className={styles.scrollDownButton}
         >
           <img
-            src={downIconUrl}
-            alt=""
+            src={downIcon.mediaItemUrl}
+            alt={downIcon.altText}
             className={styles.scrollDownButtonIcon}
           />
         </Button>
       </LimitedWidthContent>
       <div
         className={styles.primaryPhotoSection}
-        style={{ backgroundImage: `url("${primaryImageUrl}")` }}
+        style={{ backgroundImage: `url("${primaryImage.mediaItemUrl}")` }}
       />
     </section>
   );

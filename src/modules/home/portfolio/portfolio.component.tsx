@@ -5,40 +5,53 @@ import {
   SectionHeader,
   RedirectionLink,
 } from "../../../components";
+import { Image } from "../../../shared";
 
 import * as styles from "./portfolio.module.scss";
 
 type PortfolioProps = {
   sectionTitle: React.ReactNode;
-  sectionTitleIconUrl: string;
-  topImageUrl: string;
-  middleImageUrl: string;
-  bottomImageUrl: string;
+  sectionTitleIcon: Image;
+  topImage: Image;
+  middleImage: Image;
+  bottomImage: Image;
   detailsLinkText: React.ReactNode;
-  detailtLinkUrl: string;
+  detailsLinkUrl: string;
 };
 
 export const Portfolio: React.FC<PortfolioProps> = ({
   sectionTitle,
-  sectionTitleIconUrl,
-  topImageUrl,
+  sectionTitleIcon,
+  topImage,
   // @TODO add alt
-  middleImageUrl,
-  bottomImageUrl,
+  middleImage,
+  bottomImage,
   detailsLinkText,
-  detailtLinkUrl,
+  detailsLinkUrl,
 }) => {
   return (
     <LimitedWidthContent className={styles.portfolioSection}>
-      <SectionHeader as="h3" iconUrl={sectionTitleIconUrl}>
+      <SectionHeader as="h3" icon={sectionTitleIcon}>
         {sectionTitle}
       </SectionHeader>
       <div className={styles.contentWrapper}>
-        <img className={styles.topImage} src={topImageUrl} alt="" />
-        <img className={styles.middleImage} src={middleImageUrl} alt="" />
-        <img className={styles.bottomImage} src={bottomImageUrl} alt="" />
+        <img
+          className={styles.topImage}
+          src={topImage.mediaItemUrl}
+          alt={topImage.altText}
+        />
+        <img
+          className={styles.middleImage}
+          src={middleImage.mediaItemUrl}
+          alt={middleImage.altText}
+        />
+        <img
+          className={styles.bottomImage}
+          src={bottomImage.mediaItemUrl}
+          alt={bottomImage.altText}
+        />
         <div className={styles.detailsButtonWrapper}>
-          <RedirectionLink to={detailtLinkUrl} className={styles.detailsLink}>
+          <RedirectionLink to={detailsLinkUrl} className={styles.detailsLink}>
             {detailsLinkText}
           </RedirectionLink>
         </div>

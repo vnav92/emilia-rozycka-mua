@@ -1,6 +1,8 @@
 import React from "react";
 import classNames from "classnames";
 
+import { Image } from "../../shared";
+
 import * as styles from "./button.module.scss";
 
 type ButtonProps = {
@@ -8,7 +10,8 @@ type ButtonProps = {
   variant?: "primary" | "secondary" | "outlined" | "outlined-contrast";
   isCircleShape?: boolean;
   isBorderDisabled?: boolean;
-  imageUrl?: string;
+  image?: Image;
+  ariaLabel?: string;
 } & ({ onClick: () => void } | { href: string }) &
   (
     | { imageUrl: string; children?: React.ReactNode | React.ReactNode[] }
@@ -20,7 +23,8 @@ export const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   isCircleShape,
   isBorderDisabled,
-  imageUrl,
+  image,
+  ariaLabel,
   children,
   ...props
 }) => {
@@ -28,6 +32,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <ButtonElement
+      aria-label={ariaLabel}
       className={classNames(
         styles.buttonElement,
         {
@@ -42,7 +47,13 @@ export const Button: React.FC<ButtonProps> = ({
       )}
       {...("href" in props ? { href: props.href } : { onClick: props.onClick })}
     >
-      {imageUrl && <img src={imageUrl} className={styles.buttonImage} />}
+      {image && (
+        <img
+          src={image.mediaItemUrl}
+          alt={image.altText}
+          className={styles.buttonImage}
+        />
+      )}
       {children}
     </ButtonElement>
   );
