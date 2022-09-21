@@ -47,14 +47,16 @@ export const Button: React.FC<ButtonProps> = ({
       )}
       {...("href" in props ? { href: props.href } : { onClick: props.onClick })}
     >
-      {image && (
-        <img
-          src={image.mediaItemUrl}
-          alt={image.altText}
-          className={styles.buttonImage}
-        />
-      )}
-      {children}
+      <div className={styles.contentWrapper}>
+        {image && (
+          <img
+            src={image.mediaItemUrl}
+            alt={image.altText}
+            className={styles.buttonImage}
+          />
+        )}
+        {children}
+      </div>
     </ButtonElement>
   );
 };
