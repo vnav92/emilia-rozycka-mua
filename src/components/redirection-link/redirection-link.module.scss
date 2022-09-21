@@ -12,7 +12,7 @@
 }
 
 .redirectionLinkText {
-  background: linear-gradient(109.8deg, #D15B41 0%, #D14145 15.81%, #C629CB 100%);
+  background: $primary-gradient-color;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

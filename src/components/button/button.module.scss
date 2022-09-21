@@ -13,11 +13,19 @@ $medium-screen-button-size: defaultSpacingTimes(6);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: defaultSpacingTimes(2) defaultSpacingTimes(2);
   font-size: 1rem;
   font-family: $primary-font-family;
   text-transform: uppercase;
   cursor: pointer;
+  border: 1px solid transparent;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+
+  &:hover {
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    border: 1px solid transparent;
+  }
 }
 
 .circleButton {
@@ -25,14 +33,29 @@ $medium-screen-button-size: defaultSpacingTimes(6);
   height: $default-button-size;
 }
 
+.contentWrapper {
+  padding: defaultSpacingTimes(2) defaultSpacingTimes(2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .primaryButton, .outlinedContrastButton {
-  border: 1px solid $primary-contrast-color;
+  background-image: linear-gradient($primary-color, $primary-color), linear-gradient(rgba($primary-contrast-color, 0.3), rgba($primary-contrast-color, 0.3));
   color: $primary-contrast-color;
+
+  &:hover {
+    background-image: linear-gradient($primary-color, $primary-color), $primary-gradient-color;
+  }
 }
 
 .secondaryButton, .outlinedButton {
-  border: 1px solid $primary-color;
+  background-image: linear-gradient($primary-contrast-color, $primary-contrast-color), linear-gradient(rgba($primary-color, 0.3), rgba($primary-color, 0.3));
   color: $primary-color;
+
+  &:hover {
+    background-image: linear-gradient($primary-contrast-color, $primary-contrast-color), $primary-gradient-color;
+  }
 }
 
 .outlinedButton, .outlinedContrastbutton {
