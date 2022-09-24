@@ -67,7 +67,6 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
   const { emailaddress: emailAddress, instagramlink: instagramLink } =
     result.globalData.edges[0].node.navbar;
 
-  console.log("======>", result.globalData.edges[0].node);
   return (
     <section>
       <LimitedWidthContent
