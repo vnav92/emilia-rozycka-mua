@@ -1,4 +1,5 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 import {
   LimitedWidthContent,
@@ -15,7 +16,6 @@ type FutureBookingsProps = {
   lineTwo: string;
   lineThree: string;
   linkText: string;
-  linkUrl: string;
   backgroundImage: Image;
 };
 
@@ -24,9 +24,24 @@ export const FutureBookings: React.FC<FutureBookingsProps> = ({
   lineTwo,
   lineThree,
   linkText,
-  linkUrl,
   backgroundImage,
 }) => {
+  const { allWpPost } = useStaticQuery(graphql`
+    query GlobalDataQuery {
+      allWpPost(filter: { title: { eq: "global-data" } }) {
+        edges {
+          node {
+            navbar {
+              facebooklink
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const facebookLink = allWpPost.edges[0].node.navbar.facebooklink;
+
   return (
     <section
       className={styles.futureBookingsSection}
@@ -55,7 +70,7 @@ export const FutureBookings: React.FC<FutureBookingsProps> = ({
           </Typography>
         </div>
         <MessengerContactLink
-          linkUrl={linkUrl}
+          linkUrl={facebookLink}
           buttonVariant="outlined"
           iconVariant="light-background"
         >

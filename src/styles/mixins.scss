@@ -1,0 +1,6 @@
+@import './colors.scss';
+
+@mixin hoverUnderline {
+  border-bottom: 1px solid;
+  border-image: $primary-gradient-color 1 stretch;
+}

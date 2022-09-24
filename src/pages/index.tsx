@@ -69,7 +69,6 @@ const IndexPage = () => {
               futurebookingslineone
               futurebookingslinethree
               futurebookingslinktext
-              futurebookingslinkurl
               futurebookingsbackgroundimage {
                 mediaItemUrl
                 altText
@@ -111,7 +110,6 @@ const IndexPage = () => {
     futurebookingslineone,
     futurebookingslinethree,
     futurebookingslinktext,
-    futurebookingslinkurl,
     futurebookingsbackgroundimage,
   } = allWpPost.edges[0].node.home;
   return (
@@ -156,7 +154,6 @@ const IndexPage = () => {
         lineTwo={futurebookingslinetwo}
         lineThree={futurebookingslinethree}
         linkText={futurebookingslinktext}
-        linkUrl={futurebookingslinkurl}
         backgroundImage={getImageData(futurebookingsbackgroundimage)}
       />
     </Layout>

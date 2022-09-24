@@ -29,9 +29,9 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
   ownerName,
   primaryImage,
 }) => {
-  const { allWpPost } = useStaticQuery(graphql`
+  const result = useStaticQuery(graphql`
     query DownIconQuery {
-      allWpPost(
+      icons: allWpPost(
         filter: {
           categories: { nodes: { elemMatch: { name: { eq: "icons" } } } }
         }
@@ -47,13 +47,27 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
           }
         }
       }
+      globalData: allWpPost(filter: { title: { eq: "global-data" } }) {
+        edges {
+          node {
+            navbar {
+              emailaddress
+              instagramlink
+            }
+          }
+        }
+      }
     }
   `);
 
   const downIcon = getImageData(
-    allWpPost.edges[0].node.icons.lightbackgrounddownicon
+    result.icons.edges[0].node.icons.lightbackgrounddownicon
   );
 
+  const { emailaddress: emailAddress, instagramlink: instagramLink } =
+    result.globalData.edges[0].node.navbar;
+
+  console.log("======>", result.globalData.edges[0].node);
   return (
     <section>
       <LimitedWidthContent
@@ -82,9 +96,11 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
             {/* TODO Set configurable link text */}
             Wyślij wiadomość
           </MessengerContactLink>
-          {/* TODO Set configurable HREFs */}
-          <SocialIconLink href="" socialMediaType="instagram" />
-          <SocialIconLink href="" socialMediaType="email" />
+          <SocialIconLink href={instagramLink} socialMediaType="instagram" />
+          <SocialIconLink
+            href={`mailto:${emailAddress}`}
+            socialMediaType="email"
+          />
         </div>
         <Button
           onClick={() => {
