@@ -57,6 +57,12 @@ $owner-name-font-size: 4rem;
   border: 1px solid transparent;
   position: absolute;
   bottom: -#{calc(defaultSpacingTimes(10.875) / 2)};
+  background-image: unset;
+
+  &:hover {
+    border-width: 1px !important;
+    background-image: linear-gradient($primary-contrast-color, $primary-contrast-color), $primary-gradient-color;
+  }
 }
 
 .scrollDownButtonIcon {
