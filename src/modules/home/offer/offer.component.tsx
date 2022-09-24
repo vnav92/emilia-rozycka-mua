@@ -107,7 +107,7 @@ export const Offer: React.FC<OfferProps> = ({
                 styles.offerLink,
                 getCustomItemClassName(index)
               )}
-              imageClassName={classNames(styles.offerImage)}
+              imageClassName={styles.offerImage}
             >
               {title}
             </ImageLink>

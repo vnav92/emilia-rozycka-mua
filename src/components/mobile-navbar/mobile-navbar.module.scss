@@ -21,7 +21,14 @@
 }
 
 .menuTriggerButton {
+  border: 1px solid transparent;
   margin-left: auto;
+  background-image: unset;
+
+  &:hover {
+    background-image: unset;
+    border: 1px solid $primary-contrast-color;
+  }
 }
 
 .menuTriggerIcon {

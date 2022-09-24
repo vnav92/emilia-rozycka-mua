@@ -57,12 +57,26 @@ $section-instruction-font-size: 1rem;
 .offerLink {
   flex: auto;
   width: 30%;
+  overflow: hidden;
+
+  &:hover {
+    span {
+      background: $primary-gradient-color;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .offerImage {
+      scale: 1.05;
+    }
+  }
 }
 
 .offerImage {
   height: defaultSpacingTimes(42);
   width: 100%;
   object-fit: cover;
+  transition: .2s scale;
 }
 
 .desktopLastItem {

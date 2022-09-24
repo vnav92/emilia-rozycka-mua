@@ -4,11 +4,17 @@
 .redirectionLink {
   text-transform: uppercase;
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: 500;
+  border-bottom: 1px solid transparent;
+  
+  &:hover, &:focus {
+    border-bottom: 1px solid;
+    border-image: $primary-gradient-color 1 stretch;
+  }
 }
 
 .redirectionLinkText {

@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "../button";
-import classNames from "classnames";
 
 import { useStaticQuery, graphql } from "gatsby";
 import { getImageData } from "../../shared/utils";
@@ -58,10 +57,7 @@ export const MessengerContactLink: React.FC<MessengerContactLinkProps> = ({
       href={linkUrl}
       image={messengerIcon}
       variant={buttonVariant}
-      className={classNames(
-        styles.actionButton,
-        iconVariant === "dark-background" && styles.darkBackroundButton
-      )}
+      className={styles.actionButton}
     >
       {children}
     </Button>
