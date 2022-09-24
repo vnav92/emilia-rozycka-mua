@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 
 import { LimitedWidthContent } from "../limited-width-content";
 import { Image } from "../../shared";
@@ -28,12 +29,12 @@ export const Footer: React.FC<FooterProps> = ({
             className={styles.logo}
           />
           <div className={styles.contactLinksSection}>
-            <a href={`tel:${contactNumber}`} className={styles.telLink}>
+            <Link to={`tel:${contactNumber}`} className={styles.telLink}>
               {contactNumber}
-            </a>
-            <a href={`mailto:${emailAddress}`} className={styles.mailLink}>
+            </Link>
+            <Link to={`mailto:${emailAddress}`} className={styles.mailLink}>
               {emailAddress}
-            </a>
+            </Link>
           </div>
         </div>
         <div className={styles.linksSection}></div>

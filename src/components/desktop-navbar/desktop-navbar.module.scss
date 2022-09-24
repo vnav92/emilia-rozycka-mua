@@ -1,7 +1,8 @@
-@import '../../styles/variables.scss';
-@import '../../styles/colors.scss';
-@import '../../styles/fonts.scss';
-@import '../../styles/functions.scss';
+@import '../../styles/variables';
+@import '../../styles/colors';
+@import '../../styles/fonts';
+@import '../../styles/functions';
+@import '../../styles/mixins';
 
 .menuItemsList {
   list-style: none;
@@ -25,4 +26,9 @@
   text-decoration: none;
   font-family: $primary-font-family;
   font-weight: 300;
+  border-bottom: 1px solid transparent;
+
+  &:hover, &:focus {
+    @include hoverUnderline;
+  }
 }

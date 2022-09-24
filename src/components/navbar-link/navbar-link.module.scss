@@ -1,6 +1,7 @@
 @import '../../styles/colors';
 @import '../../styles/fonts';
 @import '../../styles/functions';
+@import '../../styles/mixins';
 
 .navbarLink {
   text-decoration: none;
@@ -10,7 +11,6 @@
   padding: defaultSpacingTimes(0.5);
 
   &:hover, &:focus {
-    border-bottom: 1px solid;
-    border-image: $primary-gradient-color 1 stretch;
+    @include hoverUnderline;
   }
 }
