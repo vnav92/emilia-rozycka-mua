@@ -10,4 +10,5 @@ export * from "./navbar-wrapper";
 export * from "./redirection-link";
 export * from "./section-header";
 export * from "./social-icon-link";
+export * from "./subpage-heading";
 export * from "./typography";

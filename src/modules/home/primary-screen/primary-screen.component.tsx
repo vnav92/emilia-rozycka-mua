@@ -3,11 +3,8 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import {
   LimitedWidthContent,
-  Typography,
-  TypographyFontFamily,
   Button,
-  MessengerContactLink,
-  SocialIconLink,
+  SubpageHeading,
 } from "../../../components";
 import {
   getImageData,
@@ -53,6 +50,7 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
             navbar {
               emailaddress
               instagramlink
+              facebooklink
             }
           }
         }
@@ -64,43 +62,25 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
     result.icons.edges[0].node.icons.lightbackgrounddownicon
   );
 
-  const { emailaddress: emailAddress, instagramlink: instagramLink } =
-    result.globalData.edges[0].node.navbar;
+  const {
+    emailaddress: emailAddress,
+    instagramlink: instagramLink,
+    facebooklink: facebookLink,
+  } = result.globalData.edges[0].node.navbar;
 
   return (
     <section>
       <LimitedWidthContent
         className={styles.introductionSection}
-        contentWrapperClassName={styles.primaryContent}
         renderAs="div"
       >
-        <div className={styles.ownerInfoWrapper}>
-          <Typography
-            as="h2"
-            fontFamily={TypographyFontFamily.SECONDARY}
-            className={styles.ownerJobTitle}
-          >
-            {ownerJobTitle}
-          </Typography>
-          <Typography as="h1" className={styles.ownerName}>
-            {ownerName}
-          </Typography>
-        </div>
-        <div className={styles.socialLinksWrapper}>
-          <MessengerContactLink
-            iconVariant="dark-background"
-            buttonVariant="outlined-contrast"
-            linkUrl=""
-          >
-            {/* TODO Set configurable link text */}
-            Wyślij wiadomość
-          </MessengerContactLink>
-          <SocialIconLink href={instagramLink} socialMediaType="instagram" />
-          <SocialIconLink
-            href={`mailto:${emailAddress}`}
-            socialMediaType="email"
-          />
-        </div>
+        <SubpageHeading
+          primaryTitle={ownerName}
+          secondaryTitle={ownerJobTitle}
+          emailAddress={emailAddress}
+          facebookLink={facebookLink}
+          instagramLink={instagramLink}
+        />
         <Button
           onClick={() => {
             const sectionToScroll = document.querySelector(
