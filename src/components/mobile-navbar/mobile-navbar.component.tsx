@@ -23,7 +23,7 @@ export const MobileNavbar: React.FC<NavbarProps> = ({
   useOnClickOutside(mobileNavbarRef, () => setIsMenuVisible(false));
 
   return (
-    <NavbarWrapper logo={logo} className={className}>
+    <>
       <Button
         onClick={() => setIsMenuVisible(isVisible => !isVisible)}
         isBorderDisabled={true}
@@ -59,6 +59,6 @@ export const MobileNavbar: React.FC<NavbarProps> = ({
           </Link>
         </div>
       </div>
-    </NavbarWrapper>
+    </>
   );
 };

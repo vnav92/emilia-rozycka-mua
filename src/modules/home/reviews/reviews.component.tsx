@@ -8,7 +8,7 @@ import {
   TypographyFontFamily,
   RedirectionLink,
 } from "../../../components";
-import { getImageData, Image } from "../../../shared/utils";
+import { getImageData, Image } from "../../../shared";
 
 import * as styles from "./reviews.module.scss";
 
@@ -58,42 +58,40 @@ export const Reviews: React.FC<ReviewsProps> = ({
         {sectionTitle}
       </SectionHeader>
       <div className={styles.contentWrapper}>
-        <div className={styles.reviewList}>
-          {reviewItems.map(
-            (
-              { authorcompany, authorname, authorphoto, reviewcontent },
-              index
-            ) => (
-              <div className={styles.reviewItem} key={index}>
-                <div className={styles.authorSection}>
-                  <div className={styles.authorSectionContent}>
-                    <img
-                      className={styles.authorPhoto}
-                      src={getImageData(authorphoto).mediaItemUrl}
-                      alt={getImageData(authorphoto).altText}
-                    />
-                    <div>
-                      <Typography
-                        className={styles.authorName}
-                        fontFamily={TypographyFontFamily.SECONDARY}
-                      >
-                        {authorname}
+        {reviewItems.map(
+          (
+            { authorcompany, authorname, authorphoto, reviewcontent },
+            index
+          ) => (
+            <div className={styles.reviewItem} key={index}>
+              <div className={styles.authorSection}>
+                <div className={styles.authorSectionContent}>
+                  <img
+                    className={styles.authorPhoto}
+                    src={getImageData(authorphoto).mediaItemUrl}
+                    alt={getImageData(authorphoto).altText}
+                  />
+                  <div>
+                    <Typography
+                      className={styles.authorName}
+                      fontFamily={TypographyFontFamily.SECONDARY}
+                    >
+                      {authorname}
+                    </Typography>
+                    {authorcompany && (
+                      <Typography fontFamily={TypographyFontFamily.SECONDARY}>
+                        {authorcompany}
                       </Typography>
-                      {authorcompany && (
-                        <Typography fontFamily={TypographyFontFamily.SECONDARY}>
-                          {authorcompany}
-                        </Typography>
-                      )}
-                    </div>
+                    )}
                   </div>
                 </div>
-                <div className={styles.contentSection}>
-                  <Typography>{reviewcontent}</Typography>
-                </div>
               </div>
-            )
-          )}
-        </div>
+              <div className={styles.contentSection}>
+                <Typography>{reviewcontent}</Typography>
+              </div>
+            </div>
+          )
+        )}
         <RedirectionLink to={detailsLinkUrl} className={styles.detailsLink}>
           {detailsLinkText}
         </RedirectionLink>
