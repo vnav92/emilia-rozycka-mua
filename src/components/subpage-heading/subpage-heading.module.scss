@@ -1,14 +1,29 @@
 @import '../../styles/variables';
 @import '../../styles/fonts';
 @import '../../styles/functions';
+@import '../../styles/colors';
 
 $owner-job-title-font-size: 1.125rem;
 $owner-name-font-size: 4rem;
 
 .subpageHeadingWrapper {
+  height: 70vh;
+}
+
+.darkBackground {
+  background: $primary-color;
+}
+
+.lightBackground {
+  background: $light-color;
+}
+
+.subpageContentHeadingWrapper {
   height: 100%;
   width: 100%;
   display: flex;
+  padding-bottom: defaultSpacingTimes(7);
+  position: relative;
 }
 
 .titleWrapper, .socialLinksWrapper {

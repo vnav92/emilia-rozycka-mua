@@ -27,7 +27,7 @@ export const FutureBookings: React.FC<FutureBookingsProps> = ({
   backgroundImage,
 }) => {
   const { allWpPost } = useStaticQuery(graphql`
-    query GlobalDataQuery {
+    query ContactLinkDetailsQuery {
       allWpPost(filter: { title: { eq: "global-data" } }) {
         edges {
           node {

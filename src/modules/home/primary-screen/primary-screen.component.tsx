@@ -44,17 +44,6 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
           }
         }
       }
-      globalData: allWpPost(filter: { title: { eq: "global-data" } }) {
-        edges {
-          node {
-            navbar {
-              emailaddress
-              instagramlink
-              facebooklink
-            }
-          }
-        }
-      }
     }
   `);
 
@@ -62,25 +51,13 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
     result.icons.edges[0].node.icons.lightbackgrounddownicon
   );
 
-  const {
-    emailaddress: emailAddress,
-    instagramlink: instagramLink,
-    facebooklink: facebookLink,
-  } = result.globalData.edges[0].node.navbar;
-
   return (
     <section>
-      <LimitedWidthContent
+      <SubpageHeading
+        primaryTitle={ownerName}
+        secondaryTitle={ownerJobTitle}
         className={styles.introductionSection}
-        renderAs="div"
       >
-        <SubpageHeading
-          primaryTitle={ownerName}
-          secondaryTitle={ownerJobTitle}
-          emailAddress={emailAddress}
-          facebookLink={facebookLink}
-          instagramLink={instagramLink}
-        />
         <Button
           onClick={() => {
             const sectionToScroll = document.querySelector(
@@ -104,7 +81,8 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
             className={styles.scrollDownButtonIcon}
           />
         </Button>
-      </LimitedWidthContent>
+      </SubpageHeading>
+
       <div
         className={styles.primaryPhotoSection}
         style={{ backgroundImage: `url("${primaryImage.mediaItemUrl}")` }}
