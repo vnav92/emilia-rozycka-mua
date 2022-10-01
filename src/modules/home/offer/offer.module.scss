@@ -1,6 +1,5 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/functions.scss';
-@import '../../../styles/fonts.scss';
 @import '../../../styles/variables.scss';
 
 $description-font-size: 1.5rem;
@@ -27,6 +26,7 @@ $section-instruction-font-size: 1rem;
 
 .sectionInstruction {
   text-align: center;
+  // TODO use color from const
   color: #c8c8c8;
   font-weight: 300;
   padding: defaultSpacingTimes(3) 0;
@@ -35,6 +35,7 @@ $section-instruction-font-size: 1rem;
 
 .description {
   font-size: 1.5rem;
+  // TODO use color from const
   color: #eeeeee;
   font-weight: 300;
   line-height: 1.875rem;
@@ -48,58 +49,9 @@ $section-instruction-font-size: 1rem;
   }
 }
 
-.galleryWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: defaultSpacingTimes(1.5)
-}
-
-.offerLink {
-  flex: auto;
-  width: 30%;
-  overflow: hidden;
-
-  &:hover {
-    span {
-      background: $primary-gradient-color;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .offerImage {
-      scale: 1.05;
-    }
-  }
-}
-
-.offerImage {
-  height: defaultSpacingTimes(42);
-  width: 100%;
-  object-fit: cover;
-  transition: .2s scale;
-}
-
-.desktopLastItem {
-  width: 100%;
-}
-
-.desktopTwoLastItems {
-  width: 45%
-}
-
-@media (min-width: $extra-small-screen-breakpoint) and (max-width: $small-screen-breakpoint) {
-  .offerLink {
-    width: 45%;
-  }
-}
-
 @media (max-width: $small-screen-breakpoint) {
   .topSection {
     flex-direction: column;
-  }
-
-  .tabletLastItem {
-    width: 100%;
   }
 
   .description {
@@ -109,11 +61,5 @@ $section-instruction-font-size: 1rem;
 
   .sectionInstruction {
     font-size: calc($section-instruction-font-size * 0.85);
-  }
-}
-
-@media (max-width: $extra-small-screen-breakpoint) {
-  .offerLink {
-    width: 100%;
   }
 }
