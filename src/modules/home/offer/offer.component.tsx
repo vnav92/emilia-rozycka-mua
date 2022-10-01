@@ -1,4 +1,5 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 import {
   LimitedWidthContent,
   SectionHeader,
@@ -6,52 +7,73 @@ import {
   RedirectionLink,
   OfferGrid,
 } from "../../../components";
-import { Image } from "../../../shared";
+import { getImageData } from "../../../shared";
+
 import * as styles from "./offer.module.scss";
 
 type OfferProps = {
   sectionTitle: React.ReactNode;
-  sectionTitleIcon: Image;
   primaryDescription: React.ReactNode;
   sectionInstruction: React.ReactNode;
   detailsRedirectionLinkText: React.ReactNode;
   detailsRedirectionLinkHref: React.ReactNode;
 };
 
-const desktopColumnsNumber = 3;
-const tabletColumnsNumber = 2;
-
 export const Offer: React.FC<OfferProps> = ({
   sectionTitle,
-  sectionTitleIcon,
   primaryDescription,
   sectionInstruction,
   detailsRedirectionLinkText,
   detailsRedirectionLinkHref,
-}) => (
-  <LimitedWidthContent className={styles.offerSection}>
-    <div className={styles.topSection}>
-      <SectionHeader
-        as="h3"
-        icon={sectionTitleIcon}
-        className={styles.sectionHeader}
-      >
-        {sectionTitle}
-      </SectionHeader>
-      <div className={styles.descriptionSection}>
-        <Typography as="p" className={styles.description}>
-          {primaryDescription}
-        </Typography>
-        <RedirectionLink to={detailsRedirectionLinkHref}>
-          {detailsRedirectionLinkText}
-        </RedirectionLink>
+}) => {
+  const { allWpPost } = useStaticQuery(graphql`
+    query HomeOfferQuery {
+      allWpPost(
+        filter: {
+          categories: { nodes: { elemMatch: { name: { eq: "icons" } } } }
+        }
+      ) {
+        edges {
+          node {
+            icons {
+              darkbackgroundoffersectionicon {
+                mediaItemUrl
+                altText
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const { darkbackgroundoffersectionicon } = allWpPost.edges[0].node.icons;
+
+  return (
+    <LimitedWidthContent className={styles.offerSection}>
+      <div className={styles.topSection}>
+        <SectionHeader
+          as="h3"
+          icon={getImageData(darkbackgroundoffersectionicon)}
+          className={styles.sectionHeader}
+        >
+          {sectionTitle}
+        </SectionHeader>
+        <div className={styles.descriptionSection}>
+          <Typography as="p" className={styles.description}>
+            {primaryDescription}
+          </Typography>
+          <RedirectionLink to={detailsRedirectionLinkHref}>
+            {detailsRedirectionLinkText}
+          </RedirectionLink>
+        </div>
       </div>
-    </div>
-    <Typography className={styles.sectionInstruction}>
-      {sectionInstruction}
-    </Typography>
-    <div className={styles.contentWrapper}>
-      <OfferGrid />
-    </div>
-  </LimitedWidthContent>
-);
+      <Typography className={styles.sectionInstruction}>
+        {sectionInstruction}
+      </Typography>
+      <div className={styles.contentWrapper}>
+        <OfferGrid />
+      </div>
+    </LimitedWidthContent>
+  );
+};

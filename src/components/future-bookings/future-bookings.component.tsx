@@ -11,26 +11,25 @@ import {
 import * as styles from "./future-bookings.module.scss";
 
 export const FutureBookings: React.FC = () => {
-
   const request = useStaticQuery(graphql`
-  query FutureBookingsQuery {
-    home: allWpPost(filter: { title: { eq: "home" } }) {
-      edges {
-        node {
-          home {
-            futurebookingslinetwo
-            futurebookingslineone
-            futurebookingslinethree
-            futurebookingslinktext
-            futurebookingsbackgroundimage {
-              mediaItemUrl
-              altText
+    query FutureBookingsQuery {
+      home: allWpPost(filter: { title: { eq: "home" } }) {
+        edges {
+          node {
+            home {
+              futurebookingslinetwo
+              futurebookingslineone
+              futurebookingslinethree
+              futurebookingslinktext
+              futurebookingsbackgroundimage {
+                mediaItemUrl
+                altText
+              }
             }
           }
         }
       }
-    }
-    globalData: allWpPost(filter: { title: { eq: "global-data" } }) {
+      globalData: allWpPost(filter: { title: { eq: "global-data" } }) {
         edges {
           node {
             navbar {
@@ -39,23 +38,25 @@ export const FutureBookings: React.FC = () => {
           }
         }
       }
-  }
-`);
+    }
+  `);
 
-const {
-  futurebookingslineone,
-  futurebookingslinetwo,
-  futurebookingslinethree,
-  futurebookingslinktext,
-  futurebookingsbackgroundimage,
-} = request.home.edges[0].node.home;
+  const {
+    futurebookingslineone,
+    futurebookingslinetwo,
+    futurebookingslinethree,
+    futurebookingslinktext,
+    futurebookingsbackgroundimage,
+  } = request.home.edges[0].node.home;
 
-const facebookLink = request.globalData.edges[0].node.navbar.facebooklink;
+  const facebookLink = request.globalData.edges[0].node.navbar.facebooklink;
 
   return (
     <section
       className={styles.futureBookingsSection}
-      style={{ backgroundImage: `url('${futurebookingsbackgroundimage.mediaItemUrl}')` }}
+      style={{
+        backgroundImage: `url('${futurebookingsbackgroundimage.mediaItemUrl}')`,
+      }}
     >
       <LimitedWidthContent
         renderAs="div"
