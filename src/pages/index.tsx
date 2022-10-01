@@ -7,12 +7,11 @@ import {
   Offer,
   Portfolio,
   Reviews,
-  FutureBookings,
 } from "../modules";
 
 import { getImageData } from "../shared/utils";
 
-import { Layout } from "../components";
+import { Layout, FutureBookings } from "../components";
 
 const IndexPage = () => {
   const { allWpPost } = useStaticQuery(graphql`
@@ -65,14 +64,6 @@ const IndexPage = () => {
               reviewssectiontitle
               reviewsdetailslinkurl
               reviewsdetailslinktext
-              futurebookingslinetwo
-              futurebookingslineone
-              futurebookingslinethree
-              futurebookingslinktext
-              futurebookingsbackgroundimage {
-                mediaItemUrl
-                altText
-              }
             }
           }
         }
@@ -106,11 +97,6 @@ const IndexPage = () => {
     reviewssectiontitle,
     reviewsdetailslinktext,
     reviewsdetailslinkurl,
-    futurebookingslinetwo,
-    futurebookingslineone,
-    futurebookingslinethree,
-    futurebookingslinktext,
-    futurebookingsbackgroundimage,
   } = allWpPost.edges[0].node.home;
   return (
     <Layout>
@@ -149,13 +135,7 @@ const IndexPage = () => {
         detailsLinkText={reviewsdetailslinktext}
         detailsLinkUrl={reviewsdetailslinkurl}
       />
-      <FutureBookings
-        lineOne={futurebookingslineone}
-        lineTwo={futurebookingslinetwo}
-        lineThree={futurebookingslinethree}
-        linkText={futurebookingslinktext}
-        backgroundImage={getImageData(futurebookingsbackgroundimage)}
-      />
+      <FutureBookings/>
     </Layout>
   );
 };

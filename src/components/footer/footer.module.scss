@@ -39,21 +39,18 @@
   text-decoration: none;
   font-family: $primary-font-family;
   border-bottom: 1px solid transparent;
+  margin-right: defaultSpacingTimes(2);
 
   &:hover, &:focus {
     @include hoverUnderline;
   }
 }
 
-.mailLink {
-  margin-left: auto;
-}
-
 .copyrightSection {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: $light-font-color;
+  color: $light-color;
   font-family: $primary-font-family;
   font-weight: 300;
   font-size: 0.875rem;

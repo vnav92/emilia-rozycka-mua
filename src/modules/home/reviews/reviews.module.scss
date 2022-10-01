@@ -20,7 +20,7 @@
   padding-bottom: defaultSpacingTimes(5);
 
   &:not(:last-of-type) {
-    border-bottom: 1px solid rgba($light-font-color, 0.5);
+    border-bottom: 1px solid rgba($light-color, 0.5);
   }
 
   &:not(:first-of-type) {

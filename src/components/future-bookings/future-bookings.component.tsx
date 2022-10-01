@@ -6,29 +6,31 @@ import {
   Typography,
   TypographyColor,
   MessengerContactLink,
-} from "../../../components";
-import { Image } from "../../../shared";
+} from "../";
 
 import * as styles from "./future-bookings.module.scss";
 
-type FutureBookingsProps = {
-  lineOne: string;
-  lineTwo: string;
-  lineThree: string;
-  linkText: string;
-  backgroundImage: Image;
-};
+export const FutureBookings: React.FC = () => {
 
-export const FutureBookings: React.FC<FutureBookingsProps> = ({
-  lineOne,
-  lineTwo,
-  lineThree,
-  linkText,
-  backgroundImage,
-}) => {
-  const { allWpPost } = useStaticQuery(graphql`
-    query GlobalDataQuery {
-      allWpPost(filter: { title: { eq: "global-data" } }) {
+  const request = useStaticQuery(graphql`
+  query FutureBookingsQuery {
+    home: allWpPost(filter: { title: { eq: "home" } }) {
+      edges {
+        node {
+          home {
+            futurebookingslinetwo
+            futurebookingslineone
+            futurebookingslinethree
+            futurebookingslinktext
+            futurebookingsbackgroundimage {
+              mediaItemUrl
+              altText
+            }
+          }
+        }
+      }
+    }
+    globalData: allWpPost(filter: { title: { eq: "global-data" } }) {
         edges {
           node {
             navbar {
@@ -37,36 +39,44 @@ export const FutureBookings: React.FC<FutureBookingsProps> = ({
           }
         }
       }
-    }
-  `);
+  }
+`);
 
-  const facebookLink = allWpPost.edges[0].node.navbar.facebooklink;
+const {
+  futurebookingslineone,
+  futurebookingslinetwo,
+  futurebookingslinethree,
+  futurebookingslinktext,
+  futurebookingsbackgroundimage,
+} = request.home.edges[0].node.home;
+
+const facebookLink = request.globalData.edges[0].node.navbar.facebooklink;
 
   return (
     <section
       className={styles.futureBookingsSection}
-      style={{ backgroundImage: `url('${backgroundImage.mediaItemUrl}')` }}
+      style={{ backgroundImage: `url('${futurebookingsbackgroundimage.mediaItemUrl}')` }}
     >
       <LimitedWidthContent
         renderAs="div"
         contentWrapperClassName={styles.contentWrapper}
       >
         <Typography color={TypographyColor.PRIMARY} className={styles.lineOne}>
-          {lineOne}
+          {futurebookingslineone}
         </Typography>
         <div>
           <Typography
             color={TypographyColor.PRIMARY}
             className={styles.lineTwo}
           >
-            {lineTwo}
+            {futurebookingslinetwo}
           </Typography>
           <Typography
             as="h4"
             color={TypographyColor.PRIMARY}
             className={styles.lineThree}
           >
-            {lineThree}
+            {futurebookingslinethree}
           </Typography>
         </div>
         <MessengerContactLink
@@ -74,7 +84,7 @@ export const FutureBookings: React.FC<FutureBookingsProps> = ({
           buttonVariant="outlined"
           iconVariant="light-background"
         >
-          {linkText}
+          {futurebookingslinktext}
         </MessengerContactLink>
       </LimitedWidthContent>
     </section>

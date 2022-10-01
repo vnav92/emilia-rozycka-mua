@@ -1,0 +1,60 @@
+@import '../../styles/colors';
+@import '../../styles/functions';
+@import '../../styles/variables';
+
+.galleryWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: defaultSpacingTimes(1.5)
+}
+
+.offerImage {
+  height: defaultSpacingTimes(42);
+  width: 100%;
+  object-fit: cover;
+  transition: .2s scale;
+}
+
+.offerLink {
+  flex: auto;
+  width: 30%;
+  overflow: hidden;
+
+  &:hover {
+    span {
+      background: $primary-gradient-color;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .offerImage {
+      scale: 1.05;
+    }
+  }
+}
+
+.desktopLastItem {
+  width: 100%;
+}
+
+.desktopTwoLastItems {
+  width: 45%
+}
+
+@media (min-width: $extra-small-screen-breakpoint) and (max-width: $small-screen-breakpoint) {
+  .offerLink {
+    width: 45%;
+  }
+}
+
+@media (max-width: $small-screen-breakpoint) {
+  .tabletLastItem {
+    width: 100%;
+  }
+}
+
+@media (max-width: $extra-small-screen-breakpoint) {
+  .offerLink {
+    width: 100%;
+  }
+}

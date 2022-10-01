@@ -1,13 +1,11 @@
-import { Image } from "./image.type";
-
 type MenuElement = {
   label: string;
   href: string;
 };
 
 export type NavbarProps = {
+  isDark: boolean;
   menuElements: MenuElement[];
-  logo: Image;
   contactNumber: string;
   className?: string;
 };

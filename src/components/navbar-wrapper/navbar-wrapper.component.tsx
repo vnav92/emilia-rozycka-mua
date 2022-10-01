@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'gatsby';
 
 import classNames from "classnames";
 
@@ -16,13 +17,11 @@ export const NavbarWrapper: React.FC<NavbarWrapperProps> = ({
   logo,
   className,
   children,
-}) => {
-  return (
-    <nav className={classNames(styles.desktopNavbarWrapper, className)}>
-      <div className={styles.logoWrapper}>
-        <img src={logo.mediaItemUrl} alt={logo.altText} />
-      </div>
-      {children}
-    </nav>
-  );
-};
+}) => (
+  <nav className={classNames(styles.desktopNavbarWrapper, className)}>
+    <Link to="/" className={styles.logoWrapper}>
+      {logo && <img src={logo.mediaItemUrl} alt={logo.altText} />}
+    </Link>
+    {children}
+  </nav>
+);
