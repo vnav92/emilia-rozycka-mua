@@ -1,41 +1,44 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+
 import { Layout, FutureBookings } from "../components";
 import { OfferPrimaryScreen } from "../modules/offer/offer-primary-screen/offer-primary-screen.component";
 import { OfferLinks } from "../modules";
-import { useStaticQuery, graphql } from "gatsby";
 
 const Offer = () => {
   const { allWpPost } = useStaticQuery(graphql`
-  query OfferPageQuery {
-    allWpPost(filter: { title: { eq: "home" } }) {
-      edges {
-        node {
-          home {
-            offersectionicon {
-              mediaItemUrl
-              altText
+    query OfferQuery {
+      allWpPost(
+        filter: {
+          categories: { nodes: { elemMatch: { name: { eq: "icons" } } } }
+        }
+      ) {
+        edges {
+          node {
+            icons {
+              lightbackgroundoffersectionicon {
+                mediaItemUrl
+                altText
+              }
             }
           }
         }
       }
     }
-  }
-`);
+  `);
 
-const {
-  offersectionicon,
-} = allWpPost.edges[0].node.home;
+  const { lightbackgroundoffersectionicon } = allWpPost.edges[0].node.icons;
 
   return (
     <Layout>
       <OfferPrimaryScreen />
       {/* TODO take sectionTitle and sectionDescription from WP */}
       <OfferLinks
-        sectionTitleIcon={offersectionicon}
+        sectionTitleIcon={lightbackgroundoffersectionicon}
         sectionTitle="Lista usług"
-        sectionDescription="Wybierz interesujący Cię typ makijarzu, aby sprawdzić cennik."
+        sectionDescription="Wybierz interesujący Cię typ makijażu, aby sprawdzić cennik."
       />
-      <FutureBookings/>
+      <FutureBookings />
     </Layout>
   );
 };

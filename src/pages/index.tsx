@@ -35,10 +35,6 @@ const IndexPage = () => {
               offerprimarydescription
               offersubpageredirectionlinktext
               offersubpageredirectionlinkhref
-              offersectionicon {
-                mediaItemUrl
-                altText
-              }
               portfoliosectionicon {
                 mediaItemUrl
                 altText
@@ -85,7 +81,6 @@ const IndexPage = () => {
     offerprimarydescription,
     offersubpageredirectionlinktext,
     offersubpageredirectionlinkhref,
-    offersectionicon,
     portfoliosectionicon,
     portfoliosectiontitle,
     portfoliotopphoto,
@@ -114,7 +109,6 @@ const IndexPage = () => {
       />
       <Offer
         sectionTitle={offersectiontitle}
-        sectionTitleIcon={getImageData(offersectionicon)}
         primaryDescription={offerprimarydescription}
         sectionInstruction={offersectioninstruction}
         detailsRedirectionLinkText={offersubpageredirectionlinktext}
@@ -135,7 +129,7 @@ const IndexPage = () => {
         detailsLinkText={reviewsdetailslinktext}
         detailsLinkUrl={reviewsdetailslinkurl}
       />
-      <FutureBookings/>
+      <FutureBookings />
     </Layout>
   );
 };

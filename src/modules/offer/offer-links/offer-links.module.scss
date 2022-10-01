@@ -1,10 +1,13 @@
 @import '../../../styles/functions';
 
 .offerSection {
-  padding: defaultSpacingTimes(4) 0;
+  padding: defaultSpacingTimes(10) 0;
 }
 
 .headingSection {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-bottom: defaultSpacingTimes(8);
 }
