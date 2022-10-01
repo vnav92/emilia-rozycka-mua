@@ -1,15 +1,11 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import classNames from "classnames";
 import {
   LimitedWidthContent,
   SectionHeader,
   Typography,
   RedirectionLink,
-  ImageLink,
   OfferGrid,
 } from "../../../components";
-import { getImageData } from "../../../shared/utils";
 import { Image } from "../../../shared";
 import * as styles from "./offer.module.scss";
 

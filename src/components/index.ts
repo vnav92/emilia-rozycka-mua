@@ -1,6 +1,7 @@
 export * from "./button";
 export * from "./desktop-navbar";
 export * from "./footer";
+export * from './future-bookings';
 export * from "./image-link";
 export * from "./layout";
 export * from "./limited-width-content";
