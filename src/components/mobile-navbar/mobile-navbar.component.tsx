@@ -1,21 +1,19 @@
 import React, { useState, useRef } from "react";
 import { Link } from "gatsby";
 import classNames from "classnames";
-import { NavbarWrapper } from "../navbar-wrapper";
 import { NavbarProps, getFormattedPhoneNumber } from "../../shared";
 import { BiMenu } from "react-icons/bi";
 import { IoMdClose } from "react-icons/io";
 import { Button } from "../button";
 
-import * as styles from "./mobile-navbar.module.scss";
 import { NavbarLink } from "../navbar-link";
 import { useOnClickOutside } from "./use-click-outside.hook";
 
+import * as styles from "./mobile-navbar.module.scss";
+
 export const MobileNavbar: React.FC<NavbarProps> = ({
   menuElements,
-  logo,
   contactNumber,
-  className,
 }) => {
   const mobileNavbarRef = useRef();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
