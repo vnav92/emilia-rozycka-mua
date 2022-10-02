@@ -1,9 +1,20 @@
-exports.createPages = async ({ actions }) => {
-  const { createPage } = actions;
-  // createPage({
-  //   path: "/using-dsg",
-  //   component: require.resolve("./src/templates/using-dsg.js"),
-  //   context: {},
-  //   defer: true,
-  // })
+exports.createPages = async ({ actions, graphql }) => {
+  const { data } = await graphql(`
+    query SlugsQuery {
+      allWpPost(filter: { categories: { nodes: { elemMatch: { name: { eq: "offer-item" }}}}}) {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+data.allWpPost.edges.forEach(({ node }) => {
+  actions.createPage({
+    path: node.slug,
+    component: require.resolve('./src/templates/offer-item.component.tsx')
+  })
+})
 };
