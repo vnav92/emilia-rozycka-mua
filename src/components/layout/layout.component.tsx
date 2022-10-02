@@ -33,10 +33,6 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             navbar {
               contactnumber
               emailaddress
-              simplelogo {
-                mediaItemUrl
-                altText
-              }
               fulllogo {
                 mediaItemUrl
                 altText
@@ -59,7 +55,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       href: `/${node.slug}`,
     }));
 
-  const { contactnumber, designbylogo, emailaddress, simplelogo, fulllogo } =
+  const { contactnumber, designbylogo, emailaddress, fulllogo } =
     allWpPost.edges[0].node.navbar;
 
   const navbarProps = {
@@ -70,15 +66,11 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <>
-      <NavbarWrapper
-        className={styles.desktopNavbar}
-        logo={getImageData(simplelogo)}
-      >
+      <NavbarWrapper className={styles.desktopNavbar}>
         <DesktopNavbar {...navbarProps} />
       </NavbarWrapper>
       <NavbarWrapper
         className={styles.mobileNavbar}
-        logo={getImageData(simplelogo)}
       >
         <MobileNavbar {...navbarProps} />
       </NavbarWrapper>
