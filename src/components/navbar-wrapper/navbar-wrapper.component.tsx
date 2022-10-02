@@ -1,27 +1,62 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 
 import classNames from "classnames";
 
-import { Image } from "../../shared";
-
 import * as styles from "./navbar-wrapper.module.scss";
+import { useIsOnHomePage, getImageData } from "../../shared";
 
 type NavbarWrapperProps = {
-  logo: Image;
   className?: string;
   children: React.ReactNode | React.ReactNode[];
 };
 
 export const NavbarWrapper: React.FC<NavbarWrapperProps> = ({
-  logo,
   className,
   children,
-}) => (
-  <nav className={classNames(styles.desktopNavbarWrapper, className)}>
-    <Link to="/" className={styles.logoWrapper}>
-      {logo && <img src={logo.mediaItemUrl} alt={logo.altText} />}
-    </Link>
-    {children}
-  </nav>
-);
+}) => {
+  const isOnHomePage = useIsOnHomePage();
+  const { allWpPost } = useStaticQuery(graphql`
+    query NavbarWrapperQuery {
+      allWpPost(filter: { title: { eq: "icons" } }) {
+        edges {
+          node {
+            icons {
+              darkbackgroundsimplelogo {
+                mediaItemUrl
+                altText
+              }
+              lightbackgroundsimplelogo {
+                mediaItemUrl
+                altText
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const { darkbackgroundsimplelogo, lightbackgroundsimplelogo } =
+    allWpPost.edges[0].node.icons;
+  const logo = getImageData(
+    isOnHomePage ? darkbackgroundsimplelogo : lightbackgroundsimplelogo
+  );
+
+  return (
+    <nav
+      className={classNames(
+        styles.navbarWrapper,
+        isOnHomePage
+          ? styles.darkBackgroundWrapper
+          : styles.lightBackgroundWrapper,
+        className
+      )}
+    >
+      <Link to="/" className={styles.logoWrapper}>
+        {logo && <img src={logo.mediaItemUrl} alt={logo.altText} />}
+      </Link>
+      {children}
+    </nav>
+  );
+};

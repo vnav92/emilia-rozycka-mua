@@ -1,7 +1,11 @@
 import React, { useState, useRef } from "react";
 import { Link } from "gatsby";
 import classNames from "classnames";
-import { NavbarProps, getFormattedPhoneNumber } from "../../shared";
+import {
+  NavbarProps,
+  getFormattedPhoneNumber,
+  useIsOnHomePage,
+} from "../../shared";
 import { BiMenu } from "react-icons/bi";
 import { IoMdClose } from "react-icons/io";
 import { Button } from "../button";
@@ -16,6 +20,7 @@ export const MobileNavbar: React.FC<NavbarProps> = ({
   contactNumber,
 }) => {
   const mobileNavbarRef = useRef();
+  const isOnHomePage = useIsOnHomePage();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   useOnClickOutside(mobileNavbarRef, () => setIsMenuVisible(false));
@@ -25,24 +30,57 @@ export const MobileNavbar: React.FC<NavbarProps> = ({
       <Button
         onClick={() => setIsMenuVisible(isVisible => !isVisible)}
         isBorderDisabled={true}
-        className={styles.menuTriggerButton}
+        variant={isOnHomePage ? "primary" : "secondary"}
+        className={classNames(
+          styles.menuTriggerButton,
+          isOnHomePage
+            ? styles.lightMenuTriggerButton
+            : styles.darkMenuTriggerButton
+        )}
       >
         {isMenuVisible ? (
-          <IoMdClose className={styles.menuTriggerIcon} />
+          <IoMdClose
+            className={classNames(
+              styles.menuTriggerIcon,
+              isOnHomePage
+                ? styles.lightMenuTriggerIcon
+                : styles.darkMenuTriggerIcon
+            )}
+          />
         ) : (
-          <BiMenu className={styles.menuTriggerIcon} />
+          <BiMenu
+            className={classNames(
+              styles.menuTriggerIcon,
+              isOnHomePage
+                ? styles.lightMenuTriggerIcon
+                : styles.darkMenuTriggerIcon
+            )}
+          />
         )}
       </Button>
       <div
         ref={mobileNavbarRef}
-        className={classNames(styles.menuWrapper, {
-          [styles.openedMenuWrapper]: isMenuVisible,
-        })}
+        className={classNames(
+          styles.menuWrapper,
+          isOnHomePage
+            ? styles.lightBackgroundMenuWrapper
+            : styles.darkBackgroundMenuWrapper,
+          {
+            [styles.openedMenuWrapper]: isMenuVisible,
+          }
+        )}
       >
         <ul className={styles.list}>
           {menuElements.map(({ href, label }, index) => (
             <li className={styles.menuItem} key={index}>
-              <NavbarLink to={href} className={styles.navbarLinkText}>
+              <NavbarLink
+                to={href}
+                className={classNames(
+                  isOnHomePage
+                    ? styles.lightNavbarLinkText
+                    : styles.darkNavbarLinkText
+                )}
+              >
                 {label}
               </NavbarLink>
             </li>
@@ -50,7 +88,12 @@ export const MobileNavbar: React.FC<NavbarProps> = ({
         </ul>
         <div className={styles.contactNumberLinkWrapper}>
           <Link
-            className={styles.contactNumberLink}
+            className={classNames(
+              styles.contactNumberLink,
+              isOnHomePage
+                ? styles.lightNavbarLinkText
+                : styles.darkNavbarLinkText
+            )}
             to={`tel:${contactNumber}`}
           >
             {getFormattedPhoneNumber(contactNumber)}

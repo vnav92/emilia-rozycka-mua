@@ -3,7 +3,7 @@
 @import '../../styles/fonts.scss';
 @import '../../styles/functions.scss';
 
-.desktopNavbarWrapper {
+.navbarWrapper {
   display: flex;
   align-items: center;
   position: fixed;
@@ -13,8 +13,15 @@
   display: flex;
   padding: defaultSpacingTimes(2);
   box-sizing: border-box;
-  background-color: $primary-color;
   z-index: 9999;
   position: fixed;
   top: 0;
+}
+
+.darkBackgroundWrapper {
+  background-color: $primary-color;
+}
+
+.lightBackgroundWrapper {
+  background-color: $primary-contrast-color;
 }

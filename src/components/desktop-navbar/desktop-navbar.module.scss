@@ -17,12 +17,15 @@
   font-size: 1rem;
 }
 
-.navbarLinkText {
-  color: $navbar-text-color; 
+.darkBackgroundTextColor {
+  color: $light-color; 
+}
+
+.lightBackgroundTextColor {
+  color: $light-text-color;
 }
 
 .contactNumberLink {
-  color: $light-color;
   text-decoration: none;
   font-family: $primary-font-family;
   font-weight: 300;

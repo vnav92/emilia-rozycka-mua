@@ -8,11 +8,18 @@
   left: 60px;
   right: 60px;
   padding: 0;
-  background-color: $primary-color;
   overflow: hidden;
   max-height: 0;
   transition: 0.2s ease-in-out;
   z-index: 100;
+}
+
+.lightBackgroundMenuWrapper { 
+  background-color: $primary-color;
+}
+
+.darkBackgroundMenuWrapper { 
+  background-color: $primary-contrast-color;
 }
 
 .openedMenuWrapper {
@@ -27,8 +34,23 @@
 
   &:hover {
     background-image: unset;
-    border: 1px solid $primary-contrast-color;
   }
+}
+
+.lightMenuTriggerButton:hover {
+  border: 1px solid $primary-contrast-color;
+}
+
+.darkMenuTriggerButton:hover {
+  border: 1px solid $light-text-color;
+}
+
+.lightMenuTriggerIcon {
+  color: $primary-contrast-color;
+}
+
+.darkMenuTriggerIcon {
+  color: $light-text-color;
 }
 
 .menuTriggerIcon {
@@ -37,6 +59,7 @@
 
 .list {
   margin-left: defaultSpacingTimes(0.5);
+  list-style-type: none;
 }
 
 .menuItem {
@@ -44,8 +67,12 @@
   font-size: 1.5rem;
 }
 
-.navbarLinkText {
-  color: $navbar-text-color; 
+.darkNavbarLinkText {
+  color: $light-text-color; 
+}
+
+.lightNavbarLinkText {
+  color: $light-color; 
 }
 
 .contactNumberLinkWrapper {
@@ -54,7 +81,6 @@
 }
 
 .contactNumberLink {
-  color: $primary-contrast-color;
   text-decoration: none;
   font-family: $primary-font-family;
   font-weight: 300;
