@@ -69,9 +69,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <NavbarWrapper className={styles.desktopNavbar}>
         <DesktopNavbar {...navbarProps} />
       </NavbarWrapper>
-      <NavbarWrapper
-        className={styles.mobileNavbar}
-      >
+      <NavbarWrapper className={styles.mobileNavbar}>
         <MobileNavbar {...navbarProps} />
       </NavbarWrapper>
 

@@ -31,7 +31,7 @@ const getCustomItemClassName = (offerItemsLength: number, index: number) => {
 
 export const OfferGrid: React.FC = () => {
   const { allWpPost } = useStaticQuery(graphql`
-    query MyQuery {
+    query OfferGridQuery {
       allWpPost(
         filter: {
           categories: { nodes: { elemMatch: { name: { eq: "offer-item" } } } }
@@ -45,21 +45,24 @@ export const OfferGrid: React.FC = () => {
                 mediaItemUrl
               }
             }
+            slug
           }
         }
       }
     }
   `);
 
-  const offerItems = allWpPost.edges.map(({ node }) => node.offerItem);
+  const offerItems = allWpPost.edges.map(({ node }) => ({
+    ...node.offerItem,
+    slug: node.slug,
+  }));
 
   return (
     <div className={styles.galleryWrapper}>
-      {offerItems.map(({ title, image }, index) => (
+      {offerItems.map(({ title, image, slug }, index) => (
         <ImageLink
           key={index}
-          // TODO Add proper hrefs when dynamic slug handling will be ready
-          to=""
+          to={`/${slug}`}
           image={getImageData(image)}
           linkClassName={classNames(
             styles.offerLink,
