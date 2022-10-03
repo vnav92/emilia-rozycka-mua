@@ -17,7 +17,7 @@ export const DesktopNavbar: React.FC<NavbarProps> = ({
   contactNumber,
 }) => {
   const isOnHomePage = useIsOnHomePage();
-  
+
   return (
     <>
       <ul className={styles.menuItemsList}>
