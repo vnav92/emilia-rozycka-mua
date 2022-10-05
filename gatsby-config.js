@@ -39,7 +39,7 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         // Specify the URL of the WordPress source
-        url: "http://emiliarozyckamua.local/graphql",
+        url: process.env.WORDPRESS_API_URL,
         protocol: `http`,
         // Indicates if a site is hosted on WordPress.com
         hostingWPCOM: false,
