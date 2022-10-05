@@ -28,7 +28,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       color={color}
       className={classNames(styles.sectionHeader, className)}
     >
-      <h2 className={styles.sectionHeaderText}>{children}</h2>
+      <span className={styles.sectionHeaderText}>{children}</span>
       <img src={icon.mediaItemUrl} alt={icon.altText} className={styles.icon} />
     </Typography>
   );
