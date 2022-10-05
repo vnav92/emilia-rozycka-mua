@@ -23,3 +23,68 @@
 .secondaryFontFamily {
   font-family: $secondary-font-family;
 }
+
+// font styles
+
+//HEADING STYLES
+.ctaText {
+  font-family: $secondary-font-family;
+  font-size: 6rem;
+  line-height: 117%;
+  letter-spacing: 0;
+}
+
+//BODY TEXT SIZES
+.bodyText {
+  &XL {
+    font-size: 1.625rem;
+    line-height: 125%;
+  }
+
+  &LG {
+    font-size: 1.5rem;
+    line-height: 148%;
+  }
+
+  &MD {
+    font-size: 1.125rem;
+    line-height: 145%;
+  }
+
+  &REG {
+    font-size: 1rem;
+    line-height: 150%;
+  }
+}
+
+
+//BODY TEXT WIDTHS
+.bodyTextWidth {
+  &Light {
+    font-weight: 300;
+  }
+
+  &Regular {
+    font-weight: 400;
+  }
+
+  &Medium {
+    font-weight: 500;
+  }
+
+  &Semibold {
+    font-weight: 600;
+  }
+
+  &Bold {
+    font-weight: 700;
+  }
+}
+
+//COMPONENT TEXT STYLES
+.btnTextRegular {
+  font-family: $primary-font-family;
+  font-size: 1rem;
+  line-height: 150%;
+  text-transform: uppercase;
+}
