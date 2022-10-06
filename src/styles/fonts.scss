@@ -1,8 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap');
+
 @font-face {
   font-family: 'Noe Display Regular';
-  src: url("/fonts/NoeDisplay-Regular.woff");
+  src: url("/fonts/NoeDisplay-Regular.woff") format(woff);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Noe Display Medium';
+  src: url("/fonts/NoeDisplay-Medium.woff") format(woff);
+  font-weight: 500;
 }
 
 $primary-font-family: 'Rubik', sans-serif;
-$secondary-font-family: 'Noe Display Regular', serif;
+$secondary-font-family: 'Noe Display Medium', serif;
