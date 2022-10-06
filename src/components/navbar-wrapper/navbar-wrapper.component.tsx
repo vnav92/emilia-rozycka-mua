@@ -53,7 +53,7 @@ export const NavbarWrapper: React.FC<NavbarWrapperProps> = ({
         className
       )}
     >
-      <Link to="/" className={styles.logoWrapper}>
+      <Link to="/">
         {logo && <img src={logo.mediaItemUrl} alt={logo.altText} />}
       </Link>
       {children}

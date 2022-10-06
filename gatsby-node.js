@@ -9,6 +9,10 @@ exports.createPages = async ({ actions, graphql }) => {
         edges {
           node {
             slug
+            offerItem {
+              primarytitle
+              secondarytitle
+            }
           }
         }
       }
@@ -19,6 +23,7 @@ exports.createPages = async ({ actions, graphql }) => {
     actions.createPage({
       path: node.slug,
       component: require.resolve("./src/templates/offer-item.component.tsx"),
+      context: node.offerItem
     });
   });
 };
