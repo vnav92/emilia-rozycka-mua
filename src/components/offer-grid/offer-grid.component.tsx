@@ -40,7 +40,7 @@ export const OfferGrid: React.FC = () => {
         edges {
           node {
             offerItem {
-              title
+              primarytitle
               image {
                 mediaItemUrl
               }
@@ -59,7 +59,7 @@ export const OfferGrid: React.FC = () => {
 
   return (
     <div className={styles.galleryWrapper}>
-      {offerItems.map(({ title, image, slug }, index) => (
+      {offerItems.map(({ primarytitle, image, slug }, index) => (
         <ImageLink
           key={index}
           to={`/${slug}`}
@@ -70,7 +70,7 @@ export const OfferGrid: React.FC = () => {
           )}
           imageClassName={styles.offerImage}
         >
-          {title}
+          {primarytitle}
         </ImageLink>
       ))}
     </div>
