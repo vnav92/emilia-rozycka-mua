@@ -17,15 +17,6 @@ $medium-screen-button-size: defaultSpacingTimes(6);
   font-family: $primary-font-family;
   text-transform: uppercase;
   cursor: pointer;
-  border: 1px solid transparent;
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-
-  &:hover {
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    border: 1px solid transparent;
-  }
 }
 
 .circleButton {
@@ -34,40 +25,100 @@ $medium-screen-button-size: defaultSpacingTimes(6);
 }
 
 .contentWrapper {
-  padding: defaultSpacingTimes(2) defaultSpacingTimes(2);
+  padding: defaultSpacingTimes(2) defaultSpacingTimes(3);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+@mixin pseudoButtonOutline {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  border: 1px solid transparent;
+  border-radius: 10rem;
+}
+
 .primaryButton, .outlinedContrastButton {
-  background-image: linear-gradient($primary-color, $primary-color), linear-gradient(rgba($primary-contrast-color, 0.3), rgba($primary-contrast-color, 0.3));
-  color: $primary-contrast-color;
+  position: relative;
+  z-index: 0;
+  color: $universal-white;
+  transition: background-image 0.3s ease-out;
+
+  &::after {
+    @include pseudoButtonOutline;
+    background-image: linear-gradient($universal-black, $universal-black), linear-gradient($neutral-700, $neutral-700);
+    opacity: 1;
+    transition: opacity .3s ease-in;
+  }
+
+  &::before {
+    @include pseudoButtonOutline;
+    background-image: linear-gradient($universal-black, $universal-black), $primary-gradient-color;
+    opacity: 0;
+    transition: opacity .3s ease-in;
+  }
 
   &:hover {
-    background-image: linear-gradient($primary-color, $primary-color), $primary-gradient-color;
+    &::after {
+      opacity: 0;
+      transition: opacity .3s ease-out;
+    }
+
+    &::before {
+      opacity: 1;
+      transition: opacity .3s ease-out;
+    }
   }
 }
 
 .secondaryButton, .outlinedButton {
-  background-image: linear-gradient($primary-contrast-color, $primary-contrast-color), linear-gradient(rgba($primary-color, 0.3), rgba($primary-color, 0.3));
-  color: $primary-color;
+  position: relative;
+  z-index: 0;
+  color: $universal-black;
+  transition: background-image 0.3s ease-out;
+
+  &::after {
+    @include pseudoButtonOutline;
+    background-image: linear-gradient($universal-white, $universal-white), linear-gradient($neutral-40, $neutral-40);
+    opacity: 1;
+    transition: opacity .3s ease-in;
+  }
+
+  &::before {
+    @include pseudoButtonOutline;
+    background-image: linear-gradient($universal-white, $universal-white), $primary-gradient-color;
+    opacity: 0;
+    transition: opacity .3s ease-in;
+  }
 
   &:hover {
-    background-image: linear-gradient($primary-contrast-color, $primary-contrast-color), $primary-gradient-color;
+    &::after {
+      opacity: 0;
+      transition: opacity .3s ease-out;
+    }
+
+    &::before {
+      opacity: 1;
+      transition: opacity .3s ease-out;
+    }
   }
 }
 
 .outlinedButton, .outlinedContrastbutton {
-  background-color: transparent;
+  background-color: $universal-white;
 }
 
 .primaryButton {
-  background-color: $primary-color;
+  background-color: $universal-black;
 }
 
 .secondaryButton {
-  background-color: $primary-contrast-color;
+  background-color: $universal-white;
 }
 
 .buttonImage {
