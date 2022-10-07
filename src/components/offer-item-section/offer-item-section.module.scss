@@ -16,13 +16,22 @@
 
   li {
     margin-bottom: defaultSpacingTimes(0.5);
+    font-weight: 300;
+  }
+
+  strong {
+    margin-bottom: defaultSpacingTimes(0.5);
+    display: block;
   }
 }
 
 .title {
   width: 25%;
+  font-family: 'Noe Display Medium';
 }
 
 .price {
   margin-bottom: defaultSpacingTimes(4);
+  display: block;
+  font-family: 'Noe Display Medium';
 }

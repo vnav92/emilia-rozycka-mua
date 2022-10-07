@@ -14,8 +14,12 @@ $owner-name-font-size: 4rem;
   background: $primary-color;
 }
 
+.grayBackground {
+  background: $background-gray;
+}
+
 .lightBackground {
-  background: $light-color;
+  background: $background-light;
 }
 
 .subpageContentHeadingWrapper {

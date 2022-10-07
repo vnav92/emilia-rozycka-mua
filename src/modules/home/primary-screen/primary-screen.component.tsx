@@ -57,6 +57,7 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
         primaryTitle={ownerName}
         secondaryTitle={ownerJobTitle}
         className={styles.introductionSection}
+        backgroundVariant="dark"
       >
         <Button
           onClick={() => {

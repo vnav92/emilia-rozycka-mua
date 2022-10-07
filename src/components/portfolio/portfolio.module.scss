@@ -1,7 +1,7 @@
-@import '../../../styles/colors.scss';
-@import '../../../styles/functions.scss';
-@import '../../../styles/fonts.scss';
-@import '../../../styles/variables.scss';
+@import '../../styles/colors';
+@import '../../styles/functions';
+@import '../../styles/fonts';
+@import '../../styles/variables';
 
 $top-image-z-index: 1;
 $content-wrapper-height: 900px;
@@ -64,6 +64,14 @@ $small-size-multiplier: 0.625;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.lightBackground {
+  background-color: $primary-contrast-color;
+}
+
+.lightBackgroundBorder {
+  border: 1px solid $background-gray;
 }
 
 @media (max-width: $medium-screen-breakpoint) and (min-width: $small-screen-breakpoint) {

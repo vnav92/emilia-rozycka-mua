@@ -1,17 +1,11 @@
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import {
-  PrimaryScreen,
-  CompanyDescription,
-  Offer,
-  Portfolio,
-  Reviews,
-} from "../modules";
+import { PrimaryScreen, CompanyDescription, Offer, Reviews } from "../modules";
 
 import { getImageData } from "../shared/utils";
 
-import { Layout, FutureBookings } from "../components";
+import { Layout, FutureBookings, Portfolio } from "../components";
 
 const IndexPage = () => {
   const { allWpPost } = useStaticQuery(graphql`
@@ -35,24 +29,6 @@ const IndexPage = () => {
               offerprimarydescription
               offersubpageredirectionlinktext
               offersubpageredirectionlinkhref
-              portfoliosectionicon {
-                mediaItemUrl
-                altText
-              }
-              portfoliosectiontitle
-              portfoliotopphoto {
-                mediaItemUrl
-              }
-              portfoliomiddlephoto {
-                mediaItemUrl
-                altText
-              }
-              portfoliobottomphoto {
-                mediaItemUrl
-                altText
-              }
-              portfoliodetailslinktext
-              portfoliodetailslinkurl
               reviewssectionicon {
                 mediaItemUrl
                 altText
@@ -81,13 +57,6 @@ const IndexPage = () => {
     offerprimarydescription,
     offersubpageredirectionlinktext,
     offersubpageredirectionlinkhref,
-    portfoliosectionicon,
-    portfoliosectiontitle,
-    portfoliotopphoto,
-    portfoliomiddlephoto,
-    portfoliobottomphoto,
-    portfoliodetailslinktext,
-    portfoliodetailslinkurl,
     reviewssectionicon,
     reviewssectiontitle,
     reviewsdetailslinktext,
@@ -114,15 +83,7 @@ const IndexPage = () => {
         detailsRedirectionLinkText={offersubpageredirectionlinktext}
         detailsRedirectionLinkHref={offersubpageredirectionlinkhref}
       />
-      <Portfolio
-        sectionTitle={portfoliosectiontitle}
-        sectionTitleIcon={getImageData(portfoliosectionicon)}
-        topImage={getImageData(portfoliotopphoto)}
-        middleImage={getImageData(portfoliomiddlephoto)}
-        bottomImage={getImageData(portfoliobottomphoto)}
-        detailsLinkText={portfoliodetailslinktext}
-        detailsLinkUrl={portfoliodetailslinkurl}
-      />
+      <Portfolio />
       <Reviews
         sectionTitle={reviewssectiontitle}
         sectionTitleIcon={getImageData(reviewssectionicon)}
