@@ -36,7 +36,6 @@ export const SubpageHeading: React.FC<SubpageHeadingProps> = ({
             navbar {
               emailaddress
               instagramlink
-              facebooklink
             }
           }
         }
@@ -90,7 +89,6 @@ export const SubpageHeading: React.FC<SubpageHeadingProps> = ({
             isLightBackground ? "light-background" : "dark-background"
           }
           buttonVariant={isLightBackground ? "outlined" : "outlined-contrast"}
-          linkUrl={facebooklink}
         >
           Wyślij wiadomość
         </MessengerContactLink>
