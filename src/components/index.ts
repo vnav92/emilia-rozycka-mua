@@ -10,6 +10,7 @@ export * from "./navbar-link";
 export * from "./navbar-wrapper";
 export * from "./offer-grid";
 export * from "./offer-item-section";
+export * from "./portfolio";
 export * from "./redirection-link";
 export * from "./section-header";
 export * from "./social-icon-link";

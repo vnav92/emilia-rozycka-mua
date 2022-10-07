@@ -36,6 +36,7 @@ export const OfferItemSection: React.FC<OfferItemSectionProps> = ({
       />
       <div>
         <Typography
+          as="span"
           color={TypographyColor.PRIMARY}
           className={classNames(styles.price, typographyStyles.bodyTextLG)}
         >

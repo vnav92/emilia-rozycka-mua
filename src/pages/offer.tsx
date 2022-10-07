@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import { Layout, FutureBookings } from "../components";
+import { Layout, FutureBookings, Portfolio } from "../components";
 import { OfferPrimaryScreen } from "../modules/offer/offer-primary-screen/offer-primary-screen.component";
 import { OfferLinks } from "../modules";
 

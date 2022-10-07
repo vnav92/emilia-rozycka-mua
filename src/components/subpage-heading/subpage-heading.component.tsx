@@ -16,7 +16,7 @@ import * as styles from "./subpage-heading.module.scss";
 type SubpageHeadingProps = {
   secondaryTitle: React.ReactNode;
   primaryTitle: React.ReactNode;
-  isLightBackground?: boolean;
+  backgroundVariant?: "dark" | "gray" | "light";
   className?: string;
   children?: React.ReactNode;
 };
@@ -24,7 +24,7 @@ type SubpageHeadingProps = {
 export const SubpageHeading: React.FC<SubpageHeadingProps> = ({
   secondaryTitle,
   primaryTitle,
-  isLightBackground,
+  backgroundVariant,
   className,
   children,
 }) => {
@@ -50,7 +50,11 @@ export const SubpageHeading: React.FC<SubpageHeadingProps> = ({
     <LimitedWidthContent
       renderAs="div"
       className={classNames(
-        isLightBackground ? styles.lightBackground : styles.darkBackground,
+        {
+          [styles.darkBackground]: backgroundVariant === "dark",
+          [styles.grayBackground]: backgroundVariant === "gray",
+          [styles.lightBackground]: backgroundVariant === "light",
+        },
         styles.subpageHeadingWrapper
       )}
       contentWrapperClassName={classNames(
@@ -63,9 +67,9 @@ export const SubpageHeading: React.FC<SubpageHeadingProps> = ({
           as="h2"
           fontFamily={TypographyFontFamily.SECONDARY}
           color={
-            isLightBackground
-              ? TypographyColor.PRIMARY
-              : TypographyColor.PRIMARY_CONTRAST
+            backgroundVariant === "dark"
+              ? TypographyColor.PRIMARY_CONTRAST
+              : TypographyColor.PRIMARY
           }
           className={styles.secondaryTitle}
         >
@@ -74,9 +78,9 @@ export const SubpageHeading: React.FC<SubpageHeadingProps> = ({
         <Typography
           as="h1"
           color={
-            isLightBackground
-              ? TypographyColor.PRIMARY
-              : TypographyColor.PRIMARY_CONTRAST
+            backgroundVariant === "dark"
+              ? TypographyColor.PRIMARY_CONTRAST
+              : TypographyColor.PRIMARY
           }
           className={styles.primaryTitle}
         >
@@ -86,26 +90,30 @@ export const SubpageHeading: React.FC<SubpageHeadingProps> = ({
       <div className={styles.socialLinksWrapper}>
         <MessengerContactLink
           iconVariant={
-            isLightBackground ? "light-background" : "dark-background"
+            backgroundVariant === "dark"
+              ? "dark-background"
+              : "light-background"
           }
-          buttonVariant={isLightBackground ? "outlined" : "outlined-contrast"}
+          buttonVariant={
+            backgroundVariant === "dark" ? "outlined-contrast" : "outlined"
+          }
         >
           Wyślij wiadomość
         </MessengerContactLink>
         <SocialIconLink
           href={instagramlink}
           variant={
-            isLightBackground
-              ? "instagram-light-background"
-              : "instagram-dark-background"
+            backgroundVariant === "dark"
+              ? "instagram-dark-background"
+              : "instagram-light-background"
           }
         />
         <SocialIconLink
           href={`mailto:${emailaddress}`}
           variant={
-            isLightBackground
-              ? "email-light-background"
-              : "email-dark-background"
+            backgroundVariant === "dark"
+              ? "email-dark-background"
+              : "email-light-background"
           }
         />
       </div>
