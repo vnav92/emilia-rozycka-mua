@@ -1,3 +1,4 @@
+@import '../../styles/fonts.scss';
 @import '../../styles/colors';
 @import '../../styles/functions';
 @import '../../styles/variables';
@@ -5,30 +6,75 @@
 .galleryWrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: defaultSpacingTimes(1.5)
+  gap: defaultSpacingTimes(1.5);
 }
 
 .offerImage {
-  height: defaultSpacingTimes(42);
+  height: defaultSpacingTimes(43);
   width: 100%;
   object-fit: cover;
+  scale: 1.03;
   transition: .2s scale;
 }
 
 .offerLink {
+  position: relative;
+  z-index: 0;
   flex: auto;
   width: 30%;
-  overflow: hidden;
+
+  p {
+    //link imitation
+    height: 0;
+    opacity: 0;
+    font-family: $primary-font-family;
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1rem;
+    color: $universal-black;
+    margin-top: defaultSpacingTimes(0);
+    margin-bottom: defaultSpacingTimes(0);
+    transition: all .3s ease-out;
+  }
+  
+  &::after {
+    //border outline
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.25rem;
+    background-image: $primary-gradient-color;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    transition: all .2s ease-out;
+  }
 
   &:hover {
-    span {
+    .offerImage {
+      scale: 1.05;
+      filter: grayscale(0);
+    }
+
+    p {
+      height: 1rem;
+      opacity: 1;
+      margin-top: defaultSpacingTimes(1.5);
+      margin-bottom: defaultSpacingTimes(1);
       background: $primary-gradient-color;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+      transition: all .15s ease-in;
     }
 
-    .offerImage {
-      scale: 1.05;
+    &::after {
+      transform: translate(-50%, -50%) scale(1.016);
+      opacity: 1;
+      transition: all .15s ease-in;
     }
   }
 }

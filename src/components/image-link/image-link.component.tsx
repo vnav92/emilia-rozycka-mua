@@ -23,17 +23,22 @@ export const ImageLink: React.FC<ImageLinkProps> = ({
   children,
 }) => (
   <Link to={to} className={classNames(styles.link, linkClassName)}>
-    <img
-      src={image.mediaItemUrl}
-      alt={image.altText}
-      className={classNames(styles.image, imageClassName)}
-    />
-    <Typography
-      as="span"
-      className={styles.linkLabel}
-      fontFamily={TypographyFontFamily.SECONDARY}
-    >
-      {children}
-    </Typography>
+    <div className={classNames(styles.imageWrapper)}>
+      <img
+        src={image.mediaItemUrl}
+        alt={image.altText}
+        className={classNames(styles.image, imageClassName)}
+      />
+    </div>
+    <div className={classNames(styles.infoSlider)}>
+      <Typography
+        as="h5"
+        className={styles.linkLabel}
+        fontFamily={TypographyFontFamily.SECONDARY}
+      >
+        {children}
+      </Typography>
+      <p>Zobacz szczegóły</p>
+    </div>
   </Link>
 );
