@@ -11,9 +11,9 @@ import {
 import * as styles from "./future-bookings.module.scss";
 
 export const FutureBookings: React.FC = () => {
-  const request = useStaticQuery(graphql`
+  const { allWpPost } = useStaticQuery(graphql`
     query FutureBookingsQuery {
-      home: allWpPost(filter: { title: { eq: "home" } }) {
+      allWpPost(filter: { title: { eq: "home" } }) {
         edges {
           node {
             home {
@@ -29,15 +29,6 @@ export const FutureBookings: React.FC = () => {
           }
         }
       }
-      globalData: allWpPost(filter: { title: { eq: "global-data" } }) {
-        edges {
-          node {
-            navbar {
-              facebooklink
-            }
-          }
-        }
-      }
     }
   `);
 
@@ -47,9 +38,7 @@ export const FutureBookings: React.FC = () => {
     futurebookingslinethree,
     futurebookingslinktext,
     futurebookingsbackgroundimage,
-  } = request.home.edges[0].node.home;
-
-  const facebookLink = request.globalData.edges[0].node.navbar.facebooklink;
+  } = allWpPost.edges[0].node.home;
 
   return (
     <section
@@ -81,7 +70,6 @@ export const FutureBookings: React.FC = () => {
           </Typography>
         </div>
         <MessengerContactLink
-          linkUrl={facebookLink}
           buttonVariant="outlined"
           iconVariant="light-background"
         >

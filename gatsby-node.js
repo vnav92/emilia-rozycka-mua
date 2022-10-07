@@ -12,6 +12,12 @@ exports.createPages = async ({ actions, graphql }) => {
             offerItem {
               primarytitle
               secondarytitle
+              firstitemcontent
+              firstitemprice
+              firstitemtitle
+              seconditemcontent
+              seconditemprice
+              seconditemtitle
             }
           }
         }
@@ -23,7 +29,7 @@ exports.createPages = async ({ actions, graphql }) => {
     actions.createPage({
       path: node.slug,
       component: require.resolve("./src/templates/offer-item.component.tsx"),
-      context: node.offerItem
+      context: node.offerItem,
     });
   });
 };

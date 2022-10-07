@@ -31,10 +31,7 @@ export const OfferLinks: React.FC<OfferLinksProps> = ({
         >
           {sectionTitle}
         </SectionHeader>
-        <Typography
-          as="p"
-          color={TypographyColor.PRIMARY}
-        >
+        <Typography as="p" color={TypographyColor.PRIMARY}>
           {sectionDescription}
         </Typography>
       </div>

@@ -9,19 +9,17 @@ import * as styles from "./messenger-contact-link.module.scss";
 type MessengerContactLinkProps = {
   iconVariant: "dark-background" | "light-background";
   buttonVariant: "outlined" | "outlined-contrast";
-  linkUrl: string;
   children: React.ReactNode;
 };
 
 export const MessengerContactLink: React.FC<MessengerContactLinkProps> = ({
   iconVariant,
   buttonVariant,
-  linkUrl,
   children,
 }) => {
-  const { allWpPost } = useStaticQuery(graphql`
-    query MessengerIconsQuery {
-      allWpPost(
+  const { icons, link } = useStaticQuery(graphql`
+    query MessengerContactLinkQuery {
+      icons: allWpPost(
         filter: {
           categories: { nodes: { elemMatch: { name: { eq: "icons" } } } }
         }
@@ -41,20 +39,30 @@ export const MessengerContactLink: React.FC<MessengerContactLinkProps> = ({
           }
         }
       }
+      link: allWpPost(filter: { title: { eq: "global-data" } }) {
+        edges {
+          node {
+            navbar {
+              facebooklink
+            }
+          }
+        }
+      }
     }
   `);
 
   const messengerIcon = getImageData(
-    allWpPost.edges[0].node.icons[
+    icons.edges[0].node.icons[
       iconVariant === "dark-background"
         ? "darkbackgroundmessengericon"
         : "lightbackgroundmessengericon"
     ]
   );
+  const facebookLink = link.edges[0].node.navbar.facebooklink;
 
   return (
     <Button
-      href={linkUrl}
+      href={facebookLink}
       image={messengerIcon}
       variant={buttonVariant}
       className={styles.actionButton}
