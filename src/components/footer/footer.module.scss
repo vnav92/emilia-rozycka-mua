@@ -4,13 +4,13 @@
 @import '../../styles/mixins';
 
 .footerWrapper {
-  background: $primary-color;
-  padding: defaultSpacingTimes(8) 0 defaultSpacingTimes(2);
-  display: flex;
+  display: block;
+  background: $background-dark;
+  padding-top: defaultSpacingTimes(8);
+  padding-bottom: defaultSpacingTimes(4);
 }
 
 .mainContent {
-  width: 100%;
   display: flex;
 }
 
@@ -23,44 +23,73 @@
 }
 
 .logo {
-  width: 60%;
+  width: 57%;
   height: auto;
+
+  @media (max-width: $medium-screen-breakpoint) {
+    width: 65%;
+  }
 }
 
 .contactLinksSection {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: defaultSpacingTimes(6);
+
+  @media (max-width: $medium-screen-breakpoint) {
+    flex-direction: column;
+    margin-right: 0;
+  }
 }
 
 .telLink, .mailLink {
+  display: inline-flex;
   font-size: 1rem;
-  color: $primary-contrast-color;
+  color: $neutral-40;
   text-transform: uppercase;
   text-decoration: none;
   font-family: $primary-font-family;
   border-bottom: 1px solid transparent;
-  margin-right: defaultSpacingTimes(2);
+  margin-bottom: defaultSpacingTimes(2);
+  margin-right: defaultSpacingTimes(4);
+
 
   &:hover, &:focus {
     @include hoverUnderline;
+  }
+
+  @media (max-width: $medium-screen-breakpoint) {
+    font-size: 0.875rem;
   }
 }
 
 .copyrightSection {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: $light-color;
+  color: $neutral-300;
   font-family: $primary-font-family;
   font-weight: 300;
   font-size: 0.875rem;
-  margin-top: defaultSpacingTimes(6);
-  padding: defaultSpacingTimes(2) 0;
+  border-top: 1px solid $neutral-700;
+  margin-top: defaultSpacingTimes(2);
+  padding-top: defaultSpacingTimes(4);
+  align-items: flex-start;
+
+  
+  @media (max-width: $medium-screen-breakpoint) {
+    font-size: 0.875rem;
+    flex-direction: column;
+  }
+
 }
 
 .designBySection {
   display: flex;
   align-items: center;
+  margin-top: defaultSpacingTimes(4);
 }
 
 .designByLogo {
