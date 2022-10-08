@@ -1,27 +1,50 @@
 @import '../../styles/colors.scss';
 @import '../../styles/fonts.scss';
+@import '../../styles/typography.scss';
 
 .typography {
   margin: 0;
 }
 
+// typography color
+.textDarkPrimary {
+  color: $neutral-800;
+}
+
+.textDarkSecondary {
+  color: $neutral-500;
+}
+
+.textLightPrimary {
+  color: $neutral-40;
+}
+
+.textLightSecondary {
+  color: $neutral-400;
+}
+
+//---------
+
 .primaryColor {
-  color: $primary-color;
+  color: $neutral-800;
 }
 .primaryContrastColor {
-  color: $primary-contrast-color
+  color: $neutral-40;
 }
 
 .lightColor {
-  color: $light-color;
+  color: $neutral-400;
 }
 
 .primaryFontFamily {
-  font-family: $primary-font-family;
+  //reverted importance primary<-->secondary
+  font-family: $secondary-font-family;
 }
 
 .secondaryFontFamily {
-  font-family: $secondary-font-family;
+  //reverted importance primary<-->secondary
+  font-family: $primary-font-family;
+  font-weight: 400;
 }
 
 // font styles

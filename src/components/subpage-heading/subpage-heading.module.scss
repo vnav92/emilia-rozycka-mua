@@ -6,9 +6,9 @@
 $owner-job-title-font-size: 1.125rem;
 $owner-name-font-size: 4rem;
 
-.subpageHeadingWrapper {
-  height: 70vh;
-}
+// .subpageHeadingWrapper {
+//   height: 70vh;
+// }
 
 .darkBackground {
   background: $primary-color;
@@ -23,11 +23,18 @@ $owner-name-font-size: 4rem;
 }
 
 .subpageContentHeadingWrapper {
-  height: 100%;
-  width: 100%;
+  padding-top: defaultSpacingTimes(36);
   display: flex;
-  padding-bottom: defaultSpacingTimes(7);
+  flex-direction: row;
+  align-items: flex-end;
+  padding-bottom: defaultSpacingTimes(16);
   position: relative;
+
+  @media (max-width: $medium-screen-breakpoint) {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 .titleWrapper, .socialLinksWrapper {
@@ -42,35 +49,36 @@ $owner-name-font-size: 4rem;
 }
 
 .socialLinksWrapper {
-  align-items: flex-end;
   gap: defaultSpacingTimes(3);
   justify-content: flex-end;
+
+  @media (max-width: $medium-screen-breakpoint) {
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin-top: defaultSpacingTimes(3);
+    padding-bottom: 0;
+  }
+
+  @media (max-width: $extra-small-screen-breakpoint) {
+    width: 100%;
+  }
+}
+
+.secondaryLightTitle {
+  color: $neutral-500;
   padding-bottom: defaultSpacingTimes(1);
 }
 
-.secondaryTitle {
-  font-size: $owner-job-title-font-size;
-}
+.primaryLightTitle {
+  // margin-bottom: #{defaultSpacingTimes(2)};
 
-.primaryTitle {
-  font-size: $owner-name-font-size;
-  font-family: $secondary-font-family;
-  margin-bottom: -#{defaultSpacingTimes(2)};
 }
 
 @media (max-width: $medium-screen-breakpoint) {
   .subpageHeadingWrapper {
     display: flex;
     flex-direction: column;
-  }
-
-  .socialLinksWrapper {
-    align-items: flex-end;
-    justify-content: flex-start;
-    flex: unset;
-    height: unset;
-    margin-top: defaultSpacingTimes(2);
-    padding-bottom: 0;
   }
 } 
 

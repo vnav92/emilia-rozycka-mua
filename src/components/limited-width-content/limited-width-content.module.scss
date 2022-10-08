@@ -4,8 +4,14 @@ $content-max-width: 1102px;
 
 .wrapper {
   height: 100%;
-  padding-left: defaultSpacingTimes(4) !important;
-  padding-right: defaultSpacingTimes(4) !important;
+  display: block;
+  padding-left: defaultSpacingTimes(4);
+  padding-right: defaultSpacingTimes(4);
+
+  @media (max-width: $small-screen-breakpoint) {
+    padding-left: defaultSpacingTimes(2);
+    padding-right: defaultSpacingTimes(2);
+  }
 }
 
 .contentWrapper {

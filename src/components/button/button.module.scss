@@ -29,6 +29,10 @@ $medium-screen-button-size: defaultSpacingTimes(6);
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: $medium-screen-breakpoint) {
+    padding: defaultSpacingTimes(1.5) defaultSpacingTimes(2.5);
+  }
 }
 
 @mixin pseudoButtonOutline {
