@@ -64,14 +64,14 @@ export const SubpageHeading: React.FC<SubpageHeadingProps> = ({
     >
       <div className={styles.titleWrapper}>
         <Typography
-          as="h2"
+          as="p"
           fontFamily={TypographyFontFamily.SECONDARY}
           color={
             backgroundVariant === "dark"
-              ? TypographyColor.PRIMARY_CONTRAST
-              : TypographyColor.PRIMARY
+              ? TypographyColor.LIGHT_SECONDARY
+              : TypographyColor.LIGHT_SECONDARY
           }
-          className={styles.secondaryTitle}
+          className={styles.secondaryLightTitle}
         >
           {secondaryTitle}
         </Typography>
@@ -79,10 +79,10 @@ export const SubpageHeading: React.FC<SubpageHeadingProps> = ({
           as="h1"
           color={
             backgroundVariant === "dark"
-              ? TypographyColor.PRIMARY_CONTRAST
-              : TypographyColor.PRIMARY
+              ? TypographyColor.LIGHT_PRIMARY
+              : TypographyColor.LIGHT_SECONDARY
           }
-          className={styles.primaryTitle}
+          className={styles.primaryLightTitle}
         >
           {primaryTitle}
         </Typography>

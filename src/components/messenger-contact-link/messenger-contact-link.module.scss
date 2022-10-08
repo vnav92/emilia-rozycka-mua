@@ -5,9 +5,12 @@
   img {
     margin-right: defaultSpacingTimes(1);
   }
-}
-@media (max-width: $medium-screen-breakpoint) {
-  .actionButton {
+
+  @media (max-width: $medium-screen-breakpoint) {
     font-size: 0.75rem;
+  }
+
+  @media (max-width: $extra-small-screen-breakpoint) {
+    width: 100%;
   }
 }
