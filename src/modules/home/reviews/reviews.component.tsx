@@ -7,6 +7,7 @@ import {
   Typography,
   TypographyFontFamily,
   RedirectionLink,
+  TypographyColor,
 } from "../../../components";
 import { getImageData, Image } from "../../../shared";
 
@@ -54,7 +55,7 @@ export const Reviews: React.FC<ReviewsProps> = ({
 
   return (
     <LimitedWidthContent className={styles.reviewsSection}>
-      <SectionHeader as="h3" icon={sectionTitleIcon}>
+      <SectionHeader as="h2" icon={sectionTitleIcon}>
         {sectionTitle}
       </SectionHeader>
       <div className={styles.contentWrapper}>
@@ -73,13 +74,17 @@ export const Reviews: React.FC<ReviewsProps> = ({
                   />
                   <div>
                     <Typography
+                      as="h4"
                       className={styles.authorName}
-                      fontFamily={TypographyFontFamily.SECONDARY}
+                      fontFamily={TypographyFontFamily.PRIMARY}
+                      color={TypographyColor.LIGHT_PRIMARY}
                     >
                       {authorname}
                     </Typography>
                     {authorcompany && (
-                      <Typography fontFamily={TypographyFontFamily.SECONDARY}>
+                      <Typography 
+                        fontFamily={TypographyFontFamily.SECONDARY}
+                        >
                         {authorcompany}
                       </Typography>
                     )}
@@ -87,7 +92,10 @@ export const Reviews: React.FC<ReviewsProps> = ({
                 </div>
               </div>
               <div className={styles.contentSection}>
-                <Typography>{reviewcontent}</Typography>
+                <Typography
+                  as="p"
+                  fontFamily={TypographyFontFamily.SECONDARY}
+                >{reviewcontent}</Typography>
               </div>
             </div>
           )

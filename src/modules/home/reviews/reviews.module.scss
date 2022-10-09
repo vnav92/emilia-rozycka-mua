@@ -4,13 +4,19 @@
 @import '../../../styles/variables.scss';
 
 .reviewsSection {
-  padding: defaultSpacingTimes(4) 0 defaultSpacingTimes(8);
-  background-color: $primary-color;
+  padding-top: defaultSpacingTimes(12);
+  padding-bottom: defaultSpacingTimes(12);
+  background-color: $background-dark;
+
+  @media (max-width: $medium-screen-breakpoint) {
+    padding-top: defaultSpacingTimes(8);
+    padding-bottom: defaultSpacingTimes(8);
+  }
 }
 
 .contentWrapper {
   width: 100%;
-  padding-top: defaultSpacingTimes(4);
+  padding-top: defaultSpacingTimes(5);
   display: flex;
   flex-direction: column;
 }
@@ -20,7 +26,7 @@
   padding-bottom: defaultSpacingTimes(5);
 
   &:not(:last-of-type) {
-    border-bottom: 1px solid rgba($light-color, 0.5);
+    border-bottom: 1px solid $neutral-700;
   }
 
   &:not(:first-of-type) {
@@ -32,30 +38,47 @@
   display: flex;
   align-items: flex-start;
   flex: 3;
+  margin-right: defaultSpacingTimes(3);
+
+  @media (max-width: $small-screen-breakpoint) {
+    margin-bottom: defaultSpacingTimes(2);
+    margin-right: 0;
+  }
 }
 
 .authorSectionContent {
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
-}
+  color: $neutral-400;
 
-.authorName {
-  max-width: 70%;
+  @media (max-width: $small-screen-breakpoint) {
+    display: block;
+  }
 }
 
 .authorPhoto {
-  width: defaultSpacingTimes(12.75);
-  height: defaultSpacingTimes(12.75);
-  border-radius: 50%;
+  width: defaultSpacingTimes(6);
+  height: defaultSpacingTimes(6);
+  border-radius: defaultSpacingTimes(6);
   object-fit: cover;
   margin-right: defaultSpacingTimes(2.5);
+
+  @media (max-width: $small-screen-breakpoint) {
+    margin-bottom: defaultSpacingTimes(1);
+  }
 }
 
 .contentSection {
   flex: 5;
-  font-size: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 145%;
   font-weight: 100;
+  color: $neutral-200;
+
+  @media (max-width: $small-screen-breakpoint) {
+    font-size: 1rem;
+    line-height: 150%;
+  }
 }
 
 .detailsLink {
@@ -67,9 +90,5 @@
   .reviewItem {
     display: flex;
     flex-direction: column;
-
-    p {
-      margin-top: defaultSpacingTimes(2);
-    }
   }
 }
