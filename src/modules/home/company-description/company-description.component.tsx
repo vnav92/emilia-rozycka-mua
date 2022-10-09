@@ -25,15 +25,15 @@ export const CompanyDescription: React.FC<CompanyDescriptionProps> = ({
       className={styles.descriptionSection}
       id={SCROLL_TO_ELEMENT_ID}
     >
-      <div
+      <p
         className={styles.primaryDescription}
         dangerouslySetInnerHTML={{ __html: primaryDescription }}
       />
-      <div
+      <p
         className={styles.secondaryDescription}
         dangerouslySetInnerHTML={{ __html: secondaryDescription }}
       />
-      <div
+      <p
         className={styles.bottomDescription}
         dangerouslySetInnerHTML={{ __html: bottomDescription }}
       />

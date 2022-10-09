@@ -8,32 +8,54 @@ $section-margin-bottom: defaultSpacingTimes(7);
 
 .descriptionSection {
   background-color: $primary-color;
-  padding: defaultSpacingTimes(9) 0;
+  padding-top: defaultSpacingTimes(12);
+  padding-bottom: defaultSpacingTimes(12);
+
+  @media (max-width: $medium-screen-breakpoint) {
+    padding-top: defaultSpacingTimes(8);
+    padding-bottom: defaultSpacingTimes(8);
+  }
 }
 
 .primaryDescription, .secondaryDescription, .bottomDescription {
   font-family: $primary-font-family;
-  color: $light-color;
+  color: $neutral-200;
   margin-bottom: $section-margin-bottom;
 }
+
+.primaryDescription, .secondaryDescription {
+  margin-bottom: $section-margin-bottom;
+}
+
+.bottomDescription {
+  margin-bottom: defaultSpacingTimes(2);
+}
+
 
 .primaryDescription, .bottomDescription {
   font-weight: 300;
   font-size: $small-text-font-size;
   width: 75%;
+
+  @media (max-width: $small-screen-breakpoint) {
+    width: 100%;
+  }
 }
 
 .secondaryDescription {
-  font-weight: 500;
+  font-weight: 300;
   font-size: $big-text-font-size;
+  color: $neutral-300;
 
   b {
     color: $primary-contrast-color;
+    font-weight: 500;
+    color: $neutral-40;
   }
 }
 
 @media (max-width: $small-screen-breakpoint) {
-  .primaryDescription, .secondaryDescription, .bottomDescription {
+  .primaryDescription, .secondaryDescription {
     margin-bottom: calc($section-margin-bottom * $small-screen-font-multiplier);
   }
   .primaryDescription, .bottomDescription {
