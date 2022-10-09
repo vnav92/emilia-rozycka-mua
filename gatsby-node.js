@@ -1,5 +1,5 @@
 exports.createPages = async ({ actions, graphql }) => {
-  const { data } = await graphql(`
+  const { data: offerItemData } = await graphql(`
     query SlugsQuery {
       allWpPost(
         filter: {
@@ -29,9 +29,9 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
 
-  data.allWpPost.edges.forEach(({ node }) => {
+  offerItemData.allWpPost.edges.forEach(({ node }) => {
     actions.createPage({
-      path: node.slug,
+      path: `offer/${node.slug}`,
       component: require.resolve("./src/templates/offer-item.component.tsx"),
       context: node.offerItem,
     });
