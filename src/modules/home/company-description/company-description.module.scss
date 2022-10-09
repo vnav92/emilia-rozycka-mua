@@ -7,9 +7,9 @@ $big-text-font-size: 2.25rem;
 $section-margin-bottom: defaultSpacingTimes(7);
 
 .descriptionSection {
-  background-color: $primary-color;
   padding-top: defaultSpacingTimes(12);
   padding-bottom: defaultSpacingTimes(12);
+  background-color: $background-dark;
 
   @media (max-width: $medium-screen-breakpoint) {
     padding-top: defaultSpacingTimes(8);
@@ -48,7 +48,6 @@ $section-margin-bottom: defaultSpacingTimes(7);
   color: $neutral-300;
 
   b {
-    color: $primary-contrast-color;
     font-weight: 500;
     color: $neutral-40;
   }
