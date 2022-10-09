@@ -6,6 +6,7 @@ import {
   OfferItemSection,
   Portfolio,
   FutureBookings,
+  Breadcrumb,
 } from "../components";
 
 import * as styles from "./offer-item.module.scss";
@@ -18,6 +19,9 @@ const OfferItem = ({ pageContext }) => (
       backgroundVariant="light"
       secondaryTitle={pageContext.secondarytitle}
       primaryTitle={pageContext.primarytitle}
+      breadcrumbElement={
+        <Breadcrumb lastItemTitle={pageContext.primarytitle} />
+      }
     />
     <div
       style={{

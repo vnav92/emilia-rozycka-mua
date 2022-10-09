@@ -1,3 +1,4 @@
+export * from "./breadcrumb";
 export * from "./button";
 export * from "./desktop-navbar";
 export * from "./footer";

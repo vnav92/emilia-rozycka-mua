@@ -1,0 +1,22 @@
+@import '../../styles/functions';
+@import '../../styles/colors';
+@import '../../styles/fonts';
+@import '../../styles/mixins';
+
+.breadcrumbWrapper {
+  display: flex;
+  gap: defaultSpacingTimes(1);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  
+  a {
+    color: $neutral-600;
+    text-decoration: none;
+    font-family: $primary-font-family;
+    border-bottom: 1px solid transparent;
+
+    &:hover, &:focus {
+      @include hoverUnderline;
+    }
+  }
+}

@@ -30,9 +30,9 @@ const getCustomItemClassName = (offerItemsLength: number, index: number) => {
 };
 
 export const OfferGrid: React.FC = () => {
-  const { allWpPost } = useStaticQuery(graphql`
+  const { offerItems, offerPage } = useStaticQuery(graphql`
     query OfferGridQuery {
-      allWpPost(
+      offerItems: allWpPost(
         filter: {
           categories: { nodes: { elemMatch: { name: { eq: "offer-item" } } } }
         }
@@ -49,24 +49,33 @@ export const OfferGrid: React.FC = () => {
           }
         }
       }
+      offerPage: allWpPage(filter: { title: { eq: "offer" } }) {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `);
 
-  const offerItems = allWpPost.edges.map(({ node }) => ({
+  const mappedOfferItems = offerItems.edges.map(({ node }) => ({
     ...node.offerItem,
     slug: node.slug,
   }));
 
+  const offerSlug = offerPage.edges[0].node.slug;
+
   return (
     <div className={styles.galleryWrapper}>
-      {offerItems.map(({ primarytitle, image, slug }, index) => (
+      {mappedOfferItems.map(({ primarytitle, image, slug }, index) => (
         <ImageLink
           key={index}
-          to={`/${slug}`}
+          to={`/${offerSlug}/${slug}`}
           image={getImageData(image)}
           linkClassName={classNames(
             styles.offerLink,
-            getCustomItemClassName(offerItems.length, index)
+            getCustomItemClassName(mappedOfferItems.length, index)
           )}
           imageClassName={styles.offerImage}
         >
