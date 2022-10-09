@@ -5,7 +5,10 @@ import {
   LimitedWidthContent,
   Typography,
   TypographyColor,
+  TypographyHeadingHuge,
+  TypographyBodySize,
   MessengerContactLink,
+  TypographyFontFamily
 } from "../";
 
 import * as styles from "./future-bookings.module.scss";
@@ -43,38 +46,55 @@ export const FutureBookings: React.FC = () => {
   return (
     <section
       className={styles.futureBookingsSection}
-      style={{
-        backgroundImage: `url('${futurebookingsbackgroundimage.mediaItemUrl}')`,
-      }}
+      style={{backgroundImage: `url('${futurebookingsbackgroundimage.mediaItemUrl}')`}} 
     >
       <LimitedWidthContent
         renderAs="div"
         contentWrapperClassName={styles.contentWrapper}
       >
-        <Typography color={TypographyColor.PRIMARY} className={styles.lineOne}>
-          {futurebookingslineone}
-        </Typography>
-        <div>
-          <Typography
-            color={TypographyColor.PRIMARY}
-            className={styles.lineTwo}
-          >
-            {futurebookingslinetwo}
-          </Typography>
-          <Typography
-            as="h4"
-            color={TypographyColor.PRIMARY}
-            className={styles.lineThree}
-          >
-            {futurebookingslinethree}
-          </Typography>
-        </div>
-        <MessengerContactLink
-          buttonVariant="outlined"
-          iconVariant="light-background"
+        <div
+          className={styles.imageBlock}
         >
-          {futurebookingslinktext}
-        </MessengerContactLink>
+          <img src={`${futurebookingsbackgroundimage.mediaItemUrl}`} alt="test" />
+        </div>
+        <div
+          className={styles.textBlock}
+        >
+          <Typography 
+            as="p" 
+            color={TypographyColor.DARK_PRIMARY} 
+            fontFamily={TypographyFontFamily.SECONDARY}
+            className={styles.lineOne}>
+            {futurebookingslineone}
+          </Typography>
+
+          <div>
+            <Typography
+              as="p"
+              color={TypographyColor.DARK_SECONDARY}
+              fontFamily={TypographyFontFamily.SECONDARY}
+              bodyTextSize={TypographyBodySize.REG}
+              className={styles.lineTwo}
+            >
+              {futurebookingslinetwo}
+            </Typography>
+            <Typography
+              as="h1"
+              color={TypographyColor.DARK_PRIMARY}
+              fontFamily={TypographyFontFamily.PRIMARY}
+              className={styles.lineThree}
+            >
+              {futurebookingslinethree}
+            </Typography>
+          </div>
+          <MessengerContactLink
+            buttonVariant="outlined"
+            iconVariant="light-background"
+          >
+            {futurebookingslinktext}
+          </MessengerContactLink>
+        </div>
+
       </LimitedWidthContent>
     </section>
   );
