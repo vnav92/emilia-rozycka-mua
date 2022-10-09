@@ -6,6 +6,7 @@ import {
   Typography,
   RedirectionLink,
   OfferGrid,
+  TypographyFontFamily,
 } from "../../../components";
 import { getImageData } from "../../../shared";
 
@@ -60,7 +61,11 @@ export const Offer: React.FC<OfferProps> = ({
           {sectionTitle}
         </SectionHeader>
         <div className={styles.descriptionSection}>
-          <Typography as="p" className={styles.description}>
+          <Typography 
+            as="p" 
+            className={styles.description}
+            fontFamily={TypographyFontFamily.SECONDARY}
+            >
             {primaryDescription}
           </Typography>
           <RedirectionLink to={detailsRedirectionLinkHref}>
@@ -68,7 +73,11 @@ export const Offer: React.FC<OfferProps> = ({
           </RedirectionLink>
         </div>
       </div>
-      <Typography className={styles.sectionInstruction}>
+      <Typography 
+        as="p" 
+        className={styles.sectionInstruction} 
+        fontFamily={TypographyFontFamily.SECONDARY}
+        >
         {sectionInstruction}
       </Typography>
       <div className={styles.contentWrapper}>

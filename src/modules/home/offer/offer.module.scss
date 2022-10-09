@@ -6,8 +6,9 @@ $description-font-size: 1.5rem;
 $section-instruction-font-size: 1rem;
 
 .offerSection {
-  padding: defaultSpacingTimes(4) 0;
-  background-color: $primary-color;
+  padding-top: defaultSpacingTimes(12);
+  padding-bottom: defaultSpacingTimes(12);
+  background-color: $background-dark;
 }
 
 .topSection {
@@ -20,6 +21,16 @@ $section-instruction-font-size: 1rem;
   flex: 1;
 }
 
+.sectionHeader {
+  color: $neutral-50;
+}
+
+// .descriptionSection {
+//   @media (max-width: $small-screen-breakpoint) {
+
+//   }
+// }
+
 .contentWrapper {
   width: 100%;
 }
@@ -27,7 +38,7 @@ $section-instruction-font-size: 1rem;
 .sectionInstruction {
   text-align: center;
   // TODO use color from const
-  color: #c8c8c8;
+  color: $neutral-300;
   font-weight: 300;
   padding: defaultSpacingTimes(3) 0;
   font-size: $section-instruction-font-size;
@@ -36,12 +47,11 @@ $section-instruction-font-size: 1rem;
 .description {
   font-size: 1.5rem;
   // TODO use color from const
-  color: #eeeeee;
+  color: $neutral-300;
   font-weight: 300;
-  line-height: 1.875rem;
 
   &:nth-of-type(1) {
-    padding-bottom: defaultSpacingTimes(1.5);
+    margin-bottom: defaultSpacingTimes(2);
   }
 
   &:nth-of-type(2) {
@@ -56,7 +66,7 @@ $section-instruction-font-size: 1rem;
 
   .description {
     font-size: calc($description-font-size * $small-screen-font-multiplier);
-    max-width: 75%;
+    // max-width: 75%;
   }
 
   .sectionInstruction {
