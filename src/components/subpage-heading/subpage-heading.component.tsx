@@ -17,6 +17,7 @@ type SubpageHeadingProps = {
   secondaryTitle: React.ReactNode;
   primaryTitle: React.ReactNode;
   backgroundVariant?: "dark" | "gray" | "light";
+  breadcrumbElement?: JSX.Element;
   className?: string;
   children?: React.ReactNode;
 };
@@ -25,6 +26,7 @@ export const SubpageHeading: React.FC<SubpageHeadingProps> = ({
   secondaryTitle,
   primaryTitle,
   backgroundVariant,
+  breadcrumbElement,
   className,
   children,
 }) => {
@@ -43,8 +45,7 @@ export const SubpageHeading: React.FC<SubpageHeadingProps> = ({
     }
   `);
 
-  const { emailaddress, instagramlink, facebooklink } =
-    allWpPost.edges[0].node.navbar;
+  const { emailaddress, instagramlink } = allWpPost.edges[0].node.navbar;
 
   return (
     <LimitedWidthContent
@@ -63,6 +64,7 @@ export const SubpageHeading: React.FC<SubpageHeadingProps> = ({
       )}
     >
       <div className={styles.titleWrapper}>
+        {breadcrumbElement}
         <Typography
           as="p"
           fontFamily={TypographyFontFamily.SECONDARY}
