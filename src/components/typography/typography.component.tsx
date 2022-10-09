@@ -41,8 +41,7 @@ export const Typography: React.FC<TypographyProps> = ({
         styles.typography,
         {
           [styles.textDarkPrimary]: color === TypographyColor.DARK_PRIMARY,
-          [styles.textLightPrimary]:
-            color === TypographyColor.LIGHT_PRIMARY,
+          [styles.textLightPrimary]: color === TypographyColor.LIGHT_PRIMARY,
           [styles.textDarkSecondary]: color === TypographyColor.DARK_SECONDARY,
           [styles.primaryFontFamily]:
             fontFamily === TypographyFontFamily.PRIMARY,
