@@ -24,16 +24,18 @@ export const OfferItemSection: React.FC<OfferItemSectionProps> = ({
 }) => {
   return (
     <LimitedWidthContent contentWrapperClassName={styles.sectionWrapper}>
-      <Typography
-        color={TypographyColor.PRIMARY}
-        className={classNames(styles.title, typographyStyles.bodyTextXL)}
-      >
-        {title}
-      </Typography>
-      <div
-        className={styles.contentWrapper}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+      <div className={styles.textContentWrapper}>
+        <Typography
+          color={TypographyColor.PRIMARY}
+          className={classNames(styles.title, typographyStyles.bodyTextXL)}
+        >
+          {title}
+        </Typography>
+        <div
+          className={styles.descriptionWrapper}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+      </div>
       <div>
         <Typography
           as="span"
