@@ -4,7 +4,7 @@
 @import '../../styles/variables';
 
 $top-image-z-index: 1;
-$content-wrapper-height: 900px;
+$content-wrapper-height: 1100px;
 $details-redirection-button-size: defaultSpacingTimes(36);
 $default-middle-image-width: defaultSpacingTimes(73);
 $default-middle-image-height: defaultSpacingTimes(85.5);
@@ -13,8 +13,18 @@ $medium-size-multiplier: 0.85;
 $small-size-multiplier: 0.625;
 
 .portfolioSection {
-  padding: defaultSpacingTimes(4) 0;
-  background-color: $primary-color;
+  padding-top: defaultSpacingTimes(12);
+  padding-bottom: defaultSpacingTimes(12);
+  background-color: $background-dark;
+
+  @media (max-width: $medium-screen-breakpoint) {
+    padding-top: defaultSpacingTimes(8);
+    padding-bottom: defaultSpacingTimes(8);
+  }
+
+  @media (max-width: $small-screen-breakpoint) {
+    padding-bottom: defaultSpacingTimes(32);
+  }
 }
 
 .contentWrapper {
@@ -58,12 +68,18 @@ $small-size-multiplier: 0.625;
   width: $details-redirection-button-size;
   height: $details-redirection-button-size;
   border-radius: calc($details-redirection-button-size / 2);
-  border: 1px solid $primary-contrast-color;
-  background: $primary-color;
+  border: 1px solid $neutral-700;
+  background: $background-dark;
   z-index: calc($top-image-z-index + 2);
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: $small-screen-breakpoint) {
+    transform: translate(50%, 0);
+    right: 50%;
+    bottom: defaultSpacingTimes(-32);
+  }
 }
 
 .lightBackground {
@@ -75,10 +91,6 @@ $small-size-multiplier: 0.625;
 }
 
 @media (max-width: $medium-screen-breakpoint) and (min-width: $small-screen-breakpoint) {
-  .contentWrapper {
-    height: calc($content-wrapper-height * $medium-size-multiplier)
-  }
-
   .middleImage {
     width: calc($default-middle-image-width * $medium-size-multiplier);
     height: calc($default-middle-image-height * $medium-size-multiplier);
@@ -88,16 +100,11 @@ $small-size-multiplier: 0.625;
     width: calc($default-secondary-image-size * $medium-size-multiplier);
     height: calc($default-secondary-image-size * $medium-size-multiplier);
   }
-
-  .detailsButtonWrapper {
-    width: calc($details-redirection-button-size * $medium-size-multiplier);
-    height: calc($details-redirection-button-size * $medium-size-multiplier);
-  }
 }
 
 @media (max-width: $small-screen-breakpoint) and (min-width: $extra-small-screen-breakpoint) {
   .contentWrapper {
-    height: calc($content-wrapper-height * $small-size-multiplier)
+    height: calc($content-wrapper-height / 1.375);
   }
 
   .middleImage {
@@ -110,11 +117,6 @@ $small-size-multiplier: 0.625;
     height: calc($default-secondary-image-size * $small-size-multiplier);
   }
 
-  .detailsButtonWrapper {
-    width: calc($details-redirection-button-size * $small-size-multiplier);
-    height: calc($details-redirection-button-size * $small-size-multiplier);
-  }
-
   .detailsLink {
     font-size: 0.75rem;
   }
@@ -122,7 +124,7 @@ $small-size-multiplier: 0.625;
 
 @media (max-width: $extra-small-screen-breakpoint) {
   .contentWrapper {
-    height: calc($content-wrapper-height * 0.45)
+    height: calc($content-wrapper-height / 2.2);
   }
 
   .middleImage {
@@ -133,11 +135,6 @@ $small-size-multiplier: 0.625;
   .topImage, .bottomImage {
     width: calc($default-secondary-image-size * 0.4);
     height: calc($default-secondary-image-size * 0.4);
-  }
-
-  .detailsButtonWrapper {
-    width: calc($details-redirection-button-size * 0.55);
-    height: calc($details-redirection-button-size * 0.55);
   }
 
   .detailsLink {

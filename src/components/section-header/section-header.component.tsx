@@ -17,7 +17,7 @@ type SectionHeaderProps = {
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
   as,
-  color = TypographyColor.PRIMARY_CONTRAST,
+  color = TypographyColor.LIGHT_PRIMARY,
   icon,
   className,
   children,

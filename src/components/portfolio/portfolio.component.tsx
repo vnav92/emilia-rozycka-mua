@@ -61,12 +61,12 @@ export const Portfolio: React.FC<PortfolioProps> = ({ isLightBackground }) => {
       )}
     >
       <SectionHeader
-        as="h3"
+        as="h2"
         icon={portfoliosectionicon}
         color={
           isLightBackground
-            ? TypographyColor.PRIMARY
-            : TypographyColor.PRIMARY_CONTRAST
+            ? TypographyColor.DARK_PRIMARY
+            : TypographyColor.LIGHT_PRIMARY
         }
       >
         {portfoliosectiontitle}
