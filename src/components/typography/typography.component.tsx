@@ -15,6 +15,25 @@ export enum TypographyColor {
   LIGHT_SECONDARY = "textLightSecondary",
 }
 
+export enum TypographyWidth {
+  LIGHT = "bodyTextWidthLight",
+  REGULAR = "bodyTextWidthRegular",
+  MEDIUM = "bodyTextWidthMedium",
+  SEMIBOLD = "bodyTextWidthSemibold",
+  BOLD = "bodyTextWidthBold",
+}
+
+export enum TypographyBodySize {
+  XL = "bodyTextXL",
+  LG = "bodyTextLG",
+  MD = "bodyTextMD",
+  REG = "bodyTextREG",
+}
+
+export enum TypographyHeadingHuge {
+  HUGE = "ctaText",
+}
+
 export enum TypographyFontFamily {
   PRIMARY = "primary",
   SECONDARY = "secondary",
@@ -24,6 +43,9 @@ type TypographyProps = {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
   color?: TypographyColor;
   fontFamily?: TypographyFontFamily;
+  width?: TypographyWidth;
+  bodyTextSize?: TypographyBodySize;
+  headingHuge?: TypographyHeadingHuge;
   className?: string;
   children: React.ReactNode;
 };

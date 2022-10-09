@@ -3,7 +3,7 @@
 @import '../../styles/typography.scss';
 
 .typography {
-  margin: 0;
+  // margin: 0;
 }
 
 // typography color
@@ -44,7 +44,6 @@
 .secondaryFontFamily {
   //reverted importance primary<-->secondary
   font-family: $primary-font-family;
-  font-weight: 400;
 }
 
 // font styles

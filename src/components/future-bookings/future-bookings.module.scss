@@ -3,31 +3,90 @@
 @import '../../styles/fonts';
 
 .futureBookingsSection {
-  padding: defaultSpacingTimes(8) 0;
   width: 100%;
-  height: defaultSpacingTimes(52.5);
   background-size: cover;
+  background-position: right;
+
+  @media (max-width: $small-screen-breakpoint) {
+    flex-direction: column;
+    background-image: none !important;
+  } 
 }
 
 .contentWrapper {
-  height: 100%;
   width: 100%;
   display: flex;
+  flex-direction: row;
+  padding-right: 0 !important;
+
+  @media (max-width: $medium-screen-breakpoint) {
+    flex-direction: column;
+  } 
+}
+
+.textBlock {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: flex-start;
+  padding-top: defaultSpacingTimes(8);
+  padding-bottom: defaultSpacingTimes(8);
+
+  @media (max-width: $small-screen-breakpoint) {
+    padding-top: defaultSpacingTimes(30);
+  } 
+}
+
+.imageBlock {
+  display: none;
+  position: relative;
+
+  @media (max-width: $small-screen-breakpoint) {
+    display: block;
+    height: 10vh;
+  } 
+
+  img {
+    position: relative;
+    top: -32px;
+    width: 100%;
+    height: 100vw;
+    object-fit: cover;
+    object-position: top right;
+    transform: rotate(-90deg);
+  }
 }
 
 .lineOne {
   text-transform: uppercase;
   font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 145%;
+  margin-bottom: defaultSpacingTimes(6);
+
+  @media (max-width: $small-screen-breakpoint) {
+    margin-bottom: defaultSpacingTimes(6);
+  } 
 }
 
 .lineTwo {
   font-size: 1.5rem;
   font-weight: 300;
+  line-height: 148%;
 }
 
 .lineThree {
+  font-family: $secondary-font-family;
   font-size: 6rem;
+  line-height: 117%;
+  letter-spacing: 0;
+  margin-bottom: defaultSpacingTimes(4);
+
+  @media (max-width: $small-screen-breakpoint) {
+    font-size: 4.5rem;
+    line-height: 111%;
+  } 
 }
+
