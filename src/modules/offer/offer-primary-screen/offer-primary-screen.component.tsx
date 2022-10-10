@@ -25,7 +25,7 @@ export const OfferPrimaryScreen = () => {
     <SubpageHeading
       primaryTitle={offerDetails.primarytitle}
       secondaryTitle={offerDetails.secondarytitle}
-      backgroundVariant="gray"
+      backgroundVariant="light"
     />
   );
 };
