@@ -88,7 +88,7 @@ $medium-screen-button-size: defaultSpacingTimes(6);
 
   &::after {
     @include pseudoButtonOutline;
-    background-image: linear-gradient($universal-white, $universal-white), linear-gradient($neutral-40, $neutral-40);
+    background-image: linear-gradient($universal-white, $universal-white), linear-gradient($neutral-100, $neutral-100);
     opacity: 1;
     transition: opacity .3s ease-in;
   }
