@@ -13,11 +13,13 @@ import * as styles from "./faq-item.module.scss";
 type FaqItemProps = {
     itemHeading: string;
     itemDescription: string;
+    faqRedirectionLinkText?: string;
 };
 
 export const FaqItem: React.FC<FaqItemProps> = ({
     itemHeading,
     itemDescription,
+    faqRedirectionLinkText
 }) => {
   return (
     <div className={styles.faqItemWrapper}>
@@ -44,6 +46,17 @@ export const FaqItem: React.FC<FaqItemProps> = ({
       >
         {itemDescription}
       </Typography>
+
+      {
+        faqRedirectionLinkText &&
+
+        <MessengerContactLink
+            buttonVariant="outlined"
+            iconVariant="light-background"
+          >
+            {faqRedirectionLinkText}
+        </MessengerContactLink>
+      }
     </div>
   );
 };
