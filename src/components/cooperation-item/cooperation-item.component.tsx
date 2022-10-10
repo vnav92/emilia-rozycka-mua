@@ -1,9 +1,8 @@
 import React from "react";
 
 import {
-  LimitedWidthContent,
-  SectionHeader,
   TypographyColor,
+  TypographyWidth,
   Typography,
   TypographyFontFamily,
 } from "..";
@@ -20,9 +19,16 @@ export const CooperationItem: React.FC<CooperationItemProps> = ({
     itemDescription
 }) => {
   return (
-    <div>
+    <div className={styles.cooperationItemWrapper}>
       <img src={itemTitleIcon} alt="" />
-      <p>{itemDescription}</p>
+      <Typography 
+        as="p" 
+        fontFamily={TypographyFontFamily.SECONDARY}
+        color={TypographyColor.DARK_PRIMARY}
+        className={styles.itemDescriptionText}
+      >
+        {itemDescription}
+      </Typography>
     </div>
   );
 };
