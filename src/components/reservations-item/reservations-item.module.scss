@@ -10,7 +10,11 @@
     padding: 0 defaultSpacingTimes(3);
 
     @media (max-width: $medium-screen-breakpoint) {
-        width: 33%
+        width: 50%;
+    }
+
+    @media (max-width: $small-vertical-screen-breakpoint) {
+        width: 100%;
     }
 }
 
