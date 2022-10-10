@@ -26,8 +26,9 @@ export const OfferItemSection: React.FC<OfferItemSectionProps> = ({
     <LimitedWidthContent contentWrapperClassName={styles.sectionWrapper}>
       <div className={styles.textContentWrapper}>
         <Typography
-          color={TypographyColor.PRIMARY}
-          className={classNames(styles.title, typographyStyles.bodyTextXL)}
+          as="h3"
+          color={TypographyColor.DARK_PRIMARY}
+          className={classNames(styles.title)}
         >
           {title}
         </Typography>
@@ -38,9 +39,9 @@ export const OfferItemSection: React.FC<OfferItemSectionProps> = ({
       </div>
       <div>
         <Typography
-          as="span"
-          color={TypographyColor.PRIMARY}
-          className={classNames(styles.price, typographyStyles.bodyTextLG)}
+          as="h4"
+          color={TypographyColor.DARK_PRIMARY}
+          className={classNames(styles.price)}
         >
           {price}
         </Typography>
