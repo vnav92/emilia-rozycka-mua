@@ -4,26 +4,24 @@
 @import '../../styles/functions.scss';
 
 .navbarWrapper {
-  display: flex;
-  align-items: center;
   position: fixed;
   top: 0;
+  left: 0;
+  z-index: 9999;
   width: 100%;
   max-height: $top-navbar-min-height;
-  display: flex;
-  padding: defaultSpacingTimes(2);
   box-sizing: border-box;
-  z-index: 9999;
-  position: fixed;
-  top: 0;
+  display: flex;
+  align-items: center;
+  padding: defaultSpacingTimes(2);
 }
 
 .darkBackgroundWrapper {
-  background-color: $primary-color;
+  background-color: $background-dark;
 }
 
 .lightBackgroundWrapper {
-  background-color: $primary-contrast-color;
+  background-color: $background-light;
 }
 
 .logoImg {

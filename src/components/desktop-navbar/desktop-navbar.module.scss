@@ -22,11 +22,23 @@
 }
 
 .darkBackgroundTextColor {
-  color: $light-color; 
+  color: $neutral-300; 
+  transition: all .3s ease-out;
+
+  &:hover, &:focus {
+    @include hoverUnderline;
+    color: $neutral-100;
+  }
 }
 
 .lightBackgroundTextColor {
-  color: $light-text-color;
+  color: $neutral-600;
+  transition: all .3s ease-out;
+
+  &:hover, &:focus {
+    @include hoverUnderline;
+    color: $neutral-800;
+  }
 }
 
 .contactNumberLink {
@@ -37,6 +49,7 @@
   text-decoration: none;
   font-family: $primary-font-family;
   font-weight: 300;
+  padding: defaultSpacingTimes(.65) 0;
   border-bottom: 1px solid transparent;
 
   &:hover, &:focus {
