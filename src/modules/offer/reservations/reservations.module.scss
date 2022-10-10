@@ -7,7 +7,12 @@
     padding-bottom: defaultSpacingTimes(9);
     
     @media (max-width: $medium-screen-breakpoint) {
-        padding-bottom: defaultSpacingTimes(8);
+        padding-top: defaultSpacingTimes(6);
+        padding-bottom: defaultSpacingTimes(6);
+    }
+
+    h2 {
+        justify-content: center;
     }
 }
 

@@ -22,7 +22,6 @@ export const Reservations: React.FC<ReservationsProps> = ({
 }) => {
   return (
     <LimitedWidthContent className={styles.reservationsSection}>
-      <div className={styles.headingSection}>
         <SectionHeader
           as="h2"
           color={TypographyColor.DARK_PRIMARY}
@@ -62,7 +61,6 @@ export const Reservations: React.FC<ReservationsProps> = ({
             itemDescription={'W przypadku większości usług potwierdzeniem rezerwacji jest wpłacenie zadatku'}
           />
         </div>
-      </div>
     </LimitedWidthContent>
   );
 };

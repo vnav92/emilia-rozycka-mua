@@ -27,7 +27,6 @@ export const Cooperation: React.FC<CooperationProps> = ({
 }) => {
   return (
     <LimitedWidthContent className={styles.cooperationSection}>
-      <div className={styles.headingSection}>
         <SectionHeader
           as="h2"
           color={TypographyColor.DARK_PRIMARY}
@@ -54,7 +53,6 @@ export const Cooperation: React.FC<CooperationProps> = ({
                 itemDescription={'Makijaże, kursy i lekcje makijażu dla osób prywatnych odbywają się w moim studio w Gdańsku'}
             />
         </div>
-      </div>
     </LimitedWidthContent>
   );
 };
