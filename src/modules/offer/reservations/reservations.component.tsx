@@ -36,6 +36,19 @@ export const Reservations: React.FC<ReservationsProps> = ({
             itemHeading={"Wybierz z oferty interesującą Cię usługę"}
             itemDescription={'W zgłoszeniu napisz informację, jakiego typu makijaż/kurs potrzebujesz'}
           />
+
+          <ReservationsItem 
+            itemNumber={"2"}
+            itemHeading={"Napisz do mnie wiadomość z proponowanym terminem"}
+            itemDescription={'Zaproponuj datę i godzinę naszego spotkania, mając na względzie czas trwania usługi'}
+          />
+
+          
+          <ReservationsItem 
+            itemNumber={"3"}
+            itemHeading={"Omówmy szczegóły makijażu i potwierdźmy wizytę"}
+            itemDescription={'W przypadku większości usług potwierdzeniem rezerwacji jest wpłacenie zadatku'}
+          />
         </div>
       </div>
     </LimitedWidthContent>
