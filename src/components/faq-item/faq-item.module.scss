@@ -1,22 +1,52 @@
 @import '../../styles/functions';
 @import '../../styles/variables';
+@import '../../styles/colors';
 
+$accordion-description-text-width: 700px;
 
 .faqItemWrapper {
- 
+    padding: defaultSpacingTimes(4) 0;
+    border-bottom: 1px solid $neutral-700;
+
+    @media (max-width: $small-screen-breakpoint) {
+        padding: defaultSpacingTimes(2) 0;
+    }
+}
+
+.accordionHeadWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $medium-screen-breakpoint) {
+        // align-items: flex-start;
+    }
+    
 }
 
 .itemHeading {
-    font-size: 1.125rem;
-    line-height: 145%;
+    font-size: 1.5rem;
+    line-height: 148%;
     font-weight: 600;
-    margin-bottom: defaultSpacingTimes(1);
+    margin-right: defaultSpacingTimes(2);
+
+    @media (max-width: $small-screen-breakpoint) {
+        font-size: 1.125rem;
+        line-height: 145%;
+    }
 }
 
 .itemDescription {
+    max-width: $accordion-description-text-width;
     font-weight: 300;
+    color: $neutral-300;
+    margin-top: defaultSpacingTimes(1);
 }
 
 .accordionButton {
-    
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    padding: defaultSpacingTimes(1);
+
 }

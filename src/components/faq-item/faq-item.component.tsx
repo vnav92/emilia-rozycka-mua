@@ -21,7 +21,7 @@ export const FaqItem: React.FC<FaqItemProps> = ({
 }) => {
   return (
     <div className={styles.faqItemWrapper}>
-      <div>
+      <div className={styles.accordionHeadWrapper}>
         <Typography 
           as="p" 
           fontFamily={TypographyFontFamily.SECONDARY}
@@ -40,7 +40,6 @@ export const FaqItem: React.FC<FaqItemProps> = ({
       <Typography 
         as="p" 
         fontFamily={TypographyFontFamily.SECONDARY}
-        color={TypographyColor.LIGHT_PRIMARY}
         className={styles.itemDescription}
       >
         {itemDescription}
