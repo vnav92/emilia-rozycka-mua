@@ -5,6 +5,7 @@
 
 .breadcrumbWrapper {
   display: flex;
+  flex-wrap: wrap;
   gap: defaultSpacingTimes(1);
   font-size: 0.75rem;
   text-transform: uppercase;
