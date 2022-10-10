@@ -46,21 +46,15 @@
 }
 
 .menuTriggerButton {
-  border: 1px solid transparent;
   margin-left: auto;
-  background-image: unset;
 
-  &:hover {
-    background-image: unset;
+  &::after, ::before {
+    content: none;
   }
-}
 
-.lightMenuTriggerButton:hover {
-  border: 1px solid $background-light;
-}
-
-.darkMenuTriggerButton:hover {
-  border: 1px solid $background-dark;
+  div {
+    padding: 8px 12px;
+  }
 }
 
 .lightMenuTriggerIcon {
@@ -68,11 +62,11 @@
 }
 
 .darkMenuTriggerIcon {
-  color: $light-text-color;
+  color: $background-dark;
 }
 
 .menuTriggerIcon {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .list {
