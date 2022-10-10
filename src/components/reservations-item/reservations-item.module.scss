@@ -6,8 +6,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    padding: 0 defaultSpacingTimes(3);
+
+    @media (max-width: $medium-screen-breakpoint) {
+        width: 33%
+    }
 }
 
+.itemNumber {
+    margin-bottom: defaultSpacingTimes(2);
+}
+
+.itemHeading {
+    font-size: 1.125rem;
+    line-height: 145%;
+    font-weight: 600;
+    margin-bottom: defaultSpacingTimes(1);
+}
 
 .itemDescription {
     font-weight: 300;

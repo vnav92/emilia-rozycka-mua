@@ -1,4 +1,5 @@
 import React from "react";
+import ArrowIcon from "../../../../static/graphics/reservations/arrow-right-long.svg";
 
 import {
   LimitedWidthContent,
@@ -37,12 +38,23 @@ export const Reservations: React.FC<ReservationsProps> = ({
             itemDescription={'W zgłoszeniu napisz informację, jakiego typu makijaż/kurs potrzebujesz'}
           />
 
+          <img 
+            src={ArrowIcon} 
+            alt={'arrow pointing right'} 
+            className={styles.arrowImg}
+          />
+
           <ReservationsItem 
             itemNumber={"2"}
             itemHeading={"Napisz do mnie wiadomość z proponowanym terminem"}
             itemDescription={'Zaproponuj datę i godzinę naszego spotkania, mając na względzie czas trwania usługi'}
           />
 
+          <img 
+            src={ArrowIcon} 
+            alt={'arrow pointing right'} 
+            className={styles.arrowImg}
+          />
           
           <ReservationsItem 
             itemNumber={"3"}

@@ -29,7 +29,6 @@ export const ReservationsItem: React.FC<ReservationsItemProps> = ({
         {itemNumber}
       </Typography>
 
-
       <Typography 
         as="p" 
         fontFamily={TypographyFontFamily.SECONDARY}
