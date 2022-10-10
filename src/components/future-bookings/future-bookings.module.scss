@@ -14,6 +14,7 @@
 }
 
 .contentWrapper {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -40,12 +41,17 @@
 }
 
 .imageBlock {
+  position: absolute;
+  left: defaultSpacingTimes(-2);
+  top: 0;
+  z-index: -1;
+  overflow: hidden;
   display: none;
-  position: relative;
+  width: calc(100% + defaultSpacingTimes(4));
 
   @media (max-width: $small-screen-breakpoint) {
     display: block;
-    height: 10vh;
+    height: 100%;
   } 
 
   img {
