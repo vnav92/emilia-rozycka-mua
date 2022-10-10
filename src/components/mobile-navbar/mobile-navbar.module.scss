@@ -46,6 +46,7 @@
 }
 
 .menuTriggerButton {
+  height: auto;
   margin-left: auto;
 
   &::after, ::before {
@@ -53,7 +54,7 @@
   }
 
   div {
-    padding: 8px 12px;
+    padding: 0;
   }
 }
 
@@ -66,6 +67,8 @@
 }
 
 .menuTriggerIcon {
+  padding: defaultSpacingTimes(1.5);
+  box-sizing: content-box;
   font-size: 1.5rem;
 }
 
@@ -103,10 +106,8 @@
 }
 
 .contactNumberLink {
-  position: relative;
   text-align: center;
   padding-top: defaultSpacingTimes(6);
-  width: 100%;
   text-decoration: none;
   font-family: $primary-font-family;
   font-weight: 300;
