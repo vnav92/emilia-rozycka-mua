@@ -2,24 +2,16 @@
 @import '../../../styles/variables';
 
 
-.cooperationSection {
-    padding-top: defaultSpacingTimes(4);
-    padding-bottom: defaultSpacingTimes(12);
+.reservationsSection {
+    padding-top: defaultSpacingTimes(9);
+    padding-bottom: defaultSpacingTimes(9);
     
     @media (max-width: $medium-screen-breakpoint) {
         padding-bottom: defaultSpacingTimes(8);
     }
 }
 
-.cooperationList {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: defaultSpacingTimes(3);
-    grid-row-gap: defaultSpacingTimes(6);
-    padding-top: defaultSpacingTimes(2);
-
-    @media (max-width: $medium-screen-breakpoint) {
-        grid-template-columns: 1fr;
-        grid-row-gap: defaultSpacingTimes(4);
-    }
+.reservationsList {
+    
 }
+

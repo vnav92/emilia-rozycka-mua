@@ -19,7 +19,7 @@ export const Reservations: React.FC<ReservationsProps> = ({
     sectionTitle,
 }) => {
   return (
-    <LimitedWidthContent className={styles.cooperationSection}>
+    <LimitedWidthContent className={styles.reservationsSection}>
       <div className={styles.headingSection}>
         <SectionHeader
           as="h2"
