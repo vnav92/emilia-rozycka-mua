@@ -6,6 +6,7 @@ import {
   TypographyColor,
   Typography,
   TypographyFontFamily,
+  CooperationItem,
 } from "../../../components";
 
 import * as styles from "./cooperation.module.scss";
@@ -32,7 +33,10 @@ export const Cooperation: React.FC<CooperationProps> = ({
           {sectionTitle}
         </SectionHeader>
 
-        
+        <CooperationItem
+            itemTitleIcon={''}
+            itemDescription={'Pracuję na produktach profesjonalnych (Kryolan, Affect, Luxury, Clare Blanc) i selektywnych (Estee Lauder, Dior Backstage, Hourglass, Smashbox, Fenty Beauty)'}
+        />
       </div>
     </LimitedWidthContent>
   );

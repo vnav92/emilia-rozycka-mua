@@ -17,3 +17,4 @@ export * from "./section-header";
 export * from "./social-icon-link";
 export * from "./subpage-heading";
 export * from "./typography";
+export * from "./cooperation-item";
