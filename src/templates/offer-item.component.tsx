@@ -20,7 +20,10 @@ const OfferItem = ({ pageContext }) => (
       secondaryTitle={pageContext.secondarytitle}
       primaryTitle={pageContext.primarytitle}
       breadcrumbElement={
-        <Breadcrumb lastItemTitle={pageContext.primarytitle} />
+        <Breadcrumb 
+          lastItemTitle={pageContext.primarytitle} 
+          className={styles.breadcrumbElement}
+          />
       }
     />
     <div

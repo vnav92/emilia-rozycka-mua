@@ -9,68 +9,87 @@
   padding: defaultSpacingTimes(3) 0;
   margin-bottom: defaultSpacingTimes(1);
   border-bottom: 1px solid $background-gray;
+
+  @media (max-width: $small-screen-breakpoint) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .textContentWrapper {
   display: flex;
-  gap: defaultSpacingTimes(2);
+  gap: defaultSpacingTimes(5);
   flex: 1;
+
+  @media (max-width: $medium-screen-breakpoint) {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  @media (max-width: $small-screen-breakpoint) {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .descriptionWrapper {
+  padding-top: defaultSpacingTimes(1);
   flex: 1;
   font-family: $primary-font-family;
+  color: $neutral-700;
 
   li {
-    margin-bottom: defaultSpacingTimes(0.5);
+    position: relative;
+    padding-left: defaultSpacingTimes(3);
     font-weight: 300;
+    list-style: none;
+    line-height: 150%;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      left: defaultSpacingTimes(1);
+      top: defaultSpacingTimes(1.2);
+      height: defaultSpacingTimes(.5);
+      width: defaultSpacingTimes(.5);
+      border-radius: defaultSpacingTimes(.5);
+      background: $neutral-700;
+    }
   }
 
   strong {
     margin-bottom: defaultSpacingTimes(0.5);
     display: block;
+    font-weight: 600;
+  }
+
+  @media (max-width: $small-screen-breakpoint) {
+    padding-top: 0;
   }
 }
 
 .title {
   width: 25%;
   font-family: 'Noe Display Medium';
+
+  @media (max-width: $medium-screen-breakpoint) {
+    margin-bottom: defaultSpacingTimes(2);
+    width: 100%;
+  }
+
+  @media (max-width: $small-screen-breakpoint) {
+    width: 100%;
+    margin-bottom: defaultSpacingTimes(1);
+  }
 }
 
 .price {
+  padding-top: defaultSpacingTimes(1);
   margin-bottom: defaultSpacingTimes(4);
   display: block;
-  font-family: 'Noe Display Medium';
-}
 
-@media (max-width: $medium-screen-breakpoint) and (min-width: $small-screen-breakpoint) {
-  .textContentWrapper {
-    flex-direction: column;
-  }
-
-  .title {
-    margin-bottom: defaultSpacingTimes(2);
-    width: 100%;
-  }
-}
-
-@media (max-width: $small-screen-breakpoint) {
-  .sectionWrapper {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .textContentWrapper {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .price {
+  @media (max-width: $small-screen-breakpoint) {
     margin-bottom: defaultSpacingTimes(2);
     text-align: flex-start;
-  }
-
-  .title {
-    width: 100%;
   }
 }

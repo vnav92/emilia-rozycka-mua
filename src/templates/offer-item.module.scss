@@ -2,12 +2,18 @@
 
 .offerImageWrapper {
   width: 100%;
-  height: 50vh;
+  height: 65vh;
   min-height: 300px;
   background-size: cover;
   background-position: center;
 }
 
 .offerItemsWrapper {
-  padding: defaultSpacingTimes(4) 0;
+  padding-top: defaultSpacingTimes(4);
+}
+
+.breadcrumbElement {
+  position: absolute;
+  left: 0;
+  top: defaultSpacingTimes(14);
 }
