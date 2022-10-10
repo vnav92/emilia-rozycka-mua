@@ -39,24 +39,26 @@ export const FaqItem: React.FC<FaqItemProps> = ({
         </button>
       </div>
 
-      <Typography 
-        as="p" 
-        fontFamily={TypographyFontFamily.SECONDARY}
-        className={styles.itemDescription}
-      >
-        {itemDescription}
-      </Typography>
+      <div className={styles.accordionDescriptionWrapper}>
+        <Typography 
+          as="p" 
+          fontFamily={TypographyFontFamily.SECONDARY}
+          className={styles.itemDescription}
+        >
+          {itemDescription}
+        </Typography>
 
-      {
-        faqRedirectionLinkText &&
+        {
+          faqRedirectionLinkText &&
 
-        <MessengerContactLink
-            buttonVariant="outlined"
-            iconVariant="light-background"
-          >
-            {faqRedirectionLinkText}
-        </MessengerContactLink>
-      }
+          <MessengerContactLink
+              buttonVariant="outlined"
+              iconVariant="light-background"
+            >
+              {faqRedirectionLinkText}
+          </MessengerContactLink>
+        }
+      </div>
     </div>
   );
 };

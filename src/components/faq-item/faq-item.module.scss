@@ -7,9 +7,6 @@ $accordion-description-text-width: 700px;
 .faqItemWrapper {
     padding: defaultSpacingTimes(4) 0;
     border-bottom: 1px solid $neutral-700;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
 
     @media (max-width: $small-screen-breakpoint) {
         padding: defaultSpacingTimes(2) 0;
@@ -21,7 +18,6 @@ $accordion-description-text-width: 700px;
 }
 
 .accordionHeadWrapper {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,6 +33,16 @@ $accordion-description-text-width: 700px;
         font-size: 1.125rem;
         line-height: 145%;
     }
+}
+
+.accordionDescriptionWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.displayNone {
+    display: none;
 }
 
 .itemDescription {
