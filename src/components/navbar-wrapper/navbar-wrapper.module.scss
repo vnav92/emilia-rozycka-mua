@@ -9,7 +9,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  min-height: $top-navbar-min-height;
+  max-height: $top-navbar-min-height;
   display: flex;
   padding: defaultSpacingTimes(2);
   box-sizing: border-box;
@@ -24,4 +24,10 @@
 
 .lightBackgroundWrapper {
   background-color: $primary-contrast-color;
+}
+
+.logoImg {
+  height: defaultSpacingTimes(6);
+  width: defaultSpacingTimes(6);
+  object-fit: contain;
 }
