@@ -6,7 +6,12 @@
 .galleryWrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: defaultSpacingTimes(1.5);
+  gap: defaultSpacingTimes(3);
+  
+
+  @media (max-width: $medium-screen-breakpoint) {
+    gap: defaultSpacingTimes(2);
+  } 
 }
 
 .offerImage {
@@ -50,7 +55,7 @@
     height: 100%;
     border-radius: 0.25rem;
     background-image: $primary-gradient-color;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%);
     opacity: 0;
     transition: all .2s ease-out;
   }
@@ -73,10 +78,20 @@
     }
 
     &::after {
-      transform: translate(-50%, -50%) scale(1.016);
+      transform: translate(-50%, -50%);
+      width: calc(100% + defaultSpacingTimes(.75));
+      height: calc(100% + defaultSpacingTimes(.75));
       opacity: 1;
       transition: all .15s ease-in;
     }
+  }
+
+  @media (max-width: $medium-screen-breakpoint) {
+      width: 45%;
+  }  
+  
+  @media (max-width: $small-vertical-screen-breakpoint) {
+      width: 100%;
   }
 }
 
@@ -88,20 +103,8 @@
   width: 45%
 }
 
-@media (min-width: $extra-small-screen-breakpoint) and (max-width: $small-screen-breakpoint) {
-  .offerLink {
-    width: 45%;
-  }
-}
-
 @media (max-width: $small-screen-breakpoint) {
   .tabletLastItem {
-    width: 100%;
-  }
-}
-
-@media (max-width: $extra-small-screen-breakpoint) {
-  .offerLink {
     width: 100%;
   }
 }
