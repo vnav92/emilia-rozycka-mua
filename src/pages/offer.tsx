@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import { Layout, FutureBookings, Portfolio } from "../components";
 import { OfferPrimaryScreen } from "../modules/offer/offer-primary-screen/offer-primary-screen.component";
-import { OfferLinks } from "../modules";
+import { Cooperation, OfferLinks } from "../modules";
 
 const Offer = () => {
   const { allWpPost } = useStaticQuery(graphql`
@@ -39,6 +39,11 @@ const Offer = () => {
         sectionDescription="Wybierz interesujący Cię typ makijażu, aby sprawdzić cennik."
       />
       <FutureBookings />
+      <Cooperation 
+        sectionTitleIcon={lightbackgroundoffersectionicon}
+        sectionTitle="Współpraca"
+        sectionDescription=""
+      />
     </Layout>
   );
 };
