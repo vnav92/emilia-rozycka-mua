@@ -9,8 +9,6 @@ import {
   LimitedWidthContent,
   SectionHeader,
   TypographyColor,
-  Typography,
-  TypographyFontFamily,
   CooperationItem,
 } from "../../../components";
 
