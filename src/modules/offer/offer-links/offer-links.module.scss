@@ -3,6 +3,10 @@
 .offerSection {
   padding-top: defaultSpacingTimes(4);
   padding-bottom: defaultSpacingTimes(12);
+
+  @media (max-width: $medium-screen-breakpoint) {
+    padding-bottom: defaultSpacingTimes(8);
+  }
 }
 
 .headingSection {
