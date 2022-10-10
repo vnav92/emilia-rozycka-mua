@@ -6,6 +6,7 @@ import {
   SectionHeader,
   TypographyColor,
   Typography,
+  TypographyFontFamily,
 } from "../../../components";
 
 import * as styles from "./offer-links.module.scss";
@@ -25,13 +26,17 @@ export const OfferLinks: React.FC<OfferLinksProps> = ({
     <LimitedWidthContent className={styles.offerSection}>
       <div className={styles.headingSection}>
         <SectionHeader
-          as="h3"
-          color={TypographyColor.PRIMARY}
+          as="h2"
+          color={TypographyColor.DARK_PRIMARY}
           icon={sectionTitleIcon}
         >
           {sectionTitle}
         </SectionHeader>
-        <Typography as="p" color={TypographyColor.PRIMARY}>
+        <Typography 
+          as="p" 
+          color={TypographyColor.DARK_PRIMARY}
+          fontFamily={TypographyFontFamily.SECONDARY}
+          >
           {sectionDescription}
         </Typography>
       </div>
