@@ -2,6 +2,7 @@ import React from "react";
 
 import {
   LimitedWidthContent,
+  ReservationsItem,
   SectionHeader,
   TypographyColor,
 } from "../../../components";
@@ -30,6 +31,11 @@ export const Reservations: React.FC<ReservationsProps> = ({
         </SectionHeader>
 
         <div className={styles.reservationsList}>
+          <ReservationsItem 
+            itemNumber={"1"}
+            itemHeading={"Wybierz z oferty interesującą Cię usługę"}
+            itemDescription={'W zgłoszeniu napisz informację, jakiego typu makijaż/kurs potrzebujesz'}
+          />
         </div>
       </div>
     </LimitedWidthContent>
