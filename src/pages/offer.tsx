@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import { Layout, FutureBookings, Portfolio } from "../components";
 import { OfferPrimaryScreen } from "../modules/offer/offer-primary-screen/offer-primary-screen.component";
-import { Cooperation, OfferLinks } from "../modules";
+import { Cooperation, OfferLinks, Reservations } from "../modules";
 
 const Offer = () => {
   const { allWpPost } = useStaticQuery(graphql`
@@ -42,6 +42,11 @@ const Offer = () => {
       <Cooperation 
         sectionTitleIcon={lightbackgroundoffersectionicon}
         sectionTitle="Współpraca"
+        sectionDescription=""
+      />
+      <Reservations
+        sectionTitleIcon={lightbackgroundoffersectionicon}
+        sectionTitle="Rezerwacje"
         sectionDescription=""
       />
     </Layout>
