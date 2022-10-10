@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 
-export const useOnClickOutside = (ref, handler) => {
+export const useOnClickOutside = (navbarRef, triggerRef, handler) => {
   useEffect(() => {
-    const listener = event => {
-      if (!ref.current || ref.current.contains(event.target)) {
+    const listener = (event) => {
+
+      if ((navbarRef?.current?.contains(event.target)) || (triggerRef?.current?.contains(event.target))) {
         return;
       }
 
@@ -17,5 +18,5 @@ export const useOnClickOutside = (ref, handler) => {
       document.removeEventListener("mousedown", listener);
       document.removeEventListener("touchstart", listener);
     };
-  }, [ref, handler]);
+  }, [navbarRef, triggerRef, handler]);
 };

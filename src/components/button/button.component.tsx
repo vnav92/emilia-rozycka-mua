@@ -18,7 +18,7 @@ type ButtonProps = {
     | { children?: React.ReactNode | React.ReactNode[] }
   );
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button = React.forwardRef<any, ButtonProps>(({
   className,
   variant = "primary",
   isCircleShape,
@@ -27,12 +27,13 @@ export const Button: React.FC<ButtonProps> = ({
   ariaLabel,
   children,
   ...props
-}) => {
+}, ref) => {
   const ButtonElement = "href" in props ? "a" : "button";
 
   return (
     <ButtonElement
       aria-label={ariaLabel}
+      ref={ref}
       className={classNames(
         styles.buttonElement,
         {
@@ -59,4 +60,4 @@ export const Button: React.FC<ButtonProps> = ({
       </div>
     </ButtonElement>
   );
-};
+})
