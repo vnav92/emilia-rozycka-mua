@@ -47,6 +47,7 @@ export const Reservations: React.FC<ReservationsProps> = ({
             itemNumber={"2"}
             itemHeading={"Napisz do mnie wiadomość z proponowanym terminem"}
             itemDescription={'Zaproponuj datę i godzinę naszego spotkania, mając na względzie czas trwania usługi'}
+            reservationsRedirectionLinkText={'Wyślij wiadomość'}
           />
 
           <img 
