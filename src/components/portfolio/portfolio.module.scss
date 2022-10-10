@@ -87,7 +87,7 @@ $small-size-multiplier: 0.625;
 }
 
 .lightBackgroundBorder {
-  border: 1px solid $background-gray;
+  border: 1px solid $neutral-100;
 }
 
 @media (max-width: $medium-screen-breakpoint) and (min-width: $small-screen-breakpoint) {
