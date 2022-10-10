@@ -34,11 +34,12 @@ export const ImageLink: React.FC<ImageLinkProps> = ({
       <Typography
         as="h5"
         className={styles.linkLabel}
-        fontFamily={TypographyFontFamily.SECONDARY}
       >
         {children}
       </Typography>
-      <p>Zobacz szczegóły</p>
+      <Typography
+        as="p"
+      >Zobacz szczegóły</Typography>
     </div>
   </Link>
 );
