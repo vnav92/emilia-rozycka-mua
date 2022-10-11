@@ -1,9 +1,13 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import { Layout, FutureBookings, Portfolio } from "../components";
+import { Layout, FutureBookings } from "../components";
 import { OfferPrimaryScreen } from "../modules/offer/offer-primary-screen/offer-primary-screen.component";
 import { Cooperation, Faq, OfferLinks, Reservations } from "../modules";
+
+import FaqSectionIcon from "../../static/graphics/faq/icon-section-faq.svg";
+import ReservationsSectionIcon from "../../static/graphics/reservations/icon-section-reservations-calendar.svg";
+import CooperationSectionIcon from "../../static/graphics/cooperation/icon-section-cooperation.svg";
 
 const Offer = () => {
   const { allWpPost } = useStaticQuery(graphql`
@@ -38,22 +42,22 @@ const Offer = () => {
         sectionTitle="Lista usług"
         sectionDescription="Wybierz interesujący Cię typ makijażu, aby sprawdzić cennik."
       />
-      <FutureBookings />
       <Cooperation 
-        sectionTitleIcon={lightbackgroundoffersectionicon}
+        sectionTitleIcon={CooperationSectionIcon}
         sectionTitle="Współpraca"
         sectionDescription=""
       />
       <Reservations
-        sectionTitleIcon={lightbackgroundoffersectionicon}
+        sectionTitleIcon={ReservationsSectionIcon}
         sectionTitle="Rezerwacje"
         sectionDescription=""
       />
       <Faq
-        sectionTitleIcon={lightbackgroundoffersectionicon}
+        sectionTitleIcon={FaqSectionIcon}
         sectionTitle="FAQ"
         sectionDescription=""
       />
+      <FutureBookings />
     </Layout>
   );
 };
