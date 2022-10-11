@@ -1,5 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import ctaBackground from "../../../static/graphics/cta/emilia-rozycka-makeup-artist-gdansk-call-to-action.jpg";
 
 import {
   LimitedWidthContent,
@@ -16,16 +16,12 @@ export const CtaQuestions: React.FC = () => {
   return (
     <section
       className={styles.ctaQuestionsSection}
-      style={{backgroundImage: `url('')`}} 
+      style={{backgroundImage: `url(${ctaBackground})`}} 
     >
       <LimitedWidthContent
         renderAs="div"
         contentWrapperClassName={styles.contentWrapper}
       >
-        <div className={styles.imageBlock}>
-          <img src={``} alt="test" />
-        </div>
-
         <div
           className={styles.textBlock}
         >
