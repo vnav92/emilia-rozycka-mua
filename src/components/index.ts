@@ -20,3 +20,4 @@ export * from "./typography";
 export * from "./cooperation-item";
 export * from "./reservations-item";
 export * from "./faq-item";
+export * from "./cta-questions";

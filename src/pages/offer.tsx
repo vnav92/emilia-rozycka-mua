@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import { Layout, FutureBookings } from "../components";
+import { Layout, FutureBookings, CtaQuestions } from "../components";
 import { OfferPrimaryScreen } from "../modules/offer/offer-primary-screen/offer-primary-screen.component";
 import { Cooperation, Faq, OfferLinks, Reservations } from "../modules";
 
@@ -42,6 +42,7 @@ const Offer = () => {
         sectionTitle="Lista usług"
         sectionDescription="Wybierz interesujący Cię typ makijażu, aby sprawdzić cennik."
       />
+      <CtaQuestions/>
       <Cooperation 
         sectionTitleIcon={CooperationSectionIcon}
         sectionTitle="Współpraca"

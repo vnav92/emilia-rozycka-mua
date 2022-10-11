@@ -1,0 +1,55 @@
+@import '../../styles/colors';
+@import '../../styles/functions';
+@import '../../styles/fonts';
+
+.ctaQuestionsSection {
+  width: 100%;
+  background-size: cover;
+  background-position: right;
+
+  @media (max-width: $small-screen-breakpoint) {
+    flex-direction: column;
+    background-image: none !important;
+  } 
+}
+
+.contentWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-right: 0 !important;
+
+  @media (max-width: $medium-screen-breakpoint) {
+    flex-direction: column;
+  } 
+}
+
+.textBlock {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: defaultSpacingTimes(25);
+  padding-bottom: defaultSpacingTimes(25);
+
+  @media (max-width: $small-screen-breakpoint) {
+    padding-top: defaultSpacingTimes(30);
+  } 
+}
+
+.imageBlock {
+
+}
+
+.lineOne {
+  margin-bottom: defaultSpacingTimes(1);
+
+  @media (max-width: $small-screen-breakpoint) {
+    margin-bottom: defaultSpacingTimes(6);
+  } 
+}
+
+
