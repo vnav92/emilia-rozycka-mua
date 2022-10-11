@@ -4,24 +4,28 @@
 @import '../../styles/functions.scss';
 
 .navbarWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  max-height: $top-navbar-min-height;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  min-height: $top-navbar-min-height;
-  display: flex;
   padding: defaultSpacingTimes(2);
-  box-sizing: border-box;
-  z-index: 9999;
-  position: fixed;
-  top: 0;
 }
 
 .darkBackgroundWrapper {
-  background-color: $primary-color;
+  background-color: $background-dark;
 }
 
 .lightBackgroundWrapper {
-  background-color: $primary-contrast-color;
+  background-color: $background-light;
+}
+
+.logoImg {
+  height: defaultSpacingTimes(6);
+  width: defaultSpacingTimes(6);
+  object-fit: contain;
 }

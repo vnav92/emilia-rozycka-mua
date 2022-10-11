@@ -88,6 +88,7 @@ export const MobileNavbar: React.FC<NavbarProps> = ({
             </li>
           ))}
         </ul>
+        <hr/>
         <div className={styles.contactNumberLinkWrapper}>
           <a
             className={classNames(
