@@ -5,7 +5,6 @@ import {
   LimitedWidthContent,
   Typography,
   TypographyColor,
-  TypographyBodySize,
   MessengerContactLink,
   TypographyFontFamily
 } from "../";

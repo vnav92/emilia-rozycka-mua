@@ -69,7 +69,7 @@ export const Faq: React.FC<FaqProps> = ({
           />
 
           <FaqItem
-            itemHeading={'Świetnie! W takim razie przyjdę na makijaż próbny. Czy mogę zabrać ze sobą moją świadkową/mamę/przyszłego męża?'}
+            itemHeading={'Świetnie! W takim razie przyjdę na makijaż próbny. Czy mogę zabrać ze sobą moją świadkową / mamę / przyszłego męża?'}
             itemDescription={'W trosce o pozostałe klientki relaksujące się w lokalu, na każdy makijaż zapraszam Was bez osób towarzyszących. Swoje czworonogi i dzieci również zostawcie pod opieką w domu.'}
           />
 
