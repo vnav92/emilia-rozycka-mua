@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import accordionIcon from "../../../static/graphics/faq/accordion-icon.svg";
 
 import {
@@ -9,6 +9,7 @@ import {
 } from "..";
 
 import * as styles from "./faq-item.module.scss";
+import classNames from "classnames";
 
 type FaqItemProps = {
     itemHeading: string;
@@ -21,6 +22,8 @@ export const FaqItem: React.FC<FaqItemProps> = ({
     itemDescription,
     faqRedirectionLinkText
 }) => {
+  const [isAccordionClosed, setIsAccordionClosed] = useState(true);
+
   return (
     <div className={styles.faqItemWrapper}>
       <div className={styles.accordionHeadWrapper}>
@@ -33,13 +36,17 @@ export const FaqItem: React.FC<FaqItemProps> = ({
           {itemHeading}
         </Typography>
         <button
+          onClick={() => setIsAccordionClosed(isAccordionClosed => !isAccordionClosed)}
           className={styles.accordionButton}
         >
           <img src={accordionIcon} alt={'accordion expand button icon'}/>
         </button>
       </div>
 
-      <div className={styles.accordionDescriptionWrapper}>
+      <div className={
+        classNames(styles.accordionDescriptionWrapper,
+          isAccordionClosed ? styles.displayNone : ''
+        )}>
         <Typography 
           as="p" 
           fontFamily={TypographyFontFamily.SECONDARY}
