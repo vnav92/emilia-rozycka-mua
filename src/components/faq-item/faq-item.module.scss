@@ -8,6 +8,10 @@ $accordion-description-text-width: 700px;
     padding: defaultSpacingTimes(4) 0;
     border-bottom: 1px solid $neutral-700;
 
+    &:last-child {
+        border: none;
+    }
+
     a:last-child {
         margin-top: defaultSpacingTimes(3);
     }
