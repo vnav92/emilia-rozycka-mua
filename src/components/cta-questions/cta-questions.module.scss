@@ -1,0 +1,68 @@
+@import '../../styles/colors';
+@import '../../styles/functions';
+@import '../../styles/fonts';
+
+.ctaQuestionsSection {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+
+  @media (max-width: $small-vertical-screen-breakpoint) {
+    background-position-x: -320px;
+  } 
+
+  @media (max-width: $extra-small-screen-breakpoint) {
+    background-position-x: -220px;
+  } 
+}
+
+.contentWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.textBlock {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: defaultSpacingTimes(15);
+  padding-bottom: defaultSpacingTimes(35);
+
+  @media (max-width: $medium-screen-breakpoint) {
+    width: 60%;
+  } 
+
+  @media (max-width: $small-screen-breakpoint) {
+    width: 70%;
+    padding-right: defaultSpacingTimes(2);
+    padding-top: defaultSpacingTimes(10);
+    padding-bottom: defaultSpacingTimes(40);
+  }  
+  
+  @media (max-width: $small-vertical-screen-breakpoint) {
+    width: 80%;
+    padding-right: defaultSpacingTimes(0);
+    padding-top: defaultSpacingTimes(4);
+    padding-bottom: defaultSpacingTimes(60);
+  } 
+
+  @media (max-width: $extra-small-screen-breakpoint) {
+    width: 100%;
+    padding-bottom: defaultSpacingTimes(4);
+  } 
+}
+
+
+.lineOne {
+  margin-bottom: defaultSpacingTimes(3);
+
+  @media (max-width: $extra-small-screen-breakpoint) {
+    text-align: center;
+    margin-bottom: defaultSpacingTimes(49);
+  } 
+}
+
+
