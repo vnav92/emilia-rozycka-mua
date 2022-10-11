@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import accordionIcon from "../../../static/graphics/faq/accordion-icon.svg";
+import accordionIconExpand from "../../../static/graphics/faq/accordion-icon-expand.svg";
+import accordionIconCollapse from "../../../static/graphics/faq/accordion-icon-collapse.svg";
 
 import {
   TypographyColor,
@@ -39,7 +40,7 @@ export const FaqItem: React.FC<FaqItemProps> = ({
           onClick={() => setIsAccordionClosed(isAccordionClosed => !isAccordionClosed)}
           className={styles.accordionButton}
         >
-          <img src={accordionIcon} alt={'accordion expand button icon'}/>
+          <img src={isAccordionClosed ? accordionIconExpand : accordionIconCollapse} alt={'accordion expand button icon'}/>
         </button>
       </div>
 
