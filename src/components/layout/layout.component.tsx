@@ -49,7 +49,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   `);
 
   const menuElements = allWpPage.edges
-    .sort(({ menuOrder }) => menuOrder)
+    .sort((a, b) => a.node.menuOrder - b.node.menuOrder)
     .map(({ node }) => ({
       label: node.title,
       href: `/${node.slug}`,
