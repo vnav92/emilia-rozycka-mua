@@ -13,7 +13,10 @@ const LINKS_SEPARATOR = "/";
 
 // Initial version of breadcrumb which applies only to offer-item
 // Will be improved if needed
-export const Breadcrumb: React.FC<BreadCrumbProps> = ({ lastItemTitle, className }) => {
+export const Breadcrumb: React.FC<BreadCrumbProps> = ({
+  lastItemTitle,
+  className,
+}) => {
   const { pathname } = useLocation();
 
   return (

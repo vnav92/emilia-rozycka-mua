@@ -8,7 +8,7 @@ import {
   TypographyHeadingHuge,
   TypographyBodySize,
   MessengerContactLink,
-  TypographyFontFamily
+  TypographyFontFamily,
 } from "../";
 
 import * as styles from "./future-bookings.module.scss";
@@ -46,25 +46,27 @@ export const FutureBookings: React.FC = () => {
   return (
     <section
       className={styles.futureBookingsSection}
-      style={{backgroundImage: `url('${futurebookingsbackgroundimage.mediaItemUrl}')`}} 
+      style={{
+        backgroundImage: `url('${futurebookingsbackgroundimage.mediaItemUrl}')`,
+      }}
     >
       <LimitedWidthContent
         renderAs="div"
         contentWrapperClassName={styles.contentWrapper}
       >
-        <div
-          className={styles.imageBlock}
-        >
-          <img src={`${futurebookingsbackgroundimage.mediaItemUrl}`} alt="test" />
+        <div className={styles.imageBlock}>
+          <img
+            src={`${futurebookingsbackgroundimage.mediaItemUrl}`}
+            alt="test"
+          />
         </div>
-        <div
-          className={styles.textBlock}
-        >
-          <Typography 
-            as="p" 
-            color={TypographyColor.DARK_PRIMARY} 
+        <div className={styles.textBlock}>
+          <Typography
+            as="p"
+            color={TypographyColor.DARK_PRIMARY}
             fontFamily={TypographyFontFamily.SECONDARY}
-            className={styles.lineOne}>
+            className={styles.lineOne}
+          >
             {futurebookingslineone}
           </Typography>
 
@@ -94,7 +96,6 @@ export const FutureBookings: React.FC = () => {
             {futurebookingslinktext}
           </MessengerContactLink>
         </div>
-
       </LimitedWidthContent>
     </section>
   );

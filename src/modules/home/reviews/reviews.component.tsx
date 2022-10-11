@@ -82,9 +82,7 @@ export const Reviews: React.FC<ReviewsProps> = ({
                       {authorname}
                     </Typography>
                     {authorcompany && (
-                      <Typography 
-                        fontFamily={TypographyFontFamily.SECONDARY}
-                        >
+                      <Typography fontFamily={TypographyFontFamily.SECONDARY}>
                         {authorcompany}
                       </Typography>
                     )}
@@ -92,10 +90,9 @@ export const Reviews: React.FC<ReviewsProps> = ({
                 </div>
               </div>
               <div className={styles.contentSection}>
-                <Typography
-                  as="p"
-                  fontFamily={TypographyFontFamily.SECONDARY}
-                >{reviewcontent}</Typography>
+                <Typography as="p" fontFamily={TypographyFontFamily.SECONDARY}>
+                  {reviewcontent}
+                </Typography>
               </div>
             </div>
           )

@@ -19,12 +19,14 @@ export const MobileNavbar: React.FC<NavbarProps> = ({
   menuElements,
   contactNumber,
 }) => {
-  const mobileNavbarRef = useRef() as React.MutableRefObject<HTMLDivElement>;;
+  const mobileNavbarRef = useRef() as React.MutableRefObject<HTMLDivElement>;
   const triggerButtonRef = useRef();
   const isOnHomePage = useIsOnHomePage();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
-  useOnClickOutside(mobileNavbarRef, triggerButtonRef, () => setIsMenuVisible(false));
+  useOnClickOutside(mobileNavbarRef, triggerButtonRef, () =>
+    setIsMenuVisible(false)
+  );
 
   return (
     <>
@@ -88,7 +90,7 @@ export const MobileNavbar: React.FC<NavbarProps> = ({
             </li>
           ))}
         </ul>
-        <hr/>
+        <hr />
         <div className={styles.contactNumberLinkWrapper}>
           <a
             className={classNames(

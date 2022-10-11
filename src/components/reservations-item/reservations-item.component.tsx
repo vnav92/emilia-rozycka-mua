@@ -4,36 +4,36 @@ import {
   TypographyColor,
   Typography,
   TypographyFontFamily,
-  MessengerContactLink
+  MessengerContactLink,
 } from "..";
 
 import * as styles from "./reservations-item.module.scss";
 
 type ReservationsItemProps = {
-    itemNumber: string;
-    itemHeading: string;
-    itemDescription: string;
-    reservationsRedirectionLinkText?: string;
+  itemNumber: string;
+  itemHeading: string;
+  itemDescription: string;
+  reservationsRedirectionLinkText?: string;
 };
 
 export const ReservationsItem: React.FC<ReservationsItemProps> = ({
-    itemNumber,
-    itemHeading,
-    itemDescription,
-    reservationsRedirectionLinkText
+  itemNumber,
+  itemHeading,
+  itemDescription,
+  reservationsRedirectionLinkText,
 }) => {
   return (
     <div className={styles.reservationsItemWrapper}>
-      <Typography 
-        as="h3" 
+      <Typography
+        as="h3"
         color={TypographyColor.DARK_PRIMARY}
         className={styles.itemNumber}
       >
         {itemNumber}
       </Typography>
 
-      <Typography 
-        as="p" 
+      <Typography
+        as="p"
         fontFamily={TypographyFontFamily.SECONDARY}
         color={TypographyColor.DARK_PRIMARY}
         className={styles.itemHeading}
@@ -41,8 +41,8 @@ export const ReservationsItem: React.FC<ReservationsItemProps> = ({
         {itemHeading}
       </Typography>
 
-      <Typography 
-        as="p" 
+      <Typography
+        as="p"
         fontFamily={TypographyFontFamily.SECONDARY}
         color={TypographyColor.DARK_PRIMARY}
         className={styles.itemDescription}
@@ -50,16 +50,14 @@ export const ReservationsItem: React.FC<ReservationsItemProps> = ({
         {itemDescription}
       </Typography>
 
-      {
-        reservationsRedirectionLinkText &&
-
+      {reservationsRedirectionLinkText && (
         <MessengerContactLink
-            buttonVariant="outlined"
-            iconVariant="light-background"
-          >
-            {reservationsRedirectionLinkText}
+          buttonVariant="outlined"
+          iconVariant="light-background"
+        >
+          {reservationsRedirectionLinkText}
         </MessengerContactLink>
-      }
+      )}
     </div>
   );
 };

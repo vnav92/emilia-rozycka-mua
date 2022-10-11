@@ -42,8 +42,8 @@ const Offer = () => {
         sectionTitle="Lista usług"
         sectionDescription="Wybierz interesujący Cię typ makijażu, aby sprawdzić cennik."
       />
-      <CtaQuestions/>
-      <Cooperation 
+      <CtaQuestions />
+      <Cooperation
         sectionTitleIcon={CooperationSectionIcon}
         sectionTitle="Współpraca"
         sectionDescription=""

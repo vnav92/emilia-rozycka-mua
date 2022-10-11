@@ -30,11 +30,13 @@ export const Footer: React.FC<FooterProps> = ({
             className={styles.logo}
           />
           <div className={styles.contactLinksSection}>
-            <Typography 
-              as="p" 
+            <Typography
+              as="p"
               fontFamily={TypographyFontFamily.SECONDARY}
               className={styles.label}
-            >{'Kontakt:'}</Typography>
+            >
+              {"Kontakt:"}
+            </Typography>
             <Link to={`tel:${contactNumber}`} className={styles.telLink}>
               {contactNumber}
             </Link>
@@ -45,20 +47,36 @@ export const Footer: React.FC<FooterProps> = ({
           <div className={styles.contactLinksSection}>
             {/* TODO Make it configurable */}
 
-            <Typography 
-              as="p" 
+            <Typography
+              as="p"
               fontFamily={TypographyFontFamily.SECONDARY}
               className={styles.label}
-            >{'Social:'}</Typography>
-            
-            <Link to={'https://www.instagram.com/emiliarozycka/'} target={"_blank"} className={styles.telLink}>
-                {'Instagram'}
+            >
+              {"Social:"}
+            </Typography>
+
+            <Link
+              to={"https://www.instagram.com/emiliarozycka/"}
+              target={"_blank"}
+              className={styles.telLink}
+            >
+              {"Instagram"}
             </Link>
-            <Link to={'https://www.facebook.com/emilia.rozycka.makeup'} target={"_blank"} className={styles.telLink}>
-                {'Facebook'}
+            <Link
+              to={"https://www.facebook.com/emilia.rozycka.makeup"}
+              target={"_blank"}
+              className={styles.telLink}
+            >
+              {"Facebook"}
             </Link>
-            <Link to={'https://www.linkedin.com/in/emilia-r%C3%B3%C5%BCycka-ab497a12a/'} target={"_blank"} className={styles.telLink}>
-                {'Linkedin'}
+            <Link
+              to={
+                "https://www.linkedin.com/in/emilia-r%C3%B3%C5%BCycka-ab497a12a/"
+              }
+              target={"_blank"}
+              className={styles.telLink}
+            >
+              {"Linkedin"}
             </Link>
           </div>
         </div>

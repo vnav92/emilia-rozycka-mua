@@ -31,15 +31,10 @@ export const ImageLink: React.FC<ImageLinkProps> = ({
       />
     </div>
     <div className={classNames(styles.infoSlider)}>
-      <Typography
-        as="h5"
-        className={styles.linkLabel}
-      >
+      <Typography as="h5" className={styles.linkLabel}>
         {children}
       </Typography>
-      <Typography
-        as="p"
-      >Zobacz szczegóły</Typography>
+      <Typography as="p">Zobacz szczegóły</Typography>
     </div>
   </Link>
 );

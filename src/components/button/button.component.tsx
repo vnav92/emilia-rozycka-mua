@@ -18,46 +18,53 @@ type ButtonProps = {
     | { children?: React.ReactNode | React.ReactNode[] }
   );
 
-export const Button = React.forwardRef<any, ButtonProps>(({
-  className,
-  variant = "primary",
-  isCircleShape,
-  isBorderDisabled,
-  image,
-  ariaLabel,
-  children,
-  ...props
-}, ref) => {
-  const ButtonElement = "href" in props ? "a" : "button";
+export const Button = React.forwardRef<any, ButtonProps>(
+  (
+    {
+      className,
+      variant = "primary",
+      isCircleShape,
+      isBorderDisabled,
+      image,
+      ariaLabel,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const ButtonElement = "href" in props ? "a" : "button";
 
-  return (
-    <ButtonElement
-      aria-label={ariaLabel}
-      ref={ref}
-      className={classNames(
-        styles.buttonElement,
-        {
-          [styles.primaryButton]: variant === "primary",
-          [styles.secondaryButton]: variant === "secondary",
-          [styles.outlinedButton]: variant === "outlined",
-          [styles.outlinedContrastButton]: variant === "outlined-contrast",
-          [styles.circleButton]: isCircleShape,
-          [styles.disabledBorder]: isBorderDisabled,
-        },
-        className
-      )}
-      {...("href" in props ? { href: props.href } : { onClick: props.onClick })}
-    >
-      <div className={styles.contentWrapper}>
-        {image && (
-          <img
-            src={image.mediaItemUrl}
-            alt={image.altText}
-            className={styles.buttonImage}
-          />
+    return (
+      <ButtonElement
+        aria-label={ariaLabel}
+        ref={ref}
+        className={classNames(
+          styles.buttonElement,
+          {
+            [styles.primaryButton]: variant === "primary",
+            [styles.secondaryButton]: variant === "secondary",
+            [styles.outlinedButton]: variant === "outlined",
+            [styles.outlinedContrastButton]: variant === "outlined-contrast",
+            [styles.circleButton]: isCircleShape,
+            [styles.disabledBorder]: isBorderDisabled,
+          },
+          className
         )}
-        {children}
-      </div>
-    </ButtonElement>
-  );
-})
+        {...("href" in props
+          ? { href: props.href }
+          : { onClick: props.onClick })}
+      >
+        <div className={styles.contentWrapper}>
+          {image && (
+            <img
+              src={image.mediaItemUrl}
+              alt={image.altText}
+              className={styles.buttonImage}
+            />
+          )}
+          {children}
+        </div>
+      </ButtonElement>
+    );
+  }
+);

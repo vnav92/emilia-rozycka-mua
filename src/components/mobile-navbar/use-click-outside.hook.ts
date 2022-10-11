@@ -2,9 +2,11 @@ import { useEffect } from "react";
 
 export const useOnClickOutside = (navbarRef, triggerRef, handler) => {
   useEffect(() => {
-    const listener = (event) => {
-
-      if ((navbarRef?.current?.contains(event.target)) || (triggerRef?.current?.contains(event.target))) {
+    const listener = event => {
+      if (
+        navbarRef?.current?.contains(event.target) ||
+        triggerRef?.current?.contains(event.target)
+      ) {
         return;
       }
 

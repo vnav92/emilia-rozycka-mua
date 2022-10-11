@@ -2,7 +2,11 @@ import React from "react";
 import classNames from "classnames";
 import { Link } from "gatsby";
 
-import { Typography, TypographyColor, TypographyFontFamily } from "../typography";
+import {
+  Typography,
+  TypographyColor,
+  TypographyFontFamily,
+} from "../typography";
 
 import * as styles from "./redirection-link.module.scss";
 
@@ -18,7 +22,11 @@ export const RedirectionLink: React.FC<RedirectionLink> = ({
   children,
 }) => (
   <Link to={to} className={classNames(styles.redirectionLink, className)}>
-    <Typography as="span" className={styles.redirectionLinkText} fontFamily={TypographyFontFamily.SECONDARY}>
+    <Typography
+      as="span"
+      className={styles.redirectionLinkText}
+      fontFamily={TypographyFontFamily.SECONDARY}
+    >
       {children}
     </Typography>
   </Link>

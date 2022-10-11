@@ -18,6 +18,9 @@ exports.createPages = async ({ actions, graphql }) => {
               seconditemcontent
               seconditemprice
               seconditemtitle
+              thirditemcontent
+              thirditemprice
+              thirditemtitle
               image {
                 altText
                 mediaItemUrl

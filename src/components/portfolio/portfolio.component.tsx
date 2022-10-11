@@ -2,10 +2,14 @@ import React from "react";
 import classNames from "classnames";
 import { useStaticQuery, graphql } from "gatsby";
 
-import { LimitedWidthContent, SectionHeader, RedirectionLink } from "../";
+import {
+  LimitedWidthContent,
+  SectionHeader,
+  RedirectionLink,
+  TypographyColor,
+} from "../";
 
 import * as styles from "./portfolio.module.scss";
-import { TypographyColor } from "../typography";
 
 type PortfolioProps = {
   isLightBackground?: boolean;

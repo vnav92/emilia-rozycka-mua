@@ -61,11 +61,11 @@ export const Offer: React.FC<OfferProps> = ({
           {sectionTitle}
         </SectionHeader>
         <div className={styles.descriptionSection}>
-          <Typography 
-            as="p" 
+          <Typography
+            as="p"
             className={styles.description}
             fontFamily={TypographyFontFamily.SECONDARY}
-            >
+          >
             {primaryDescription}
           </Typography>
           <RedirectionLink to={detailsRedirectionLinkHref}>
@@ -73,11 +73,11 @@ export const Offer: React.FC<OfferProps> = ({
           </RedirectionLink>
         </div>
       </div>
-      <Typography 
-        as="p" 
-        className={styles.sectionInstruction} 
+      <Typography
+        as="p"
+        className={styles.sectionInstruction}
         fontFamily={TypographyFontFamily.SECONDARY}
-        >
+      >
         {sectionInstruction}
       </Typography>
       <div className={styles.contentWrapper}>

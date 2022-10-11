@@ -55,7 +55,7 @@ export const Typography: React.FC<TypographyProps> = ({
   color = TypographyColor.LIGHT_SECONDARY,
   fontFamily = TypographyFontFamily.PRIMARY,
   className,
-  children
+  children,
 }) => {
   return (
     <As

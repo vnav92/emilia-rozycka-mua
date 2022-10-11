@@ -20,10 +20,10 @@ const OfferItem = ({ pageContext }) => (
       secondaryTitle={pageContext.secondarytitle}
       primaryTitle={pageContext.primarytitle}
       breadcrumbElement={
-        <Breadcrumb 
-          lastItemTitle={pageContext.primarytitle} 
+        <Breadcrumb
+          lastItemTitle={pageContext.primarytitle}
           className={styles.breadcrumbElement}
-          />
+        />
       }
     />
     <div
@@ -47,6 +47,17 @@ const OfferItem = ({ pageContext }) => (
           title={pageContext.seconditemtitle}
           content={pageContext.seconditemcontent}
           price={pageContext.seconditemprice}
+        />
+      )}
+      {hasSection(
+        pageContext.thirditemtitle,
+        pageContext.thirditemcontent,
+        pageContext.thirditemprice
+      ) && (
+        <OfferItemSection
+          title={pageContext.thirditemtitle}
+          content={pageContext.thirditemcontent}
+          price={pageContext.thirditemprice}
         />
       )}
       <Portfolio isLightBackground={true} />

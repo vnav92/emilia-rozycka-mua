@@ -6,7 +6,7 @@ import {
   Typography,
   TypographyColor,
   MessengerContactLink,
-  TypographyFontFamily
+  TypographyFontFamily,
 } from "../";
 
 import * as styles from "./cta-questions.module.scss";
@@ -15,27 +15,26 @@ export const CtaQuestions: React.FC = () => {
   return (
     <section
       className={styles.ctaQuestionsSection}
-      style={{backgroundImage: `url(${ctaBackground})`}} 
+      style={{ backgroundImage: `url(${ctaBackground})` }}
     >
       <LimitedWidthContent
         renderAs="div"
         contentWrapperClassName={styles.contentWrapper}
       >
-        <div
-          className={styles.textBlock}
-        >
-          <Typography 
-            as="h3" 
-            color={TypographyColor.DARK_PRIMARY} 
+        <div className={styles.textBlock}>
+          <Typography
+            as="h3"
+            color={TypographyColor.DARK_PRIMARY}
             fontFamily={TypographyFontFamily.PRIMARY}
-            className={styles.lineOne}>
-            {'W mojej ofercie nie ma typu makijażu którego szukasz?'}
+            className={styles.lineOne}
+          >
+            {"W mojej ofercie nie ma typu makijażu którego szukasz?"}
           </Typography>
           <MessengerContactLink
             buttonVariant="outlined"
             iconVariant="light-background"
           >
-            {'Zadaj pytanie'}
+            {"Zadaj pytanie"}
           </MessengerContactLink>
         </div>
       </LimitedWidthContent>
