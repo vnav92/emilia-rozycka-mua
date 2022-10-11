@@ -60,8 +60,8 @@ export const FaqItem: React.FC<FaqItemProps> = ({
           faqRedirectionLinkText &&
 
           <MessengerContactLink
-              buttonVariant="outlined"
-              iconVariant="light-background"
+              buttonVariant="outlined-contrast"
+              iconVariant="dark-background"
             >
               {faqRedirectionLinkText}
           </MessengerContactLink>
