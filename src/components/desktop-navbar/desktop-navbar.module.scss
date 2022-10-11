@@ -5,6 +5,10 @@
 @import '../../styles/mixins';
 
 .menuItemsList {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   list-style: none;
   display: flex;
   justify-content: flex-start;
@@ -18,17 +22,34 @@
 }
 
 .darkBackgroundTextColor {
-  color: $light-color; 
+  color: $neutral-300; 
+  transition: all .3s ease-out;
+
+  &:hover, &:focus {
+    @include hoverUnderline;
+    color: $neutral-100;
+  }
 }
 
 .lightBackgroundTextColor {
-  color: $light-text-color;
+  color: $neutral-600;
+  transition: all .3s ease-out;
+
+  &:hover, &:focus {
+    @include hoverUnderline;
+    color: $neutral-800;
+  }
 }
 
 .contactNumberLink {
+  position: absolute;
+  right: defaultSpacingTimes(2);
+  top: 50%;
+  transform: translate(0, -50%);
   text-decoration: none;
   font-family: $primary-font-family;
   font-weight: 300;
+  padding: defaultSpacingTimes(.65) 0;
   border-bottom: 1px solid transparent;
 
   &:hover, &:focus {

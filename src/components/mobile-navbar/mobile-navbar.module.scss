@@ -5,56 +5,71 @@
 .menuWrapper {
   position: absolute;
   top: 0;
-  left: 60px;
-  right: 60px;
+  left: 0;
+  z-index: -1;
+  width: 100%;
   padding: 0;
   overflow: hidden;
   max-height: 0;
   transition: 0.2s ease-in-out;
-  z-index: 100;
 }
 
 .lightBackgroundMenuWrapper { 
-  background-color: $primary-color;
+  background-color: $background-dark;
+  border-bottom: 1px solid $neutral-700;
+
+  hr {
+    border: none;
+    height: defaultSpacingTimes(.125);
+    width: 25%;
+    margin: 0 auto;
+    background-color: $neutral-700;
+  }
 }
 
 .darkBackgroundMenuWrapper { 
-  background-color: $primary-contrast-color;
+  background-color: $background-light;
+  border-bottom: 1px solid $neutral-100;
+
+  hr {
+    border: none;
+    height: defaultSpacingTimes(.125);
+    width: 25%;
+    margin: 0 auto;
+    background-color: $neutral-100;
+  }
 }
 
 .openedMenuWrapper {
   max-height: 900px; 
-  padding: defaultSpacingTimes(12) defaultSpacingTimes(1) defaultSpacingTimes(10);
+  padding: defaultSpacingTimes(10) defaultSpacingTimes(2) defaultSpacingTimes(6);
 }
 
 .menuTriggerButton {
-  border: 1px solid transparent;
+  height: auto;
   margin-left: auto;
-  background-image: unset;
 
-  &:hover {
-    background-image: unset;
+  &::after, ::before {
+    content: none;
+  }
+
+  div {
+    padding: 0;
   }
 }
 
-.lightMenuTriggerButton:hover {
-  border: 1px solid $primary-contrast-color;
-}
-
-.darkMenuTriggerButton:hover {
-  border: 1px solid $light-text-color;
-}
-
 .lightMenuTriggerIcon {
-  color: $primary-contrast-color;
+  color: $background-light;
 }
 
 .darkMenuTriggerIcon {
-  color: $light-text-color;
+  color: $background-dark;
 }
 
 .menuTriggerIcon {
-  font-size: 2rem;
+  padding: defaultSpacingTimes(1.5);
+  box-sizing: content-box;
+  font-size: 1.5rem;
 }
 
 .list {
@@ -63,16 +78,26 @@
 }
 
 .menuItem {
-  margin: defaultSpacingTimes(8) 0;
-  font-size: 1.5rem;
+  margin: defaultSpacingTimes(4) 0;
+  text-align: center;
 }
 
 .darkNavbarLinkText {
-  color: $light-text-color; 
+  color: $neutral-600; 
+  transition: all .3s ease-out;
+
+  &:hover, &:focus {
+    color: $neutral-800;
+  }
 }
 
 .lightNavbarLinkText {
-  color: $light-color; 
+  color: $neutral-300; 
+  transition: all .3s ease-out;
+
+  &:hover, &:focus {
+    color: $neutral-100;
+  }
 }
 
 .contactNumberLinkWrapper {
@@ -81,8 +106,11 @@
 }
 
 .contactNumberLink {
+  text-align: center;
+  padding-top: defaultSpacingTimes(6);
   text-decoration: none;
   font-family: $primary-font-family;
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  line-height: 150%;
 }
