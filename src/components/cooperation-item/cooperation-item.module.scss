@@ -1,0 +1,22 @@
+@import '../../styles/functions';
+@import '../../styles/variables';
+
+
+.cooperationItemWrapper {
+    display: flex;
+    align-items: center;
+    gap: defaultSpacingTimes(2);
+
+    @media (max-width: $small-screen-breakpoint) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.itemLink {
+    margin-top: defaultSpacingTimes(1);
+}
+
+.itemDescriptionText {
+    font-weight: 300;
+}

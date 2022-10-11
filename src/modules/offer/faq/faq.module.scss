@@ -1,0 +1,27 @@
+@import '../../../styles/functions';
+@import '../../../styles/variables';
+@import '../../../styles/colors';
+
+
+.darkBackground {
+    background-color: $background-dark;
+}
+
+.faqSection {
+    padding-top: defaultSpacingTimes(9);
+    padding-bottom: defaultSpacingTimes(9);
+    
+    @media (max-width: $medium-screen-breakpoint) {
+        padding-top: defaultSpacingTimes(6);
+        padding-bottom: defaultSpacingTimes(6);
+    }
+}
+
+.faqList {
+
+}
+
+
+
+
+

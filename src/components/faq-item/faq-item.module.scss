@@ -1,0 +1,57 @@
+@import '../../styles/functions';
+@import '../../styles/variables';
+@import '../../styles/colors';
+
+$accordion-description-text-width: 700px;
+
+.faqItemWrapper {
+    padding: defaultSpacingTimes(4) 0;
+    border-bottom: 1px solid $neutral-700;
+
+    a:last-child {
+        margin-top: defaultSpacingTimes(3);
+    }
+}
+
+.accordionHeadWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.itemHeading {
+    font-size: 1.5rem;
+    line-height: 148%;
+    font-weight: 600;
+    margin-right: defaultSpacingTimes(2);
+
+    @media (max-width: $small-screen-breakpoint) {
+        font-size: 1.125rem;
+        line-height: 145%;
+    }
+}
+
+.accordionDescriptionWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.displayNone {
+    display: none;
+}
+
+.itemDescription {
+    max-width: $accordion-description-text-width;
+    font-weight: 300;
+    color: $neutral-300;
+    margin-top: defaultSpacingTimes(1);
+}
+
+.accordionButton {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    padding: defaultSpacingTimes(1);
+
+}
