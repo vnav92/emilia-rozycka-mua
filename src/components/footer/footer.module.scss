@@ -14,21 +14,9 @@
   display: flex;
 }
 
-.contactSection {
-  flex: 3;
-}
-
-.linksSection {
-  flex: 4;
-}
-
 .logo {
-  width: 57%;
+  width: defaultSpacingTimes(30);
   height: auto;
-
-  @media (max-width: $medium-screen-breakpoint) {
-    width: 65%;
-  }
 }
 
 .contactLinksSection {
@@ -37,9 +25,23 @@
   align-items: flex-start;
   margin-top: defaultSpacingTimes(6);
 
+  &:last-child {
+    margin-top: defaultSpacingTimes(3);
+  }
+
   @media (max-width: $medium-screen-breakpoint) {
     flex-direction: column;
     margin-right: 0;
+  }
+}
+
+.label {
+  color: $neutral-500;
+  margin-right: defaultSpacingTimes(2);
+  
+  @media (max-width: $medium-screen-breakpoint) {
+    margin-right: 0;
+    margin-bottom: defaultSpacingTimes(2);
   }
 }
 
@@ -47,6 +49,7 @@
   display: inline-flex;
   font-size: 1rem;
   color: $neutral-40;
+  line-height: 150%;
   text-transform: uppercase;
   text-decoration: none;
   font-family: $primary-font-family;
