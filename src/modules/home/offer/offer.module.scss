@@ -9,6 +9,11 @@ $section-instruction-font-size: 1rem;
   padding-top: defaultSpacingTimes(12);
   padding-bottom: defaultSpacingTimes(12);
   background-color: $background-dark;
+
+  @media (max-width: $medium-screen-breakpoint) {
+    padding-top: defaultSpacingTimes(8);
+    padding-bottom: defaultSpacingTimes(8);
+  }
 }
 
 .topSection {
@@ -24,12 +29,6 @@ $section-instruction-font-size: 1rem;
 .sectionHeader {
   color: $neutral-50;
 }
-
-// .descriptionSection {
-//   @media (max-width: $small-screen-breakpoint) {
-
-//   }
-// }
 
 .contentWrapper {
   width: 100%;
@@ -66,7 +65,6 @@ $section-instruction-font-size: 1rem;
 
   .description {
     font-size: calc($description-font-size * $small-screen-font-multiplier);
-    // max-width: 75%;
   }
 
   .sectionInstruction {

@@ -19,16 +19,18 @@ export const MobileNavbar: React.FC<NavbarProps> = ({
   menuElements,
   contactNumber,
 }) => {
-  const mobileNavbarRef = useRef();
+  const mobileNavbarRef = useRef() as React.MutableRefObject<HTMLDivElement>;;
+  const triggerButtonRef = useRef();
   const isOnHomePage = useIsOnHomePage();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
-  useOnClickOutside(mobileNavbarRef, () => setIsMenuVisible(false));
+  useOnClickOutside(mobileNavbarRef, triggerButtonRef, () => setIsMenuVisible(false));
 
   return (
     <>
       <Button
         onClick={() => setIsMenuVisible(isVisible => !isVisible)}
+        ref={triggerButtonRef}
         isBorderDisabled={true}
         variant={isOnHomePage ? "primary" : "secondary"}
         className={classNames(
@@ -88,17 +90,17 @@ export const MobileNavbar: React.FC<NavbarProps> = ({
         </ul>
         <hr/>
         <div className={styles.contactNumberLinkWrapper}>
-          <Link
+          <a
             className={classNames(
               styles.contactNumberLink,
               isOnHomePage
                 ? styles.lightNavbarLinkText
                 : styles.darkNavbarLinkText
             )}
-            to={`tel:${contactNumber}`}
+            href={`tel:${contactNumber}`}
           >
             {getFormattedPhoneNumber(contactNumber)}
-          </Link>
+          </a>
         </div>
       </div>
     </>
