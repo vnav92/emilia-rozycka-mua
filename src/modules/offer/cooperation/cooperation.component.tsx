@@ -1,3 +1,4 @@
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 
 import cosmeticsIcon from "../../../../static/graphics/cooperation/cosmetics.svg";
@@ -11,30 +12,53 @@ import {
   TypographyColor,
   CooperationItem,
 } from "../../../components";
+import { getImageData } from "../../../shared";
 
 import * as styles from "./cooperation.module.scss";
 
 type CooperationProps = {
   sectionTitle: string;
   sectionDescription: string;
-  sectionTitleIcon: React.ReactNode;
 };
 
 export const Cooperation: React.FC<CooperationProps> = ({
-  sectionTitleIcon,
   sectionTitle,
   sectionDescription,
 }) => {
+  const { allWpPage } = useStaticQuery(graphql`
+    query CooperationQuery {
+      allWpPage(filter: { title: { eq: "offer" } }) {
+        edges {
+          node {
+            offerDetails {
+              fieldGroupName
+              primarytitle
+              secondarytitle
+              cooperationsectiontitlelightbackgroundicon {
+                altText
+                mediaItemUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <LimitedWidthContent className={styles.cooperationSection}>
       <SectionHeader
         as="h2"
         color={TypographyColor.DARK_PRIMARY}
-        icon={sectionTitleIcon}
+        icon={getImageData(
+          allWpPage.edges[0].node.offerDetails
+            .cooperationsectiontitlelightbackgroundicon
+        )}
       >
         {sectionTitle}
       </SectionHeader>
 
+      {/* TODO fetch content from WP */}
       <div className={styles.cooperationList}>
         <CooperationItem
           itemTitleIcon={cosmeticsIcon}

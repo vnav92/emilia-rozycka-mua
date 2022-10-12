@@ -8,13 +8,14 @@ import {
   Typography,
   TypographyFontFamily,
 } from "../../../components";
+import { Image } from "../../../shared";
 
 import * as styles from "./offer-links.module.scss";
 
 type OfferLinksProps = {
   sectionTitle: string;
   sectionDescription: string;
-  sectionTitleIcon: React.ReactNode;
+  sectionTitleIcon: Image;
 };
 
 export const OfferLinks: React.FC<OfferLinksProps> = ({

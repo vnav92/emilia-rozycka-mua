@@ -5,10 +5,6 @@ import { Layout, FutureBookings, CtaQuestions } from "../components";
 import { OfferPrimaryScreen } from "../modules/offer/offer-primary-screen/offer-primary-screen.component";
 import { Cooperation, Faq, OfferLinks, Reservations } from "../modules";
 
-import FaqSectionIcon from "../../static/graphics/faq/icon-section-faq.svg";
-import ReservationsSectionIcon from "../../static/graphics/reservations/icon-section-reservations-calendar.svg";
-import CooperationSectionIcon from "../../static/graphics/cooperation/icon-section-cooperation.svg";
-
 const Offer = () => {
   const { allWpPost } = useStaticQuery(graphql`
     query OfferQuery {
@@ -43,21 +39,9 @@ const Offer = () => {
         sectionDescription="Wybierz interesujący Cię typ makijażu, aby sprawdzić cennik."
       />
       <CtaQuestions />
-      <Cooperation
-        sectionTitleIcon={CooperationSectionIcon}
-        sectionTitle="Współpraca"
-        sectionDescription=""
-      />
-      <Reservations
-        sectionTitleIcon={ReservationsSectionIcon}
-        sectionTitle="Rezerwacje"
-        sectionDescription=""
-      />
-      <Faq
-        sectionTitleIcon={FaqSectionIcon}
-        sectionTitle="FAQ"
-        sectionDescription=""
-      />
+      <Cooperation sectionTitle="Współpraca" sectionDescription="" />
+      <Reservations sectionTitle="Rezerwacje" sectionDescription="" />
+      <Faq sectionTitle="FAQ" sectionDescription="" />
       <FutureBookings />
     </Layout>
   );

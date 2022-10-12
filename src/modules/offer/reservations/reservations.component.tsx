@@ -1,3 +1,4 @@
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import ArrowIcon from "../../../../static/graphics/reservations/arrow-right-long.svg";
 
@@ -7,30 +8,51 @@ import {
   SectionHeader,
   TypographyColor,
 } from "../../../components";
+import { getImageData } from "../../../shared";
 
 import * as styles from "./reservations.module.scss";
 
 type ReservationsProps = {
   sectionTitle: string;
   sectionDescription: string;
-  sectionTitleIcon: React.ReactNode;
 };
 
-export const Reservations: React.FC<ReservationsProps> = ({
-  sectionTitleIcon,
-  sectionTitle,
-}) => {
+export const Reservations: React.FC<ReservationsProps> = ({ sectionTitle }) => {
+  const { allWpPage } = useStaticQuery(graphql`
+    query ReservationsQuery {
+      allWpPage(filter: { title: { eq: "offer" } }) {
+        edges {
+          node {
+            id
+            offerDetails {
+              fieldGroupName
+              primarytitle
+              secondarytitle
+              reservationssectiontitlelightbackgroundicon {
+                altText
+                mediaItemUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
   return (
     <LimitedWidthContent className={styles.reservationsSection}>
       <SectionHeader
         as="h2"
         color={TypographyColor.DARK_PRIMARY}
-        icon={sectionTitleIcon}
+        icon={getImageData(
+          allWpPage.edges[0].node.offerDetails
+            .reservationssectiontitlelightbackgroundicon
+        )}
       >
         {sectionTitle}
       </SectionHeader>
 
       <div className={styles.reservationsList}>
+        {/* TODO fetch content from WP */}
         <ReservationsItem
           itemNumber={"1"}
           itemHeading={"Wybierz z oferty interesującą Cię usługę"}
