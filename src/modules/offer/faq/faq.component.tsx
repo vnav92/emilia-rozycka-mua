@@ -1,22 +1,43 @@
 import React from "react";
 import classNames from "classnames";
+import { graphql, useStaticQuery } from "gatsby";
 
 import {
   LimitedWidthContent,
   SectionHeader,
   TypographyColor,
 } from "../../../components";
+import { getImageData } from "../../../shared";
+import { FaqItem } from "../../../components/faq-item/faq-item.component";
 
 import * as styles from "./faq.module.scss";
-import { FaqItem } from "../../../components/faq-item/faq-item.component";
 
 type FaqProps = {
   sectionTitle: string;
   sectionDescription: string;
-  sectionTitleIcon: React.ReactNode;
 };
 
-export const Faq: React.FC<FaqProps> = ({ sectionTitleIcon, sectionTitle }) => {
+export const Faq: React.FC<FaqProps> = ({ sectionTitle }) => {
+  const { allWpPage } = useStaticQuery(graphql`
+    query FaqQuery {
+      allWpPage(filter: { title: { eq: "offer" } }) {
+        edges {
+          node {
+            offerDetails {
+              fieldGroupName
+              primarytitle
+              secondarytitle
+              faqsectiontitledarkbackgroundicon {
+                altText
+                mediaItemUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <LimitedWidthContent
       className={classNames(styles.faqSection, styles.darkBackground)}
@@ -24,12 +45,15 @@ export const Faq: React.FC<FaqProps> = ({ sectionTitleIcon, sectionTitle }) => {
       <SectionHeader
         as="h2"
         color={TypographyColor.LIGHT_PRIMARY}
-        icon={sectionTitleIcon}
+        icon={getImageData(
+          allWpPage.edges[0].node.offerDetails.faqsectiontitledarkbackgroundicon
+        )}
       >
         {sectionTitle}
       </SectionHeader>
 
       <div className={styles.faqList}>
+        {/* TODO add WP fetched content */}
         <FaqItem
           itemHeading={"Na jakim sprzęcie i materiałach pracujesz?"}
           itemDescription={

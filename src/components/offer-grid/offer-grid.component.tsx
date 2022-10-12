@@ -41,6 +41,7 @@ export const OfferGrid: React.FC = () => {
           node {
             offerItem {
               primarytitle
+              order
               image {
                 mediaItemUrl
               }
@@ -64,18 +65,19 @@ export const OfferGrid: React.FC = () => {
     slug: node.slug,
   }));
 
+  const sortedOfferItems = mappedOfferItems.sort((a, b) => b.order - a.order);
   const offerSlug = offerPage.edges[0].node.slug;
 
   return (
     <div className={styles.galleryWrapper}>
-      {mappedOfferItems.map(({ primarytitle, image, slug }, index) => (
+      {sortedOfferItems.map(({ primarytitle, image, slug }, index) => (
         <ImageLink
           key={index}
           to={`/${offerSlug}/${slug}`}
           image={getImageData(image)}
           linkClassName={classNames(
             styles.offerLink,
-            getCustomItemClassName(mappedOfferItems.length, index)
+            getCustomItemClassName(sortedOfferItems.length, index)
           )}
           imageClassName={styles.offerImage}
         >

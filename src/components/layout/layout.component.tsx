@@ -24,6 +24,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             slug
             title
             menuOrder
+            offerDetails {
+              primarytitle
+            }
           }
         }
       }
@@ -51,7 +54,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const menuElements = allWpPage.edges
     .sort((a, b) => a.node.menuOrder - b.node.menuOrder)
     .map(({ node }) => ({
-      label: node.title,
+      label: node.offerDetails.primarytitle,
       href: `/${node.slug}`,
     }));
 
