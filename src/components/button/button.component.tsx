@@ -51,7 +51,7 @@ export const Button = React.forwardRef<any, ButtonProps>(
           className
         )}
         {...("href" in props
-          ? { href: props.href, target: '_blank' }
+          ? { href: props.href, target: "_blank" }
           : { onClick: props.onClick })}
       >
         <div className={styles.contentWrapper}>

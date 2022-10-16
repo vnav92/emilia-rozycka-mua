@@ -23,18 +23,21 @@ export const RedirectionLink: React.FC<RedirectionLinkProps> = ({
   className,
   children,
 }) => {
-  const LinkElement = isTargetBlank ? 'a' : Link
+  const LinkElement = isTargetBlank ? "a" : Link;
   return (
-  <LinkElement
-    {...(isTargetBlank ? { href, target: '_blank' } : { to: href }) as GatsbyLinkProps<unknown>}
-    className={classNames(styles.redirectionLink, className)}
-  >
-    <Typography
-      as="span"
-      className={styles.redirectionLinkText}
-      fontFamily={TypographyFontFamily.SECONDARY}
+    <LinkElement
+      {...((isTargetBlank
+        ? { href, target: "_blank" }
+        : { to: href }) as GatsbyLinkProps<unknown>)}
+      className={classNames(styles.redirectionLink, className)}
     >
-      {children}
-    </Typography>
-  </LinkElement>
-)}
+      <Typography
+        as="span"
+        className={styles.redirectionLinkText}
+        fontFamily={TypographyFontFamily.SECONDARY}
+      >
+        {children}
+      </Typography>
+    </LinkElement>
+  );
+};

@@ -14,6 +14,7 @@ export * from "./offer-item-section";
 export * from "./portfolio";
 export * from "./redirection-link";
 export * from "./section-header";
+export * from "./seo";
 export * from "./social-icon-link";
 export * from "./subpage-heading";
 export * from "./typography";

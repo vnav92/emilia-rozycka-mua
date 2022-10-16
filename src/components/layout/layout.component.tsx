@@ -4,9 +4,9 @@ import { useLocation } from "@reach/router";
 
 import { DesktopNavbar } from "../desktop-navbar";
 import { NavbarWrapper } from "../navbar-wrapper";
-import { getImageData } from "../../shared/utils";
 import { Footer } from "../footer";
 import { MobileNavbar } from "../mobile-navbar/mobile-navbar.component";
+import { Seo } from "../seo";
 
 import * as styles from "./layout.module.scss";
 
@@ -59,6 +59,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <>
+      <Seo />
       <NavbarWrapper className={styles.desktopNavbar}>
         <DesktopNavbar {...navbarProps} />
       </NavbarWrapper>
@@ -67,7 +68,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       </NavbarWrapper>
 
       <main>{children}</main>
-      <Footer/>
+      <Footer />
     </>
   );
 };

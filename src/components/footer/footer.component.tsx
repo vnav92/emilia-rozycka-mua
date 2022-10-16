@@ -35,9 +35,16 @@ export const Footer: React.FC = () => {
   `);
 
   const mainLogo = getImageData(allWpPost.edges[0].node.navbar.fulllogo);
-  const designByLogo = getImageData(allWpPost.edges[0].node.navbar.designbylogo);
-  const { contactnumber, emailaddress, linkedinlink, instagramlink, facebooklink } = allWpPost.edges[0].node.navbar;
-
+  const designByLogo = getImageData(
+    allWpPost.edges[0].node.navbar.designbylogo
+  );
+  const {
+    contactnumber,
+    emailaddress,
+    linkedinlink,
+    instagramlink,
+    facebooklink,
+  } = allWpPost.edges[0].node.navbar;
 
   return (
     <LimitedWidthContent renderAs="footer" className={styles.footerWrapper}>
@@ -90,9 +97,7 @@ export const Footer: React.FC = () => {
               {"Facebook"}
             </Link>
             <Link
-              to={
-                linkedinlink
-              }
+              to={linkedinlink}
               target={"_blank"}
               className={styles.telLink}
             >

@@ -68,7 +68,10 @@ export const Offer: React.FC<OfferProps> = ({
           >
             {primaryDescription}
           </Typography>
-          <RedirectionLink href={detailsRedirectionLinkHref} isTargetBlank={false}>
+          <RedirectionLink
+            href={detailsRedirectionLinkHref}
+            isTargetBlank={false}
+          >
             {detailsRedirectionLinkText}
           </RedirectionLink>
         </div>
