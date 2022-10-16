@@ -84,6 +84,7 @@
 }
 
 .price {
+  max-width: defaultSpacingTimes(20);
   padding-top: defaultSpacingTimes(1);
   margin-bottom: defaultSpacingTimes(4);
   display: block;
@@ -91,5 +92,10 @@
   @media (max-width: $small-screen-breakpoint) {
     margin-bottom: defaultSpacingTimes(2);
     text-align: flex-start;
+    max-width: 100%;
   }
+}
+
+.price:-moz-only-whitespace, .price:empty, .price:blank {
+  display: none !important;
 }
