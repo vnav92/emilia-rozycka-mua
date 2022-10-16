@@ -17,7 +17,7 @@ type OfferProps = {
   primaryDescription: React.ReactNode;
   sectionInstruction: React.ReactNode;
   detailsRedirectionLinkText: React.ReactNode;
-  detailsRedirectionLinkHref: React.ReactNode;
+  detailsRedirectionLinkHref: string;
 };
 
 export const Offer: React.FC<OfferProps> = ({
@@ -68,7 +68,7 @@ export const Offer: React.FC<OfferProps> = ({
           >
             {primaryDescription}
           </Typography>
-          <RedirectionLink to={detailsRedirectionLinkHref}>
+          <RedirectionLink href={detailsRedirectionLinkHref} isTargetBlank={false}>
             {detailsRedirectionLinkText}
           </RedirectionLink>
         </div>

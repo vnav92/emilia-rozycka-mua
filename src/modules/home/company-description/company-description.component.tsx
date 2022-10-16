@@ -37,7 +37,7 @@ export const CompanyDescription: React.FC<CompanyDescriptionProps> = ({
         className={styles.bottomDescription}
         dangerouslySetInnerHTML={{ __html: bottomDescription }}
       />
-      <RedirectionLink to={bioRedirectionLinkHref}>
+      <RedirectionLink href={bioRedirectionLinkHref}>
         {bioRedirectionLinkText}
       </RedirectionLink>
     </LimitedWidthContent>

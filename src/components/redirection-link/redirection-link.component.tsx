@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import { Link } from "gatsby";
+import { GatsbyLinkProps, Link } from "gatsby";
 
 import {
   Typography,
@@ -10,18 +10,25 @@ import {
 
 import * as styles from "./redirection-link.module.scss";
 
-type RedirectionLink = {
-  to: string;
+type RedirectionLinkProps = {
+  href: string;
+  isTargetBlank?: boolean;
   className?: string;
   children: React.ReactNode;
 };
 
-export const RedirectionLink: React.FC<RedirectionLink> = ({
-  to,
+export const RedirectionLink: React.FC<RedirectionLinkProps> = ({
+  href,
+  isTargetBlank = true,
   className,
   children,
-}) => (
-  <Link to={to} className={classNames(styles.redirectionLink, className)}>
+}) => {
+  const LinkElement = isTargetBlank ? 'a' : Link
+  return (
+  <LinkElement
+    {...(isTargetBlank ? { href, target: '_blank' } : { to: href }) as GatsbyLinkProps<unknown>}
+    className={classNames(styles.redirectionLink, className)}
+  >
     <Typography
       as="span"
       className={styles.redirectionLinkText}
@@ -29,5 +36,5 @@ export const RedirectionLink: React.FC<RedirectionLink> = ({
     >
       {children}
     </Typography>
-  </Link>
-);
+  </LinkElement>
+)}

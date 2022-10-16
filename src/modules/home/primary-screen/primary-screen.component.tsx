@@ -27,7 +27,7 @@ export const PrimaryScreen: React.FC<PrimaryScreenProps> = ({
   primaryImage,
 }) => {
   const result = useStaticQuery(graphql`
-    query DownIconQuery {
+    query PrimaryScreenQuery {
       icons: allWpPost(
         filter: {
           categories: { nodes: { elemMatch: { name: { eq: "icons" } } } }

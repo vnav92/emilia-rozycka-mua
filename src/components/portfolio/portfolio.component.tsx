@@ -99,7 +99,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ isLightBackground }) => {
           )}
         >
           <RedirectionLink
-            to={portfoliodetailslinkurl}
+            href={portfoliodetailslinkurl}
             className={styles.detailsLink}
           >
             {portfoliodetailslinktext}

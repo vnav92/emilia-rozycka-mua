@@ -1,32 +1,51 @@
 import React from "react";
-import { Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 
 import { LimitedWidthContent } from "../limited-width-content";
-import { Image } from "../../shared";
+import { getImageData, Image } from "../../shared";
 
 import * as styles from "./footer.module.scss";
 import { Typography, TypographyFontFamily } from "../typography";
 
-type FooterProps = {
-  logo: Image;
-  contactNumber: string;
-  emailAddress: string;
-  designByLogo: Image;
-};
+export const Footer: React.FC = () => {
+  const { allWpPost } = useStaticQuery(graphql`
+    query FooterQuery {
+      allWpPost(filter: { title: { eq: "global-data" } }) {
+        edges {
+          node {
+            navbar {
+              contactnumber
+              emailaddress
+              instagramlink
+              facebooklink
+              linkedinlink
+              fulllogo {
+                mediaItemUrl
+                altText
+              }
+              designbylogo {
+                mediaItemUrl
+                altText
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
 
-export const Footer: React.FC<FooterProps> = ({
-  logo,
-  contactNumber,
-  emailAddress,
-  designByLogo,
-}) => {
+  const mainLogo = getImageData(allWpPost.edges[0].node.navbar.fulllogo);
+  const designByLogo = getImageData(allWpPost.edges[0].node.navbar.designbylogo);
+  const { contactnumber, emailaddress, linkedinlink, instagramlink, facebooklink } = allWpPost.edges[0].node.navbar;
+
+
   return (
     <LimitedWidthContent renderAs="footer" className={styles.footerWrapper}>
       <div className={styles.mainContent}>
         <div className={styles.contactSection}>
           <img
-            src={logo.mediaItemUrl}
-            alt={logo.altText}
+            src={mainLogo.mediaItemUrl}
+            alt={mainLogo.altText}
             className={styles.logo}
           />
           <div className={styles.contactLinksSection}>
@@ -35,13 +54,14 @@ export const Footer: React.FC<FooterProps> = ({
               fontFamily={TypographyFontFamily.SECONDARY}
               className={styles.label}
             >
+              {/* TODO fetch from WP */}
               {"Kontakt:"}
             </Typography>
-            <Link to={`tel:${contactNumber}`} className={styles.telLink}>
-              {contactNumber}
+            <Link to={`tel:${contactnumber}`} className={styles.telLink}>
+              {contactnumber}
             </Link>
-            <Link to={`mailto:${emailAddress}`} className={styles.mailLink}>
-              {emailAddress}
+            <Link to={`mailto:${emailaddress}`} className={styles.mailLink}>
+              {emailaddress}
             </Link>
           </div>
           <div className={styles.contactLinksSection}>
@@ -56,14 +76,14 @@ export const Footer: React.FC<FooterProps> = ({
             </Typography>
 
             <Link
-              to={"https://www.instagram.com/emiliarozycka/"}
+              to={instagramlink}
               target={"_blank"}
               className={styles.telLink}
             >
               {"Instagram"}
             </Link>
             <Link
-              to={"https://www.facebook.com/emilia.rozycka.makeup"}
+              to={facebooklink}
               target={"_blank"}
               className={styles.telLink}
             >
@@ -71,7 +91,7 @@ export const Footer: React.FC<FooterProps> = ({
             </Link>
             <Link
               to={
-                "https://www.linkedin.com/in/emilia-r%C3%B3%C5%BCycka-ab497a12a/"
+                linkedinlink
               }
               target={"_blank"}
               className={styles.telLink}

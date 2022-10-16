@@ -97,7 +97,7 @@ export const Reviews: React.FC<ReviewsProps> = ({
             </div>
           )
         )}
-        <RedirectionLink to={detailsLinkUrl} className={styles.detailsLink}>
+        <RedirectionLink href={detailsLinkUrl} className={styles.detailsLink}>
           {detailsLinkText}
         </RedirectionLink>
       </div>

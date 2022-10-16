@@ -38,7 +38,7 @@ export const CooperationItem: React.FC<CooperationItemProps> = ({
 
         {cooperationRedirectionLinkHref && (
           <RedirectionLink
-            to={cooperationRedirectionLinkHref}
+            href={cooperationRedirectionLinkHref}
             className={styles.itemLink}
           >
             {cooperationRedirectionLinkText}
