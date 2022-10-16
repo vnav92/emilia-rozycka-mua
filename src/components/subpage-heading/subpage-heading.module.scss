@@ -6,9 +6,9 @@
 $owner-job-title-font-size: 1.125rem;
 $owner-name-font-size: 4rem;
 
-// .subpageHeadingWrapper {
-//   height: 70vh;
-// }
+/* .subpageHeadingWrapper {
+height: 70vh;
+} */
 
 .darkBackground {
   background: $primary-color;
@@ -72,7 +72,7 @@ $owner-name-font-size: 4rem;
 }
 
 .primaryLightTitle {
-  // margin-bottom: #{defaultSpacingTimes(2)};
+  /* margin-bottom: #{defaultSpacingTimes(2)}; */
 }
 
 @media (max-width: $medium-screen-breakpoint) {

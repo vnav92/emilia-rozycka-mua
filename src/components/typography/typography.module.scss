@@ -3,10 +3,10 @@
 @import '../../styles/typography.scss';
 
 .typography {
-  // margin: 0;
+  /*  margin: 0; */
 }
 
-// typography color
+/* typography color */
 .textDarkPrimary {
   color: $neutral-800;
 }
@@ -37,7 +37,7 @@
 }
 
 .primaryFontFamily {
-  //reverted importance primary<-->secondary
+  /* reverted importance primary<-->secondary */
   font-family: $secondary-font-family;
 }
 
@@ -46,9 +46,6 @@
   font-family: $primary-font-family;
 }
 
-// font styles
-
-//HEADING STYLES
 .ctaText {
   font-family: $secondary-font-family;
   font-size: 6rem;
@@ -56,7 +53,6 @@
   letter-spacing: 0;
 }
 
-//BODY TEXT SIZES
 .bodyText {
   &XL {
     font-size: 1.625rem;
@@ -80,7 +76,6 @@
 }
 
 
-//BODY TEXT WIDTHS
 .bodyTextWidth {
   &Light {
     font-weight: 300;
@@ -103,7 +98,6 @@
   }
 }
 
-//COMPONENT TEXT STYLES
 .btnTextRegular {
   font-family: $primary-font-family;
   font-size: 1rem;
