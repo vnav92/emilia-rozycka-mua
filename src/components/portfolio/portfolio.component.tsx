@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import { useStaticQuery, graphql } from "gatsby";
 
+import { getImageData } from "../../shared";
 import {
   LimitedWidthContent,
   SectionHeader,
@@ -16,16 +17,12 @@ type PortfolioProps = {
 };
 
 export const Portfolio: React.FC<PortfolioProps> = ({ isLightBackground }) => {
-  const { allWpPost } = useStaticQuery(graphql`
+  const { home, icons } = useStaticQuery(graphql`
     query PortfolioQuery {
-      allWpPost(filter: { title: { eq: "home" } }) {
+      home: allWpPost(filter: { title: { eq: "home" } }) {
         edges {
           node {
             home {
-              portfoliosectionicon {
-                mediaItemUrl
-                altText
-              }
               portfoliosectiontitle
               portfoliotopphoto {
                 mediaItemUrl
@@ -45,18 +42,41 @@ export const Portfolio: React.FC<PortfolioProps> = ({ isLightBackground }) => {
           }
         }
       }
+      icons: allWpPost(
+        filter: {
+          categories: { nodes: { elemMatch: { name: { eq: "icons" } } } }
+        }
+      ) {
+        edges {
+          node {
+            icons {
+              lightbackgroundportfoliosectionicon {
+                mediaItemUrl
+                altText
+              }
+              darkbackgroundportfoliosectionicon {
+                mediaItemUrl
+                altText
+              }
+            }
+          }
+        }
+      }
     }
   `);
 
   const {
-    portfoliosectionicon,
     portfoliosectiontitle,
     portfoliotopphoto,
     portfoliomiddlephoto,
     portfoliobottomphoto,
     portfoliodetailslinktext,
     portfoliodetailslinkurl,
-  } = allWpPost.edges[0].node.home;
+  } = home.edges[0].node.home;
+  const {
+    lightbackgroundportfoliosectionicon,
+    darkbackgroundportfoliosectionicon,
+  } = icons.edges[0].node.icons;
   return (
     <LimitedWidthContent
       className={classNames(
@@ -66,7 +86,11 @@ export const Portfolio: React.FC<PortfolioProps> = ({ isLightBackground }) => {
     >
       <SectionHeader
         as="h2"
-        icon={portfoliosectionicon}
+        icon={getImageData(
+          isLightBackground
+            ? lightbackgroundportfoliosectionicon
+            : darkbackgroundportfoliosectionicon
+        )}
         color={
           isLightBackground
             ? TypographyColor.DARK_PRIMARY

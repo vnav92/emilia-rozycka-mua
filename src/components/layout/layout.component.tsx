@@ -14,6 +14,14 @@ type LayoutProps = {
   children: React.ReactNode | React.ReactNode[];
 };
 
+// TODO remove the logic below when navbar links will be pointing to
+// subpages instead of outside.
+const titleToHref = {
+  bio: "https://www.linkedin.com/in/emilia-r%C3%B3%C5%BCycka-ab497a12a/",
+  portfolio: "https://www.instagram.com/emiliarozycka/",
+  vouchers: "/offer/voucher",
+};
+
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { pathname } = useLocation();
   const { allWpPage, allWpPost } = useStaticQuery(graphql`
@@ -47,6 +55,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
     .map(({ node }) => ({
       label: node.offerDetails.primarytitle,
       href: `/${node.slug}`,
+      ...(titleToHref[node.slug] && { route: titleToHref[node.slug] }),
     }));
 
   const { contactnumber } = allWpPost.edges[0].node.navbar;

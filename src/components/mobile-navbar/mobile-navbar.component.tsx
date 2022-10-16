@@ -75,10 +75,10 @@ export const MobileNavbar: React.FC<NavbarProps> = ({
         )}
       >
         <ul className={styles.list}>
-          {menuElements.map(({ href, label }, index) => (
+          {menuElements.map(({ href, label, route }, index) => (
             <li className={styles.menuItem} key={index}>
               <NavbarLink
-                to={href}
+                to={route || href}
                 className={classNames(
                   isOnHomePage
                     ? styles.lightNavbarLinkText
