@@ -28,7 +28,7 @@ export const CtaQuestions: React.FC = () => {
             fontFamily={TypographyFontFamily.PRIMARY}
             className={styles.lineOne}
           >
-            {"W mojej ofercie nie ma typu makijażu którego szukasz?"}
+            {"Potrzebujesz usługi szytej na miarę Twoich potrzeb?"}
           </Typography>
           <MessengerContactLink
             buttonVariant="outlined"
