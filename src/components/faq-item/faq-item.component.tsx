@@ -26,7 +26,10 @@ export const FaqItem: React.FC<FaqItemProps> = ({
   const [isAccordionClosed, setIsAccordionClosed] = useState(true);
 
   return (
-    <div className={styles.faqItemWrapper}>
+    <div className={styles.faqItemWrapper}
+          onClick={() =>
+            setIsAccordionClosed(isAccordionClosed => !isAccordionClosed)
+          }>
       <div className={styles.accordionHeadWrapper}>
         <Typography
           as="p"
@@ -37,9 +40,6 @@ export const FaqItem: React.FC<FaqItemProps> = ({
           {itemHeading}
         </Typography>
         <button
-          onClick={() =>
-            setIsAccordionClosed(isAccordionClosed => !isAccordionClosed)
-          }
           className={styles.accordionButton}
         >
           <img

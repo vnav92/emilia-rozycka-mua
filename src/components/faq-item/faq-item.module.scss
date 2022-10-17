@@ -5,8 +5,9 @@
 $accordion-description-text-width: 700px;
 
 .faqItemWrapper {
-    padding: defaultSpacingTimes(4) 0;
+    padding: defaultSpacingTimes(4) defaultSpacingTimes(2);
     border-bottom: 1px solid $neutral-700;
+    cursor: pointer;
 
     &:last-child {
         border: none;
@@ -15,7 +16,12 @@ $accordion-description-text-width: 700px;
     a:last-child {
         margin-top: defaultSpacingTimes(3);
     }
+
+    &:hover {
+        background-color: rgba($color: $neutral-700, $alpha: .3);
+    }
 }
+
 
 .accordionHeadWrapper {
     display: flex;
