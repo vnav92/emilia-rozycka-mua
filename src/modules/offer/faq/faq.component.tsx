@@ -88,7 +88,7 @@ export const Faq: React.FC<FaqProps> = ({ sectionTitle }) => {
         <FaqItem
           itemHeading={"Jak zapisać się na pojedynczą usługę?"}
           itemDescription={
-            "Napisz proszę do mnie wiadomość na Facebooku/Instagramie lub wyślij maila z następującymi informacjami: jaka ilość i rodzaj usługi Cię interesuje, data i godzina usługi, w przypadku dojazdu - adres miejsca przygotowań. Po ustaleniu wszystkich szczegółów podsyłam dane do zadatku, który jest potwierdzeniem rezerwacji wybranego terminu."
+            "Napisz proszę do mnie wiadomość na Facebooku/Instagramie lub wyślij maila z następującymi informacjami: \n- jaka ilość i rodzaj usługi Cię interesuje, \n- data i godzina usługi, \n- w przypadku dojazdu - adres miejsca przygotowań. \n\nPo ustaleniu wszystkich szczegółów podsyłam dane do zadatku, który jest potwierdzeniem rezerwacji wybranego terminu."
           }
         />
 
