@@ -56,6 +56,7 @@ $accordion-description-text-width: 700px;
     font-weight: 300;
     color: $neutral-300;
     margin-top: defaultSpacingTimes(1);
+    white-space: pre-wrap;  
 }
 
 .accordionButton {
