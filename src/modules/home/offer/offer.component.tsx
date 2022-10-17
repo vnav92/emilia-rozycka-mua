@@ -54,7 +54,7 @@ export const Offer: React.FC<OfferProps> = ({
     <LimitedWidthContent className={styles.offerSection}>
       <div className={styles.topSection}>
         <SectionHeader
-          as="h3"
+          as="h2"
           icon={getImageData(darkbackgroundoffersectionicon)}
           className={styles.sectionHeader}
         >
