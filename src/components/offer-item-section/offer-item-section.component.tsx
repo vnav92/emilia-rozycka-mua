@@ -49,7 +49,7 @@ export const OfferItemSection: React.FC<OfferItemSectionProps> = ({
           buttonVariant="outlined"
           iconVariant="light-background"
         >
-          Rezerwuję
+          Zarezerwuj
         </MessengerContactLink>
       </div>
     </LimitedWidthContent>
