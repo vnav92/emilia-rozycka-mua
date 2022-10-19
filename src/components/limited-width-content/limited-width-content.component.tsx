@@ -5,7 +5,7 @@ import classNames from "classnames";
 import * as styles from "./limited-width-content.module.scss";
 
 type LimitedWidthContentProps = {
-  renderAs?: string;
+  renderAs?: keyof JSX.IntrinsicElements;
   id?: string;
   className?: string;
   contentWrapperClassName?: string;
@@ -18,8 +18,7 @@ export const LimitedWidthContent: React.FC<LimitedWidthContentProps> = ({
   className,
   contentWrapperClassName,
   children,
-}) => {
-  return (
+}) => (
     <ElementToRender className={classNames(styles.wrapper, className)} id={id}>
       <div
         className={classNames(styles.contentWrapper, contentWrapperClassName)}
@@ -27,5 +26,4 @@ export const LimitedWidthContent: React.FC<LimitedWidthContentProps> = ({
         {children}
       </div>
     </ElementToRender>
-  );
-};
+  )
