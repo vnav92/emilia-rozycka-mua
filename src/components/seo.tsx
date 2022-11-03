@@ -8,12 +8,14 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
+import ogImage from '../../static/graphics/global/emilia-rozycka-make-up-artist-gdansk.png';
 
 export const Seo = ({
-  description = "",
+  description = "Makijażystka Gdańsk, Trójmiasto, woj. Pomorskie. Makijaż ślubny, okolicznościowy, biznesowy, do sesji zdjęciowych. Lekcje makijażu, szkolenia.",
   lang = "pl",
   meta = [],
-  title = " ",
+  title = "Emilia Różycka Make Up Artist",
+  image = ogImage
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -30,14 +32,14 @@ export const Seo = ({
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
+  const defaultTitle = title || site.siteMetadata?.title;
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
+      title={defaultTitle}
       titleTemplate={defaultTitle}
       meta={[
         {
@@ -46,7 +48,7 @@ export const Seo = ({
         },
         {
           property: `og:title`,
-          content: title,
+          content: defaultTitle,
         },
         {
           property: `og:description`,
@@ -55,6 +57,10 @@ export const Seo = ({
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          property: `og:image`,
+          content: image,
         },
         {
           name: `twitter:card`,
@@ -66,7 +72,7 @@ export const Seo = ({
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: defaultTitle,
         },
         {
           name: `twitter:description`,

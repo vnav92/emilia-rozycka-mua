@@ -6,8 +6,7 @@ module.exports = {
   siteMetadata: {
     title: `Emilia Różycka Make Up Artist`,
     author: "Artur Tuchowski & Mateusz Jankowski",
-    description:
-      "Emilia Różycka Make Up Artist - makijażystka Gdańsk, Trójmiasto, woj. Pomorskie. Makijaż ślubny, okolicznościowy, biznesowy, do sesji zdjęciowych. Lekcje makijażu, szkolenia.",
+    description: "Emilia Różycka Make Up Artist - makijażystka Gdańsk, Trójmiasto, woj. Pomorskie. Makijaż ślubny, okolicznościowy, biznesowy, do sesji zdjęciowych. Lekcje makijażu, szkolenia.",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -15,6 +14,8 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-google-tagmanager`,
+  
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -29,10 +30,20 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
+        // Specify the URL of the WordPress source
         url: process.env.WORDPRESS_API_URL,
-        protocol: `http`,
+        protocol: `https`,
+        // Indicates if a site is hosted on WordPress.com
         hostingWPCOM: false,
+        // Specify which URL structures to fetch
         includedRoutes: ["**/posts", "**/tags", "**/categories"],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: process.env.GOOGLE_TAG_MANAGER_ID,
+        includeInDevelopment: false,
       },
     },
   ],
