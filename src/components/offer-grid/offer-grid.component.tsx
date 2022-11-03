@@ -44,6 +44,7 @@ export const OfferGrid: React.FC = () => {
               order
               image {
                 mediaItemUrl
+                altText
               }
             }
             slug

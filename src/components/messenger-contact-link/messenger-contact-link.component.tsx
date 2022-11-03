@@ -66,6 +66,7 @@ export const MessengerContactLink: React.FC<MessengerContactLinkProps> = ({
       image={messengerIcon}
       variant={buttonVariant}
       className={styles.actionButton}
+      ariaLabel="Kontakt za pośrednictwem messenger"
     >
       {children}
     </Button>

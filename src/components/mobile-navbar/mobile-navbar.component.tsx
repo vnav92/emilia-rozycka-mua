@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import { Link } from "gatsby";
 import classNames from "classnames";
 import {
   NavbarProps,
@@ -32,6 +31,7 @@ export const MobileNavbar: React.FC<NavbarProps> = ({
     <>
       <Button
         onClick={() => setIsMenuVisible(isVisible => !isVisible)}
+        ariaLabel={isMenuVisible ? 'Close menu' : 'Open menu'}
         ref={triggerButtonRef}
         isBorderDisabled={true}
         variant={isOnHomePage ? "primary" : "secondary"}
