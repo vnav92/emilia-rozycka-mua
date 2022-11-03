@@ -70,9 +70,15 @@ export const SocialIconLink: React.FC<SocialIconLinkProps> = ({
     allWpPost.edges[0].node.icons[variantToIcon[variant]]
   );
 
+  // TODO fetch from WP
+  const ariaLabel = variant === 'instagram-dark-background' || variant === 'instagram-light-background'
+    ? 'Kontakt za pośrednictwem instagram'
+    : 'Kontakt za pośrednictwem wiadomości email'
+
   return (
     <Button
       variant={variantToButtonColor[variant]}
+      ariaLabel={ariaLabel}
       image={icon}
       href={href}
       isCircleShape={true}
